@@ -12,7 +12,7 @@ if($_SESSION['login_user']!=null)
   //echo"blm login";
   echo "<font color='#FF0000'>Username atau Password belum terdaftar</font>";
   //$_SESSION["isLogin"]=false;
-$_SESSION['isLogin']=1;
+  $_SESSION['isLogin']=1;
   echo ($_SESSION['login_user']);
 }
   else {
@@ -28,7 +28,7 @@ date_default_timezone_set('Asia/Jakarta');
 <!DOCTYPE HTML>
 <html>
   <head>
-    <!--CSS-->
+  <!--CSS-->
       <!-- Bootstrap core CSS -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
 

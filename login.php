@@ -1,11 +1,7 @@
 <!doctype html>
 <!--<link href="coba.css" rel="stylesheet" type="text/css">
 <?php
-<<<<<<< Updated upstream
-include('koneksi.php');
-=======
-    include('function/koneksi.php');
->>>>>>> Stashed changes
+include('function/koneksi.php');
 session_start(); // Memulai Session
 $error=''; // Variabel untuk menyimpan pesan error
 if (isset($_POST['submit'])) {
@@ -15,10 +11,10 @@ if (isset($_POST['submit'])) {
 	else{
 
 		// Variabel username dan password
-		//$user=$_POST['user'];
-		//$password=$_POST['password'];
-$user="admin";
-$password="password";
+		$user=$_POST['user'];
+		$password=$_POST['password'];
+    //$user="admin";
+    //$password="admin";
 
 		// Mencegah MySQL injection
 		$user = stripslashes($user);
@@ -38,7 +34,7 @@ $password="password";
 				else if($rows == 1 && $rows_role_admin == 1)
 				{
 				 $_SESSION['login_admin']=$user; // Membuat Sesi/session
-				header("location: index.php");
+				header("location: isLogin.php");
 				}
 				else
 				{
