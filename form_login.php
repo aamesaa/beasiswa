@@ -17,10 +17,6 @@ include_once('login.php'); // Memasuk-kan skrip Login
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="Masuk SIMBA ">
     <meta name="author" content="">
-
-
-
-
     <title>Login Miradifa</title>
 
     <!-- Bootstrap core CSS -->
@@ -29,7 +25,7 @@ include_once('login.php'); // Memasuk-kan skrip Login
     <!-- Custom Google Web Font -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom CSS-->
     <link href="css/general.css" rel="stylesheet">
