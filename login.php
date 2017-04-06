@@ -1,7 +1,11 @@
 <!doctype html>
 <!--<link href="coba.css" rel="stylesheet" type="text/css">
 <?php
+<<<<<<< Updated upstream
 include('koneksi.php');
+=======
+    include('function/koneksi.php');
+>>>>>>> Stashed changes
 session_start(); // Memulai Session
 $error=''; // Variabel untuk menyimpan pesan error
 if (isset($_POST['submit'])) {
