@@ -23,7 +23,13 @@ date_default_timezone_set('Asia/Jakarta');
 
   <!-- Custom CSS-->
   <link href="css/general.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="all" href="../css/base.css">
 
+  <!-- CSS Colors -->
+  <link rel="stylesheet" type="text/css" media="all" href="../css/colors.css">
+
+  <!-- Optional - CSS SVG Icons (Font Awesome) -->
+  <link rel="stylesheet" type="text/css" media="all" href="../css/svg-icons.css">
   <!-- Owl-Carousel -->
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/owl.carousel.css" rel="stylesheet">
@@ -80,6 +86,7 @@ date_default_timezone_set('Asia/Jakarta');
 
   <div id="home" class="content-section-ss intro-header" style="border-top: 0">
   </div>
+
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
     <div class='container'>
       <div class="col-lg-4">
@@ -163,11 +170,56 @@ date_default_timezone_set('Asia/Jakarta');
                                 </div>
                               </div>
                             </div>
-
-                          </div>
+                  </div>
+                  <!--Hasil Seleksi-->
                           <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
-                          </div>
+                            <div class="container">
 
+                            <H3 class="text-center">Hasil Seleksi</H3>
+                            <br><br>
+
+                            <div class="col-md-12">
+                              <div class="panel panel-success">
+                                <div class="panel-body hitam" style="height: 150px;">
+                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <p style="margin-top:0">Semester: GENAP</p>
+                                  <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="panel panel-success">
+                                <div class="panel-body hitam" style="height: 150px;">
+                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <p style="margin-top:0">Semester: GENAP</p>
+                                  <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                              <div class="panel panel-success">
+                                <div class="panel-body hitam" style="height: 150px;">
+                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <p style="margin-top:0">Semester: GENAP</p>
+                                  <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="panel panel-success">
+                                <div class="panel-body hitam" style="height: 150px;">
+                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <p style="margin-top:0">Semester: GENAP</p>
+                                  <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         </script>
                         <!-- Smoothscroll -->
                         <script type="text/javascript" src="js/jquery.corner.js"></script>
