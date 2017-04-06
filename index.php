@@ -1,100 +1,203 @@
+<?php session_start(); ?>
 <?php
-// include function & css
+	// include function & css
+	include_once("_function_i/cConnect.php");
+	include_once("_function_i/cview.php");
+	include_once("_function_i/inc_f_object.php");
 
-include("function/koneksi.php");
-//include("session.php");
-//include("login.php");
 
-  $d=4;
-session_start();
-if($_SESSION['login_user']!=null)
-{
-  //echo"blm login";
-  echo "<font color='#FF0000'>Username atau Password belum terdaftar</font>";
-  //$_SESSION["isLogin"]=false;
-  $_SESSION['isLogin']=1;
-  echo ($_SESSION['login_user']);
-}
-  else {
-    echo"blm loginz";
-    echo (parse_str($_SESSION['login_user']));
-    $_SESSION['isLogin']=0;
-  }
+	date_default_timezone_set('Asia/Jakarta');
 
-date_default_timezone_set('Asia/Jakarta');
+	// connection
+	$conn = new cConnect();
+	$conn->goConnect();
+	?>
+<?php
+	// variable default
+	//
+	if (empty($okein)) {
+		$okein=9;
+	} else {
+		$okein=$okein;
+	}
 
-// connection
+	if (empty($login)) {
+		$login=9;
+	} else {
+		$login=$login;
+	}
+
+	if (empty($cekemail)) {
+		$cekemail="";
+	} else {
+		$cekemail=$cekemail;
+	}
 ?>
-<!DOCTYPE HTML>
+
+
+<!doctype html>
 <html>
-  <head>
-  <!--CSS-->
-      <!-- Bootstrap core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>KHS</title>
+	<link rel="stylesheet" href="_jquery-ui-1.11.1/jquery-ui.css">
+	<link rel="stylesheet" href="_bootstrap-3.3.4/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="_css/style.css" type="text/css" media="all" />
+	<script src="_bootstrap-3.3.4/js/tests/vendor/jquery.min.js"></script>
+	<script src="_bootstrap-3.3.4/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-      <!-- Custom Google Web Font -->
-      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-
-      <!-- Custom CSS-->
-      <link href="css/general.css" rel="stylesheet">
-
-      <!-- Owl-Carousel -->
-      <link href="css/custom.css" rel="stylesheet">
-      <link href="css/owl.carousel.css" rel="stylesheet">
-      <link href="css/owl.theme.css" rel="stylesheet">
-      <link href="css/style.css" rel="stylesheet">
-      <link href="css/animate.css" rel="stylesheet">
-
-      <!-- Magnific Popup core CSS file -->
-      <link rel="stylesheet" href="css/magnific-popup.css">
-
-      <script src="js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
-
-  </head>
-  <body>
-    <a href="index.php">Sistem Beasiswa</a>
-    <a href="#infoBeasiswa">Info Beasiswa </a>
-    <a href="#hasilSeleksi">Hasil Seleksi </a>
 <?php
-    //TODO: check login apa blm
-    //====LOGIC HERE====
-    //BLM LOGIN
-    //GANTI WARNA CONTENT SECTION B
-    //$isLogin->$rows;
-    /*if($isLogin>1){
-      echo'<a href="login.php">Login</a>';
-    }echo $login_session;*/
-    echo($_SESSION['isLogin']);
-    ?>
-    <a href="form_login.php">Login</a>
+	if (!empty($_POST["uname"]) and !empty($_POST["pword"]) ) {
+			$cekemail = $_POST["uname"]."@ukdw.ac.id";
+
+			//settype($login,"boolean");
+			//settype($logout,"boolean");
+			//$connftp  = @ftp_connect("222.124.22.23");
+			//$okein = @ftp_login($connftp,$_POST["uname"],$_POST["pword"]);
+
+			// nilai awal jika di by pass
+			$login=1;
+			$okein=1;
+
+			// cek uname & pword
+
+			if ($okein==1)  {
+				$sqlunpw = "select a.* from system_usr a where a.user_id='".$cekemail."' and a.password='".$_POST["pword"]."'";
+				echo $sqlunpw;
+
+				$view = new cView();
+				$arrayunpw = $view->vViewData($sqlunpw);
+				foreach ($arrayunpw as $dataunpw){
+
+					$_SESSION["user_id"] = $dataunpw["user_id"];
+					$_SESSION["nama"] = $dataunpw["nama"];
+				}
+
+					if (!empty($dataunpw["nik"])) {
+						$login=1;
+						$okein=1;
+						$cekunamepword=1;
+					} else {
+						$login=0;
+						$okein=0;
+						$cekunamepword=0;
+					}
+			// cek user_role
+
+			$sqluserrole = "select a.number_id,a.user_id,a.session_id,a.role from user_role a where a.user_id ='".$dataunpw["nik"]."' AND session_id='sidosen'";
+				echo "<br />";
+				echo $sqluserrole ;
+				$view = new cView();
+				//$view->vViewData($sqluserrole);
+				$arrayuserrole = $view->vViewData($sqluserrole);
+
+				$_SESSION["session_id"] = "peterpan";
+				$_SESSION["role"] = "1";
+
+				foreach($arrayuserrole as $datauserrole)
+				{
+					$_SESSION["session_id"]=$datauserrole["session_id"];
+					$_SESSION["role"]=$datauserrole["role"];
+				}
+					if (!empty($_SESSION["session_id"])) {
+						$login=1;
+						$okein=1;
+						$cekunamepword=1;
+					} else {
+						$login=0;
+						$okein=0;
+						$cekunamepword=0;
+					}
 
 
 
-    <div id="home" class="content-section-b" style="border-top: 0">
-      <!--INSERT PICT HERE-->
+			//
+			}  else {
+				$login=0;
+				$okein=0;
+				$cekunamepword=0;
+			} // end of $okein
+	} else {
+		$login=9;
+		$okein=9;
+		$cekunamepword=0;
+	}
+?>
+    <div id="bar">
+        <div id="container">
+            <!-- Login Starts Here -->
+
+           <div id="loginContainer">
+                <a href="#" id="loginButton">
+				<span></span><em></em></a>
+                <div style="clear:both">
+						<label>
+						<?php
+							if ($cekunamepword==0 and $login==0 and $okein==0) {
+								?>
+								<div class="alert alert-danger" role="alert">
+								  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+								  <span class="sr-only">Error:</span>Username/Password salah
+								</div>
+								<?php
+							} else {
+								echo "";
+							}
+						?>
+						</label>
+				</div>
+
+
+				<div class="row">
+				  <div class="col-xs-6 col-sm-4"></div>
+				  <div class="col-xs-6 col-sm-4">
+						<h4>LOGIN</h4>
+						<form method="POST" action="">
+						  <div class="form-group">
+							<label for="exampleInputUsername">Username</label>
+							<input type="input" name="uname" class="form-control" id="exampleInputUsername" placeholder="username">
+						  </div>
+						  <div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" name="pword" class="form-control" id="exampleInputPassword1" placeholder="password">
+						  </div>
+						  <button type="submit" class="btn btn-default">Submit</button>
+						</form>
+				  </div>
+				  <div class="clearfix visible-xs-block"></div>
+				  <div class="col-xs-6 col-sm-4"></div>
+				</div>
+            </div>
+            <!-- Login Ends Here -->
+        </div>
+		<div>
+
+		</div>
     </div>
-    <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
-      <div class='container'>
-        <p> ini info</p>
-      </div>
+	<!-- start here -->
+	<?php
+	if ($okein==1 and $login==1 and $cekunamepword<>0) {
+		//echo $dataunpw["nik"]."-".$dataunpw["nama_karyawan"]." ".$dataunpw["unit_base"];
+		if ($_SESSION["role"]==1) {
+			header('Location: user/');
+		}
+		if ($_SESSION["role"]==9) {
+			header('Location: admin/');
+		}
+	} else {
+		session_destroy();
+	}
 
-    </div>
-    <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
-    </div>
+	//$conn = new cConnect();
+	//$conn->goConnect2();
 
-  </script>
-  <!-- Smoothscroll -->
-  <script type="text/javascript" src="js/jquery.corner.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script>
-   new WOW().init();
-  </script>
-  <script src="js/classie.js"></script>
-  <script src="js/uiMorphingButton_inflow.js"></script>
-  <!-- Magnific Popup core JS file -->
-  <script src="js/jquery.magnific-popup.js"></script>
+	?>
 
-  </body>
+
+	<!--  -->
+
+</body>
 </html>
