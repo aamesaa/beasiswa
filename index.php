@@ -23,13 +23,6 @@ date_default_timezone_set('Asia/Jakarta');
 
   <!-- Custom CSS-->
   <link href="css/general.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" media="all" href="../css/base.css">
-
-  <!-- CSS Colors -->
-  <link rel="stylesheet" type="text/css" media="all" href="../css/colors.css">
-
-  <!-- Optional - CSS SVG Icons (Font Awesome) -->
-  <link rel="stylesheet" type="text/css" media="all" href="../css/svg-icons.css">
   <!-- Owl-Carousel -->
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/owl.carousel.css" rel="stylesheet">
@@ -181,9 +174,15 @@ date_default_timezone_set('Asia/Jakarta');
                             <div class="col-md-12">
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
+                                  <div class="col-md-10">
                                   <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
                                   <p style="margin-top:0">Semester: GENAP</p>
                                   <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <button id="submit" class="btn wow tada btn-embossed btn-primary text-center pull-right" style="margin-right: 42.5%">View</button>
+                                    <button id="view1" class="btn wow tada btn-embossed btn-primary text-center pull-right" style="margin-right: 42.5%">xx</button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
