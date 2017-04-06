@@ -1,160 +1,100 @@
 <?php
-include('koneksi.php');
+// include function & css
+
+include("function/koneksi.php");
+//include("session.php");
+//include("login.php");
+
+  $d=4;
+session_start();
+if($_SESSION['login_user']!=null)
+{
+  //echo"blm login";
+  echo "<font color='#FF0000'>Username atau Password belum terdaftar</font>";
+  //$_SESSION["isLogin"]=false;
+$_SESSION['isLogin']=1;
+  echo ($_SESSION['login_user']);
+}
+  else {
+    echo"blm loginz";
+    echo (parse_str($_SESSION['login_user']));
+    $_SESSION['isLogin']=0;
+  }
+
+date_default_timezone_set('Asia/Jakarta');
+
+// connection
 ?>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>Miradiva</title>
+    <!--CSS-->
+      <!-- Bootstrap core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Skrip CSS -->
-   <link rel="stylesheet" href="style.css"/>
+      <!-- Custom Google Web Font -->
+      <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+
+      <!-- Custom CSS-->
+      <link href="css/general.css" rel="stylesheet">
+
+      <!-- Owl-Carousel -->
+      <link href="css/custom.css" rel="stylesheet">
+      <link href="css/owl.carousel.css" rel="stylesheet">
+      <link href="css/owl.theme.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+      <link href="css/animate.css" rel="stylesheet">
+
+      <!-- Magnific Popup core CSS file -->
+      <link rel="stylesheet" href="css/magnific-popup.css">
+
+      <script src="js/modernizr-2.8.3.min.js"></script>  <!-- Modernizr /-->
 
   </head>
   <body>
-	<div class="container">
-		<div class="main">
-	     <h2>Miradiva</h2>
-            <hr/>
-            <a href="registrasi.php">Signup</a> &nbsp; &nbsp; <a href="form_login.php">Login</a>
-            <br>
-            <br>
-            <br>
-                <form action="" method="post">
-    <input type="text" name = "cari_kota" placeholder="Cari Kota" style="width:250px;" />
-    <input type="submit" name = "cari" value="Cari" style="padding:3px;" margin="6px;" width="50px;"  />
-    </form>
-    <br>
-    <br>
-
+    <a href="index.php">Sistem Beasiswa</a>
+    <a href="#infoBeasiswa">Info Beasiswa </a>
+    <a href="#hasilSeleksi">Hasil Seleksi </a>
 <?php
-$input_cari = @$_POST['cari_kota'];
-$cari = @$_POST['cari'];
-
-// jika tombol cari di klik
-if($cari)
-{
-
-    // jika kotak pencarian tidak sama dengan kosong
-    if($input_cari != "") {
-    // cari berdasarkan nama tempat
-    $sql = mysqli_query($koneksi, "SELECT * FROM tempat WHERE kota like '%$input_cari%' order by rate DESC") or die (mysqli_error());
-	if(!$sql )
-	{
-  	die('Gagal ambil data: ' . mysqli_error());
-	}
-	while($row = mysqli_fetch_array($sql))
-	{
-
-    echo "Id Tempat :{$row['id_tempat']}  <br> ".
-		 "Creator :{$row['email']}  <br> ".
-         "Nama Tempat : {$row['nama_tempat']} <br> ".
-		 "Kota : {$row['kota']} <br> ".
-         "Alamat : {$row['alamat']} <br> ".
-		 "Fasilitas : {$row['fasilitas']} <br> ".
-		 "Rate :  ";
-	$rating = $row['rate'];
-	for($i=1; $i<=$rating; $i++)
-	{
-		echo "*";
-	}
-	echo "<br><br>";
-	echo "Foto : ";
-	$id_tempat = $row['id_tempat'];
-	$ambil_foto = mysqli_query($koneksi,"SELECT * FROM tempat_foto WHERE id_tempat ='$id_tempat'");
-	while($baris = mysqli_fetch_array($ambil_foto))
-	{
-		echo '<img src="data:image/jpeg;base64,'.base64_encode( $baris['foto'] ).'"/>';
-	}
-	echo "<br><a href=''>Tambahkan Ulasan</a>";
-	echo "<br><hr /><br><br>";
-	}
-	}
-	else
-	{
-    $ambildata = mysqli_query($koneksi,"SELECT * FROM tempat order by rate DESC");
-	if(!$ambildata )
-	{
-  	die('Gagal ambil data: ' . mysqli_error());
-	}
-	while($row = mysqli_fetch_array($ambildata))
-	{
-
-   echo "Id Tempat :{$row['id_tempat']}  <br> ".
-		 "Creator :{$row['email']}  <br> ".
-         "Nama Tempat : {$row['nama_tempat']} <br> ".
-         "Kota : {$row['kota']} <br> ".
-		 "Alamat : {$row['alamat']} <br> ".
-		 "Fasilitas : {$row['fasilitas']} <br> ".
-		 "Rate :  ";
-	$rating = $row['rate'];
-	for($i=1; $i<=$rating; $i++)
-	{
-		echo "*";
-	}
-	echo "<br><br>";
-	echo "Foto : ";
-	$id_tempat = $row['id_tempat'];
-	$ambil_foto = mysqli_query($koneksi,"SELECT * FROM tempat_foto WHERE id_tempat ='$id_tempat'");
-	while($baris = mysqli_fetch_array($ambil_foto))
-	{
-		echo '<img src="data:image/jpeg;base64,'.base64_encode( $baris['foto'] ).'"/>';
-	}
-	echo "<br><a href=''>Tambahkan Ulasan</a>";
-	echo "<br><hr /><br><br>";
-	}
-	}
-}
-else
-{
-	$ambildata = mysqli_query($koneksi,"SELECT * FROM tempat order by rate DESC");
-	if(!$ambildata )
-	{
-  	die('Gagal ambil data: ' . mysqli_error());
-	}
-	while($row = mysqli_fetch_array($ambildata))
-	{
-	echo "Id Tempat :{$row['id_tempat']}  <br> ".
-		 "Creator :{$row['email']}  <br> ".
-         "Nama Tempat : {$row['nama_tempat']} <br> ".
-		 "Kota : {$row['kota']} <br> ".
-         "Alamat : {$row['alamat']} <br> ".
-		 "Fasilitas : {$row['fasilitas']} <br> ".
-		 "Rate :  ";
-	$rating = $row['rate'];
-	for($i=1; $i<=$rating; $i++)
-	{
-		echo "*";
-	}
-	echo "<br><br>";
-	echo "Foto : ";
-	$id_tempat = $row['id_tempat'];
-	$ambil_foto = mysqli_query($koneksi,"SELECT * FROM tempat_foto WHERE id_tempat ='$id_tempat'");
-	while($baris = mysqli_fetch_array($ambil_foto))
-	{
-		echo '<img src="data:image/jpeg;base64,'.base64_encode( $baris['foto'] ).'"/>';
-	}
-	echo "<br><a href=''>Tambahkan Ulasan</a>";
-	echo "<br><hr /><br><br>";
-	}
-}
+    //TODO: check login apa blm
+    //====LOGIC HERE====
+    //BLM LOGIN
+    //GANTI WARNA CONTENT SECTION B
+    //$isLogin->$rows;
+    /*if($isLogin>1){
+      echo'<a href="login.php">Login</a>';
+    }echo $login_session;*/
+    echo($_SESSION['isLogin']);
+    ?>
+    <a href="form_login.php">Login</a>
 
 
 
-//echo "Berhasil ambil data\n";
+    <div id="home" class="content-section-b" style="border-top: 0">
+      <!--INSERT PICT HERE-->
+    </div>
+    <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
+      <div class='container'>
+        <p> ini info</p>
+      </div>
 
+    </div>
+    <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
+    </div>
 
-//Untuk mengambil Foto perintah e dibawah !
-//$kueri = mysqli_query($koneksi,"SELECT * FROM tempat_foto");
-//        while ($baris = mysqli_fetch_array($kueri))
-//        {
-//		   echo $baris['id_tempat']."&nbsp;".$baris[0]."<br><br>";
-//		   echo '<img src="data:image/jpeg;base64,'.base64_encode( $baris['foto'] ).'"/>';
-//           echo"<br><br><hr>";
-//         }
-?>
-
-
-		</div>
-   </div>
+  </script>
+  <!-- Smoothscroll -->
+  <script type="text/javascript" src="js/jquery.corner.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script>
+   new WOW().init();
+  </script>
+  <script src="js/classie.js"></script>
+  <script src="js/uiMorphingButton_inflow.js"></script>
+  <!-- Magnific Popup core JS file -->
+  <script src="js/jquery.magnific-popup.js"></script>
 
   </body>
 </html>

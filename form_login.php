@@ -1,5 +1,5 @@
 <?php
-include('login.php'); // Memasuk-kan skrip Login
+include_once('login.php'); // Memasuk-kan skrip Login
 //test
 //if(isset($_SESSION['login_user']))
 //{
