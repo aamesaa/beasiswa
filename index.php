@@ -38,7 +38,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 </head>
 <body>
-  <nav class="navbar-default" role="navigation">
+  <nav class="navbar-default" role="navigation" style="position: fixed; top: 0px;">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
