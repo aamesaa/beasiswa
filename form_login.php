@@ -17,7 +17,7 @@ include_once('login.php'); // Memasuk-kan skrip Login
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="Masuk SIMBA ">
   <meta name="author" content="">
-  <title>Login Miradifa</title>
+  <title>Login SIMBA</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
