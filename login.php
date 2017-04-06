@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) { // cek dah klik submit blm
 
   if ($rows == 1){//jika ada
     //cek role
+    
     $row = mysqli_fetch_array($query);
 
     $userRole= $row['role'];
