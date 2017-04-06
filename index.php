@@ -81,7 +81,6 @@ date_default_timezone_set('Asia/Jakarta');
   <div id="home" class="content-section-ss intro-header" style="border-top: 0">
   </div>
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
-
     <div class='container'>
       <div class="col-lg-4">
         <div class="panel panel-success">
