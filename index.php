@@ -175,12 +175,13 @@ date_default_timezone_set('Asia/Jakarta');
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
                                   <div class="col-md-10">
-                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
                                   <p style="margin-top:0">Semester: GENAP</p>
                                   <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
                                   </div>
                                   <div class="col-md-2">
                                     <button id="submit" class="btn wow tada btn-embossed btn-primary text-center pull-right" style="margin-right: 42.5%">View</button>
+                                    <button style="margin-top= 1000">xx</button>
                                     <button id="view1" class="btn wow tada btn-embossed btn-primary text-center pull-right" style="margin-right: 42.5%">xx</button>
                                   </div>
                                 </div>
@@ -190,7 +191,7 @@ date_default_timezone_set('Asia/Jakarta');
                             <div class="col-md-12">
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
-                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
                                   <p style="margin-top:0">Semester: GENAP</p>
                                   <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
                                 </div>
@@ -201,7 +202,7 @@ date_default_timezone_set('Asia/Jakarta');
                             <div class="col-md-12">
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
-                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
                                   <p style="margin-top:0">Semester: GENAP</p>
                                   <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
                                 </div>
@@ -211,7 +212,7 @@ date_default_timezone_set('Asia/Jakarta');
                             <div class="col-md-12">
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
-                                  <h5>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</h5>
+                                  <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
                                   <p style="margin-top:0">Semester: GENAP</p>
                                   <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
                                 </div>
