@@ -2827,8 +2827,8 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #39ac6d;
-  *background-color: #329961;
+  background-color: #62bdea;
+  *background-color: #62bdea;
 }
 .btn-primary:active,
 .btn-primary.active {
