@@ -14,6 +14,9 @@ date_default_timezone_set('Asia/Jakarta');
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Custom Google Web Font -->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -52,8 +55,8 @@ date_default_timezone_set('Asia/Jakarta');
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
-          <li class="menuItem"><a href="index.php#infoBeasiswa">Info Beasiswa </a></li>
-          <li class="menuItem"><a href="index.php#hasilSeleksi">Hasil Seleksi </a></li>
+          <li class="menuItem"><a href="#infoBeasiswa">Info Beasiswa </a></li>
+          <li class="menuItem"><a href="#hasilSeleksi">Hasil Seleksi </a></li>
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
@@ -61,15 +64,13 @@ date_default_timezone_set('Asia/Jakarta');
             <li class="menuItem dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.'<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="function/logout.php">Logout</a></li>
             </ul>
             </li>';
             //echo '<li class="menuItem"><a href="logout.php">Logout</a></li>';
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
-
           }
-
           ?>
         </ul>
       </div>
@@ -87,7 +88,7 @@ date_default_timezone_set('Asia/Jakarta');
     <?php
 
     $kode_bsw= $_GET['id'];
-    $getBswSql="SELECT nama_bsw,tgl_buka,tgl_tutup,Keterangan,kuota from beasiswa where kd_bsw='$kode_bsw'";
+    $getBswSql="SELECT kd_bsw,nama_bsw,tgl_buka,tgl_tutup,Keterangan,kuota from beasiswa where kd_bsw='$kode_bsw'";
 
     $getBeasiswa=mysqli_query($koneksi,$getBswSql);
 
@@ -138,10 +139,16 @@ date_default_timezone_set('Asia/Jakarta');
          ?>
        </ul>
       </div>
-    <?php  if ($rowBsw['tgl_tutup'] > date("Y-m-d")){
-        $availableMsg='<a href="daftar_beasiswa.php" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>';
+    <?php
+    if ($rowBsw['tgl_tutup'] > date("Y-m-d")){
+      if(isset($_SESSION['login_user'])){
+        $availableMsg='<a href="form_daftar_beasiswa.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>';
       } else{
-        $availableMsg='<div class="alert alert-danger">Pendaftaran telah ditutup</div>';
+
+        //echo "<script type='text/javascript'>alert('Anda Harus Login terlebih dahulu');</script>";
+        $availableMsg='<a href="form_login.php" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>';
+      }} else{
+        $availableMsg='<div class="alert alert-danger" style="opacity:0.7;">Pendaftaran telah ditutup</div>';
       }
       echo $availableMsg;
       ?>
@@ -153,4 +160,30 @@ date_default_timezone_set('Asia/Jakarta');
 
 </div>
 </div>
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/script.js"></script>
+<!-- StikyMenu -->
+<script src="js/stickUp.min.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+  $('.navbar-default').stickUp();
+
+});
+});
+
+</script>
+<!-- Smoothscroll -->
+<script type="text/javascript" src="js/jquery.corner.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<script src="js/classie.js"></script>
+<script src="js/uiMorphingButton_inflow.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="js/jquery.magnific-popup.js"></script>
   </html>

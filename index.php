@@ -2,9 +2,9 @@
 // include function & css
 
 include("function/koneksi.php");
-//include("session.php");
-//include("login.php");
-session_start();
+//include("function/session.php");
+include("function/login.php");
+//session_start();
 date_default_timezone_set('Asia/Jakarta');
 
 // connection
@@ -16,6 +16,9 @@ date_default_timezone_set('Asia/Jakarta');
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Custom Google Web Font -->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -53,15 +56,24 @@ date_default_timezone_set('Asia/Jakarta');
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
-          <li class="menuItem"><a href="#infoBeasiswa">Info Beasiswa </a></li>
-          <li class="menuItem"><a href="#hasilSeleksi">Hasil Seleksi </a></li>
+          <li class="menuItem"><a href="index.php#infoBeasiswa">Info Beasiswa </a></li>
+          <li class="menuItem"><a href="index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
-            echo'<li class="menuItem"><a>'.$username.'</a></li>';
-            echo '<li class="menuItem"><a href="logout.php">Logout</a></li>';
+            echo'
+            <li class="menuItem dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.'<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            <li><a href="function/logout.php">Logout</a></li>
+            </ul>
+            </li>
+            ';
+
+
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
+          
 
           }
 
@@ -77,7 +89,8 @@ date_default_timezone_set('Asia/Jakarta');
 
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
     <div class='container'>
-
+      <H2 class="text-center">Daftar Informasi Beasiswa</H2>
+      <br><br>
 
       <?php
         $sql=mysqli_query($koneksi,"SELECT * FROM beasiswa where isTampil='1'");
@@ -94,7 +107,7 @@ date_default_timezone_set('Asia/Jakarta');
 
           echo'
           <div class="col-lg-6">
-            <div class="panel panel-success">
+            <div class="panel panel-info">
               <div class="panel-heading" style="height:63px;">
                 <h3 class="panel-title text-center">
                   <a href="detail_beasiswa.php?id='.$row['kd_bsw'].'">'.$row['nama_bsw'].'</a>
@@ -122,41 +135,56 @@ date_default_timezone_set('Asia/Jakarta');
 
     </div>
   </div>
-    <!--Hasil Seleksi-->
-            <div id="hasilSeleksi" class="content-section-b" style="border-top:0;margin-top:-10000;">
-              <div class="container">
-              <H2 class="text-center">Hasil Seleksi</H2>
-              <br><br>
+  <!--Hasil Seleksi-->
+  <div id="hasilSeleksi" class="content-section-b" style="border-top:0;margin-top:-10000;">
+    <div class="container">
+    <H2 class="text-center">Hasil Seleksi</H2>
+    <br><br>
 
-              <?php
-              $squery = mysqli_query($koneksi, "select * from beasiswa");
-              while($row = mysqli_fetch_array($squery))
-              {
-              echo '
-              <div class="col-md-12">
-                <div class="panel panel-success">
-                  <div class="panel-body hitam" style="height: 150px;">
-                    <div class="col-md-10">
-                    <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"> <h4> '.
-                    $row['nama_bsw'].
-                    ' </h4> </a>
-                    <p>'.$row['nama_bsw'].'</p>
-                    <p>'.$row['Keterangan'].'</p>
-                    </div>
-                    <div class="col-md-2">
-                      <br>
-                      <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
-                    </div>
-                  </div>
-                </div>
-              </div>';
-            }
-              ?>
-            </div>
+    <?php
+    $squery = mysqli_query($koneksi, "select * from beasiswa");
+    while($row = mysqli_fetch_array($squery))
+    {
+    echo '
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-body " style="height: 150px;">
+          <div class="col-md-10">
+          <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"> <h4> '.
+          $row['nama_bsw'].
+          ' </h4> </a>
+          <p>'.$row['nama_bsw'].'</p>
+          <p>'.$row['Keterangan'].'</p>
           </div>
+          <div class="col-md-2">
+            <br>
+            <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>';
+  }
+    ?>
+  </div>
+</div>
 
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/script.js"></script>
+<!-- StikyMenu -->
+<script src="js/stickUp.min.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+$(document).ready( function() {
+  $('.navbar-default').stickUp();
 
-  <!-- Smoothscroll -->
+});
+});
+
+</script>
+<!-- Smoothscroll -->
   <script type="text/javascript" src="js/jquery.corner.js"></script>
   <script src="js/wow.min.js"></script>
   <script>

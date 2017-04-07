@@ -64,10 +64,10 @@ date_default_timezone_set('Asia/Jakarta');
             <li class="menuItem dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.'<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="function/logout.php">Logout</a></li>
             </ul>
             </li>';
-            //echo '<li class="menuItem"><a href="logout.php">Logout</a></li>';
+            
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
           }
@@ -122,4 +122,30 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </div>
+  <!-- JavaScript -->
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/script.js"></script>
+<!-- StikyMenu -->
+<script src="js/stickUp.min.js"></script>
+<script type="text/javascript">
+  jQuery(function($) {
+  $(document).ready( function() {
+    $('.navbar-default').stickUp();
+
+  });
+  });
+
+</script>
+<!-- Smoothscroll -->
+<script type="text/javascript" src="js/jquery.corner.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<script src="js/classie.js"></script>
+<script src="js/uiMorphingButton_inflow.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="js/jquery.magnific-popup.js"></script>
 </html>
