@@ -138,7 +138,14 @@ date_default_timezone_set('Asia/Jakarta');
          ?>
        </ul>
       </div>
-      <a href="daftar_beasiswa.php" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>
+    <?php  if ($rowBsw['tgl_tutup'] > date("Y-m-d")){
+        $availableMsg='<a href="daftar_beasiswa.php" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>';
+      } else{
+        $availableMsg='<div class="alert alert-danger">Pendaftaran telah ditutup</div>';
+      }
+      echo $availableMsg;
+      ?>
+
   </div>
 
 
