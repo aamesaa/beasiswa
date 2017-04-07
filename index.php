@@ -23,7 +23,6 @@ date_default_timezone_set('Asia/Jakarta');
 
   <!-- Custom CSS-->
   <link href="css/general.css" rel="stylesheet">
-
   <!-- Owl-Carousel -->
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/owl.carousel.css" rel="stylesheet">
@@ -74,6 +73,7 @@ date_default_timezone_set('Asia/Jakarta');
 
   <div id="home" class="content-section-ss intro-header" style="border-top: 0">
   </div>
+
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
     <div class='container'>
 
@@ -99,6 +99,7 @@ date_default_timezone_set('Asia/Jakarta');
                 .'<font style="color:green">Pendaftaran dibuka</font> <br>
                 Penerima Beasiswa : '.$row['kuota'].'
               </div>
+
             </div>
           </div>
           ';

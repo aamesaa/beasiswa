@@ -17,7 +17,7 @@ include_once('login.php'); // Memasuk-kan skrip Login
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="Masuk SIMBA ">
   <meta name="author" content="">
-  <title>Login Miradifa</title>
+  <title>Login SIMBA</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,12 +66,6 @@ include_once('login.php'); // Memasuk-kan skrip Login
     <a class="" href="index.php">
       <img src="img/logo2.png" height="45px" style="margin-top:8px" id="logo"/>
     </a>
-
-    <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <li class="menuItem"><a href="registrasi.php">Sign Up</a></li>
-      </ul>
-    </div>
   </div>
 </nav>
 
