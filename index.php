@@ -171,13 +171,19 @@ date_default_timezone_set('Asia/Jakarta');
                             <H3 class="text-center">Hasil Seleksi</H3>
                             <br><br>
 
-                            <div class="col-md-12">
+                            <?php
+                            $squery = mysqli_query($koneksi, "select * from beasiswa");
+                            $row = mysqli_fetch_array($squery);
+                            $userRole = $row['role'];
+
+                            echo '
+                            <div class="col-md-12">.
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
                                   <div class="col-md-10">
-                                    <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
-                                    <p style="margin-top:0">Semester: GENAP</p>
-                                    <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
+                                  <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h3> '.
+                                  $row['nama_bsw'].
+                                  ' </h3> </a>
                                   </div>
                                   <div class="col-md-2">
                                     <br>
@@ -185,56 +191,8 @@ date_default_timezone_set('Asia/Jakarta');
                                   </div>
                                 </div>
                               </div>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="panel panel-success">
-                                <div class="panel-body hitam" style="height: 150px;">
-                                  <div class="col-md-10">
-                                    <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
-                                    <p style="margin-top:0">Semester: GENAP</p>
-                                    <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <br>
-                                    <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                              <div class="panel panel-success">
-                                <div class="panel-body hitam" style="height: 150px;">
-                                  <div class="col-md-10">
-                                    <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
-                                    <p style="margin-top:0">Semester: GENAP</p>
-                                    <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <br>
-                                    <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12">
-                              <div class="panel panel-success">
-                                <div class="panel-body hitam" style="height: 150px;">
-                                  <div class="col-md-10">
-                                    <h5><a href="xx.com">Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h5>
-                                    <p style="margin-top:0">Semester: GENAP</p>
-                                    <p style="margin-top:0">Th. Ajaran: 2016/2017</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <br>
-                                    <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            </div>';
+                            ?>
                           </div>
                         </div>
                         </script>
