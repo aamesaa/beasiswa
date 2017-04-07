@@ -2,7 +2,7 @@
 
 <body>
   <p> Halo Admin</p>
-  
-  <a href="/beasiswa/Logout.php"/>Logout</a>
+
+  <a href="../function/Logout.php"/>Logout</a>
 </body>
 </html>
