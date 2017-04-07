@@ -12,6 +12,7 @@ date_default_timezone_set('Asia/Jakarta');
 <!DOCTYPE HTML>
 <html>
 <head>
+  <title>SIMBA</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -121,12 +122,10 @@ date_default_timezone_set('Asia/Jakarta');
 
     </div>
   </div>
-  <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
     <!--Hasil Seleksi-->
-            <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
+            <div id="hasilSeleksi" class="content-section-b" style="border-top:0;margin-top:-10000;">
               <div class="container">
-
-              <H3 class="text-center">Hasil Seleksi</H3>
+              <H2 class="text-center">Hasil Seleksi</H2>
               <br><br>
 
               <?php
@@ -138,7 +137,7 @@ date_default_timezone_set('Asia/Jakarta');
                 <div class="panel panel-success">
                   <div class="panel-body hitam" style="height: 150px;">
                     <div class="col-md-10">
-                    <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h4> '.
+                    <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"> <h4> '.
                     $row['nama_bsw'].
                     ' </h4> </a>
                     <p>'.$row['nama_bsw'].'</p>
@@ -146,7 +145,7 @@ date_default_timezone_set('Asia/Jakarta');
                     </div>
                     <div class="col-md-2">
                       <br>
-                      <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
+                      <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
                     </div>
                   </div>
                 </div>
@@ -155,8 +154,6 @@ date_default_timezone_set('Asia/Jakarta');
               ?>
             </div>
           </div>
-
-  </div>
 
 
   <!-- Smoothscroll -->

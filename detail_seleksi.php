@@ -1,7 +1,17 @@
 <?php
+// include function & css
+
+include("function/koneksi.php");
+//include("session.php");
+//include("login.php");
+session_start();
+date_default_timezone_set('Asia/Jakarta');
+
+// connection
 ?>
 <html>
 <head>
+  <title>Pengumuman Hasil Seleksi Beasiswa</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,17 +76,24 @@
       </div>
     </div>
   </nav>
-  <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
+  <div id="infoBeasiswa" class="content-section-a" style="border-top: 0; margin-top:-50;">
     <div class='container'>
       <div class="row">
-        <H3 class="text-center">Hasil Seleksi Pinjaman Registrasi</H3>
-        <br>
-        <br>
+        <H3 class="text-center">Pengumuman Hasil Seleksi</H3>
         <br>
         <br>
         <div class="col-md-1"></div>
         <div class="col-md-10">
         <table class="table table-bordered">
+
+          <?php
+            $kode_slk = $_GET['id'];
+            $q0 = "SELECT * from beasiswa where kd_bsw='$kode_slk'";
+            $squery = mysqli_query($koneksi,$q0);
+            $row1 = mysqli_fetch_array($squery);
+            echo'<h4>'.$row1['nama_bsw'].'</h4>';
+          ?>
+
           <thead style="text-center">
             <tr>
               <th class="text-center"style="width:200">NIM</th>
@@ -85,14 +102,23 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $q1 = "SELECT * from pendaftaran natural join mahasiswa where nominal_disetujui is not null and kd_bsw='$kode_slk'";
+            $squery = mysqli_query($koneksi,$q1);
+            while($row = mysqli_fetch_array($squery))
+            {
+            echo '
             <tr>
-              <td class="text-center">72140002</td>
-              <td>Evelina Putri Widiasih</td>
-              <td class="text-right">1000000</td>
-            </tr>
+              <td class="text-center">'.$row['nim'].'</td>
+              <td>'.$row['nama_mhs'].'</td>
+              <td class="text-right">'.$row['nominal_disetujui'].'</td>
+            </tr>';
+            }
+            ?>
           </tbody>
         </table>
         </div>
+
       </div>
     </div>
   </div>
