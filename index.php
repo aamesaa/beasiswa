@@ -57,14 +57,8 @@ date_default_timezone_set('Asia/Jakarta');
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
-            echo'
-            <li class="menuItem dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">'.$username.'<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            <li><a href="logout.php">Logout</a></li>
-            </ul>
-            </li>';
-            //echo '<li class="menuItem"><a href="logout.php">Logout</a></li>';
+            echo'<li class="menuItem"><a>'.$username.'</a></li>';
+            echo '<li class="menuItem"><a href="logout.php">Logout</a></li>';
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
 
@@ -82,130 +76,88 @@ date_default_timezone_set('Asia/Jakarta');
 
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
     <div class='container'>
-      <div class="col-lg-4">
-        <div class="panel panel-success">
-          <div class="panel-heading" style="height:63px;">
-            <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=189>Beasiswa Pendidikan Peningkatan Prestasi Akademik (Beasiswa PPA) tahun 2017</a></h3>
-          </div>
-          <div class="panel-body hitam" style="height: 70px;">
-            Beasiswa Pendidikan Peningkatan Prestasi Akademik (Beasiswa PPA) tahun 2017
-          </div>
-          <div class="panel-footer hitam" style="text-align: left">
-            Periode Pendaftaran: 30/03/17 s.d. 17/04/17 <br>
-            Status Pendaftaran : <font style='color:green'>Pendaftaran dibuka</font> <br>
-            Penerima Beasiswa : 1708
-          </div>
-        </div>
-        </div>
-          <div class="col-lg-4">
+
+
+      <?php
+        $sql=mysqli_query($koneksi,"SELECT * FROM beasiswa where isTampil='1'");
+        while ($row= mysqli_fetch_array($sql))
+        {
+          echo'
+          <div class="col-lg-6">
             <div class="panel panel-success">
               <div class="panel-heading" style="height:63px;">
-                <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=188>AUN – China Scholarship Tahun 2017/2018</a></h3>
+                <h3 class="panel-title judul">
+                  <a href="detail_bsw.php?id='.$row['kd_bsw'].'">'.$row['nama_bsw'].'</a>
+                </h3>
               </div>
-              <div class="panel-body hitam" style="height: 70px;">
-                AUN – China Scholarship Tahun 2017/2018                                </div>
-                <div class="panel-footer hitam" style="text-align: left">
-                  Periode Pendaftaran: 28/02/17 s.d. 07/04/17 <br>
-                  Status Pendaftaran : <font style='color:green'>Pendaftaran dibuka</font> <br>
-                  Penerima Beasiswa : 50                                </div>
-                </div>
+              <div class="panel-body hitam" style="height: 70px;">'.
+              $row['Keterangan'].'
               </div>
-              <div class="col-lg-4">
+
+              <div class="panel-footer hitam" style="text-align: left">
+                Periode Pendaftaran: '.$row['tgl_buka'] .' s.d. '. $row['tgl_tutup'].' <br>
+                Status Pendaftaran : '//TODO : Logic  here .
+                .'<font style="color:green">Pendaftaran dibuka</font> <br>
+                Penerima Beasiswa : '.$row['kuota'].'
+              </div>
+
+            </div>
+          </div>
+          ';
+
+
+        }
+       ?>
+
+
+    </div>
+  </div>
+  <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
+    <!--Hasil Seleksi-->
+            <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
+              <div class="container">
+
+              <H3 class="text-center">Hasil Seleksi</H3>
+              <br><br>
+
+              <?php
+              $squery = mysqli_query($koneksi, "select * from beasiswa");
+              $row = mysqli_fetch_array($squery);
+              echo '
+              <div class="col-md-12">
                 <div class="panel panel-success">
-                  <div class="panel-heading" style="height:63px;">
-                    <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=185>Yayasan Karya Salemba Empat Tahun Akademik 2017/2018</a></h3>
-                  </div>
-                  <div class="panel-body hitam" style="height: 70px;">
-                    Yayasan Karya Salemba Empat Tahun Akademik 2017/2018                                </div>
-                    <div class="panel-footer hitam" style="text-align: left">
-                      Periode Pendaftaran: 15/02/17 s.d. 10/03/17 <br>
-                      Status Pendaftaran : <font style='color:red'>Pendaftaran telah ditutup</font> <br>
-                      Penerima Beasiswa : 150                                </div>
+                  <div class="panel-body hitam" style="height: 150px;">
+                    <div class="col-md-10">
+                    <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h4> '.
+                    $row['nama_bsw'].
+                    ' </h4> </a>
+                    <p>'.$row['nama_bsw'].'</p>
+                    <p>'.$row['Keterangan'].'</p>
+                    </div>
+                    <div class="col-md-2">
+                      <br>
+                      <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
                     </div>
                   </div>
-                  <div class="col-lg-4">
-                    <div class="panel panel-success">
-                      <div class="panel-heading" style="height:63px;">
-                        <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=187>Women’s InternationaI Club (WIC) Tahun 2017</a></h3>
-                      </div>
-                      <div class="panel-body hitam" style="height: 70px;">
-                        Women’s InternationaI Club (WIC) Tahun 2017                                </div>
-                        <div class="panel-footer hitam" style="text-align: left">
-                          Periode Pendaftaran: 17/02/17 s.d. 01/03/17 <br>
-                          Status Pendaftaran : <font style='color:red'>Pendaftaran telah ditutup</font> <br>
-                          Penerima Beasiswa : 15                                </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4">
-                        <div class="panel panel-success">
-                          <div class="panel-heading" style="height:63px;">
-                            <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=186>Beasiswa Unggulan Bank Indonesia Th. 2017</a></h3>
-                          </div>
-                          <div class="panel-body hitam" style="height: 70px;">
-                            Beasiswa Unggulan Bank Indonesia Th. 2017                                </div>
-                            <div class="panel-footer hitam" style="text-align: left">
-                              Periode Pendaftaran: 16/02/17 s.d. 01/03/17 <br>
-                              Status Pendaftaran : <font style='color:red'>Pendaftaran telah ditutup</font> <br>
-                              Penerima Beasiswa : 5                                </div>
-                            </div>
-                          </div>
-                          <div class="col-lg-4">
-                            <div class="panel panel-success">
-                              <div class="panel-heading" style="height:63px;">
-                                <h3 class="panel-title judul"><a href=/web/../apps/informasirolependaftar/index?idPaket=184>Beasiswa UI - SYLFF Tahun Akademik 2017/2018</a></h3>
-                              </div>
-                              <div class="panel-body hitam" style="height: 70px;">
-                                Beasiswa UI - SYLFF Tahun Akademik 2017/2018                                </div>
-                                <div class="panel-footer hitam" style="text-align: left">
-                                  Periode Pendaftaran: 09/01/17 s.d. 27/02/17 <br>
-                                  Status Pendaftaran : <font style='color:red'>Pendaftaran telah ditutup</font> <br>
-                                  Penerima Beasiswa : 0                                </div>
-                                </div>
-                              </div>
-                            </div>
-                  </div>
-                  <!--Hasil Seleksi-->
-                          <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
-                            <div class="container">
+                </div>
+              </div>';
+              ?>
+            </div>
+          </div>
 
-                            <H3 class="text-center">Hasil Seleksi</H3>
-                            <br><br>
+  </div>
 
-                            <?php
-                            $squery = mysqli_query($koneksi, "select * from beasiswa");
-                            $row = mysqli_fetch_array($squery);
-                            echo '
-                            <div class="col-md-12">
-                              <div class="panel panel-success">
-                                <div class="panel-body hitam" style="height: 150px;">
-                                  <div class="col-md-10">
-                                  <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h4> '.
-                                  $row['nama_bsw'].
-                                  ' </h4> </a>
-                                  <p>'.$row['nama_bsw'].'</p>
-                                  <p>'.$row['Keterangan'].'</p>
-                                  </div>
-                                  <div class="col-md-2">
-                                    <br>
-                                    <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>';
-                            ?>
-                          </div>
-                        </div>
-                        </script>
-                        <!-- Smoothscroll -->
-                        <script type="text/javascript" src="js/jquery.corner.js"></script>
-                        <script src="js/wow.min.js"></script>
-                        <script>
-                        new WOW().init();
-                        </script>
-                        <script src="js/classie.js"></script>
-                        <script src="js/uiMorphingButton_inflow.js"></script>
-                        <!-- Magnific Popup core JS file -->
-                        <script src="js/jquery.magnific-popup.js"></script>
 
-                      </body>
-                      </html>
+  <!-- Smoothscroll -->
+  <script type="text/javascript" src="js/jquery.corner.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script>
+  new WOW().init();
+  </script>
+  <script src="js/classie.js"></script>
+  <script src="js/uiMorphingButton_inflow.js"></script>
+  <!-- Magnific Popup core JS file -->
+  <script src="js/jquery.magnific-popup.js"></script>
+
+</body>
+</html>
