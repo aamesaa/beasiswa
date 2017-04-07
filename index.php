@@ -129,7 +129,7 @@ date_default_timezone_set('Asia/Jakarta');
                 <div class="panel panel-success">
                   <div class="panel-body hitam" style="height: 150px;">
                     <div class="col-md-10">
-                    <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h4> '.
+                    <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"> <h4> '.
                     $row['nama_bsw'].
                     ' </h4> </a>
                     <p>'.$row['nama_bsw'].'</p>
@@ -137,7 +137,7 @@ date_default_timezone_set('Asia/Jakarta');
                     </div>
                     <div class="col-md-2">
                       <br>
-                      <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
+                      <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
                     </div>
                   </div>
                 </div>

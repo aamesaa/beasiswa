@@ -75,17 +75,24 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </nav>
-  <div id="infoBeasiswa" class="content-section-a" style="border-top: 0">
+  <div id="infoBeasiswa" class="content-section-a" style="border-top: 0; margin-top:-50;">
     <div class='container'>
       <div class="row">
-        <H3 class="text-center">Hasil Seleksi Pinjaman Registrasi</H3>
+        <H3 class="text-center">Pengumuman Hasil Seleksi</H3>
         <br>
         <br>
-        <br>
-        <br>
-
-        <div class="col-md-12">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
         <table class="table table-bordered">
+
+          <?php
+            $kode_slk = $_GET['id'];
+            $q0 = "SELECT * from beasiswa where kd_bsw='$kode_slk'";
+            $squery = mysqli_query($koneksi,$q0);
+            $row1 = mysqli_fetch_array($squery);
+            echo'<h4>'.$row1['nama_bsw'].'</h4>';
+          ?>
+
           <thead style="text-center">
             <tr>
               <th class="text-center"style="width:200">NIM</th>
@@ -95,7 +102,8 @@ date_default_timezone_set('Asia/Jakarta');
           </thead>
           <tbody>
             <?php
-            $squery = mysqli_query($koneksi, "select * from pendaftaran natural join mahasiswa where nominal_disetujui is not null");
+            $q1 = "SELECT * from pendaftaran natural join mahasiswa where nominal_disetujui is not null and kd_bsw='$kode_slk'";
+            $squery = mysqli_query($koneksi,$q1);
             while($row = mysqli_fetch_array($squery))
             {
             echo '
