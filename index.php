@@ -12,6 +12,7 @@ date_default_timezone_set('Asia/Jakarta');
 <!DOCTYPE HTML>
 <html>
 <head>
+  <title>SIMBA</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -112,12 +113,10 @@ date_default_timezone_set('Asia/Jakarta');
 
     </div>
   </div>
-  <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
     <!--Hasil Seleksi-->
-            <div id="hasilSeleksi" class="content-section-b" style="border-top: 0">
+            <div id="hasilSeleksi" class="content-section-b" style="border-top:0;margin-top:-10000;">
               <div class="container">
-
-              <H3 class="text-center">Hasil Seleksi</H3>
+              <H2 class="text-center">Hasil Seleksi</H2>
               <br><br>
 
               <?php
@@ -146,8 +145,6 @@ date_default_timezone_set('Asia/Jakarta');
               ?>
             </div>
           </div>
-
-  </div>
 
 
   <!-- Smoothscroll -->

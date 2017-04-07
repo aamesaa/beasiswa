@@ -11,6 +11,7 @@ date_default_timezone_set('Asia/Jakarta');
 ?>
 <html>
 <head>
+  <title>Pengumuman Hasil Seleksi Beasiswa</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
