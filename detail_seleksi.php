@@ -1,4 +1,13 @@
 <?php
+// include function & css
+
+include("function/koneksi.php");
+//include("session.php");
+//include("login.php");
+session_start();
+date_default_timezone_set('Asia/Jakarta');
+
+// connection
 ?>
 <html>
 <head>
@@ -74,8 +83,8 @@
         <br>
         <br>
         <br>
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+
+        <div class="col-md-12">
         <table class="table table-bordered">
           <thead style="text-center">
             <tr>
@@ -85,14 +94,22 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $squery = mysqli_query($koneksi, "select * from pendaftaran natural join mahasiswa where nominal_disetujui is not null");
+            while($row = mysqli_fetch_array($squery))
+            {
+            echo '
             <tr>
-              <td class="text-center">72140002</td>
-              <td>Evelina Putri Widiasih</td>
-              <td class="text-right">1000000</td>
-            </tr>
+              <td class="text-center">'.$row['nim'].'</td>
+              <td>'.$row['nama_mhs'].'</td>
+              <td class="text-right">'.$row['nominal_disetujui'].'</td>
+            </tr>';
+            }
+            ?>
           </tbody>
         </table>
         </div>
+
       </div>
     </div>
   </div>
