@@ -174,16 +174,16 @@ date_default_timezone_set('Asia/Jakarta');
                             <?php
                             $squery = mysqli_query($koneksi, "select * from beasiswa");
                             $row = mysqli_fetch_array($squery);
-                            $userRole = $row['role'];
-
                             echo '
-                            <div class="col-md-12">.
+                            <div class="col-md-12">
                               <div class="panel panel-success">
                                 <div class="panel-body hitam" style="height: 150px;">
                                   <div class="col-md-10">
-                                  <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h3> '.
+                                  <a href="detail_tempat.php?id1='.$row['kd_bsw'].'"> <h4> '.
                                   $row['nama_bsw'].
-                                  ' </h3> </a>
+                                  ' </h4> </a>
+                                  <p>'.$row['nama_bsw'].'</p>
+                                  <p>'.$row['Keterangan'].'</p>
                                   </div>
                                   <div class="col-md-2">
                                     <br>
