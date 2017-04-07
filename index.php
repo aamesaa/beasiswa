@@ -122,7 +122,8 @@ date_default_timezone_set('Asia/Jakarta');
 
               <?php
               $squery = mysqli_query($koneksi, "select * from beasiswa");
-              $row = mysqli_fetch_array($squery);
+              while($row = mysqli_fetch_array($squery))
+              {
               echo '
               <div class="col-md-12">
                 <div class="panel panel-success">
@@ -136,11 +137,12 @@ date_default_timezone_set('Asia/Jakarta');
                     </div>
                     <div class="col-md-2">
                       <br>
-                      <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">View</a>
+                      <a id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
                     </div>
                   </div>
                 </div>
               </div>';
+            }
               ?>
             </div>
           </div>
