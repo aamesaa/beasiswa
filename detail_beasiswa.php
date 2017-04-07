@@ -1,5 +1,6 @@
 <?php
 Include("function/koneksi.php");
+//include('function/session.php');
 //include("session.php");
 //include("login.php");
 session_start();
@@ -35,6 +36,7 @@ date_default_timezone_set('Asia/Jakarta');
 
 </head>
 <body>
+  <?php echo $login_session; ?>
   <nav class="navbar-default" role="navigation" style="position: fixed; top: 0px;">
     <div class="container">
       <div class="navbar-header">
@@ -50,8 +52,8 @@ date_default_timezone_set('Asia/Jakarta');
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
-          <li class="menuItem"><a href="#infoBeasiswa">Info Beasiswa </a></li>
-          <li class="menuItem"><a href="#hasilSeleksi">Hasil Seleksi </a></li>
+          <li class="menuItem"><a href="index.php#infoBeasiswa">Info Beasiswa </a></li>
+          <li class="menuItem"><a href="index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
@@ -73,4 +75,75 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </nav>
+
+  <div class="container">
+
+    <div class="row">
+      <br>
+      <a href="index.php#infoBeasiswa">Back to Home</a>
+        <h2 class="text-center"> Detail Beasiswa</h2>
+
+
+    <?php
+
+    $kode_bsw= $_GET['id'];
+    $getBswSql="SELECT nama_bsw,tgl_buka,tgl_tutup,Keterangan,kuota from beasiswa where kd_bsw='$kode_bsw'";
+
+    $getBeasiswa=mysqli_query($koneksi,$getBswSql);
+
+    $rowBsw=mysqli_fetch_array($getBeasiswa);
+    ?>
+    <br>
+    <div class="col-md-1 col-lg-1"></div>
+    <div class="col-md-10">
+      <div class="alert alert-info" id="ringkasanBsw">
+
+        <table>
+          <tr>
+            <td> Nama Beasiswa</td>
+            <td>&nbsp:&nbsp</td>
+            <td><?php echo $rowBsw['nama_bsw'];?></td>
+          </tr>
+          <tr>
+            <td> Tanggal mulai pendaftaran </td>
+            <td>&nbsp:&nbsp</td>
+            <td><?php echo $rowBsw['tgl_buka'];?></td>
+          </tr>
+          <tr>
+            <td> Tanggal akhir pendaftaran </td>
+            <td> &nbsp:&nbsp</td>
+            <td> <?php echo $rowBsw['tgl_tutup'];?></td>
+          </tr>
+          <tr>
+            <td> Keterangan</td>
+            <td> &nbsp:&nbsp</td>
+            <td><?php echo $rowBsw['Keterangan'];?></td>
+          </tr>
+        </table>
+      </div>
+      <?php
+      $getSyrSql="SELECT nama_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw'";
+      $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
+      ?>
+      <div class="alert alert-info" id="syaratBsw">
+        <h4> Syarat</h4>
+        <ul style="list-style-type:disc">
+        <?php
+        while ($rowSyrBsw=mysqli_fetch_array($getSyrBeasiswa)){
+          echo"<li> - &nbsp";
+          echo $rowSyrBsw['nama_syarat'];
+          echo "</li>";
+        }
+
+         ?>
+       </ul>
+      </div>
+      <a href="daftar_beasiswa.php" class="btn wow tada btn-embossed btn-primary pull-right animated animated">Daftar</a>
+  </div>
+
+
+
+
+</div>
+</div>
   </html>

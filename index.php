@@ -82,12 +82,21 @@ date_default_timezone_set('Asia/Jakarta');
         $sql=mysqli_query($koneksi,"SELECT * FROM beasiswa where isTampil='1'");
         while ($row= mysqli_fetch_array($sql))
         {
+          //Cek bisa daftar ga
+          $isAvailable=1;
+          $availableMsg="";
+          if ($row['tgl_tutup'] > date("Y-m-d"))
+          {
+            $availableMsg='<font style="color:green">Pendaftaran dibuka</font> <br>';
+          } else
+          $availableMsg='<font style="color:red">Pendaftaran ditutup</font> <br>';
+
           echo'
           <div class="col-lg-6">
             <div class="panel panel-success">
               <div class="panel-heading" style="height:63px;">
-                <h3 class="panel-title judul">
-                  <a href="detail_bsw.php?id='.$row['kd_bsw'].'">'.$row['nama_bsw'].'</a>
+                <h3 class="panel-title text-center">
+                  <a href="detail_beasiswa.php?id='.$row['kd_bsw'].'">'.$row['nama_bsw'].'</a>
                 </h3>
               </div>
               <div class="panel-body hitam" style="height: 70px;">'.
@@ -96,9 +105,9 @@ date_default_timezone_set('Asia/Jakarta');
 
               <div class="panel-footer hitam" style="text-align: left">
                 Periode Pendaftaran: '.$row['tgl_buka'] .' s.d. '. $row['tgl_tutup'].' <br>
-                Status Pendaftaran : '//TODO : Logic  here .
-                .'<font style="color:green">Pendaftaran dibuka</font> <br>
-                Penerima Beasiswa : '.$row['kuota'].'
+                Status Pendaftaran : '.$availableMsg.' today :'.date("Y-m-d").
+
+                'Penerima Beasiswa : '.$row['kuota'].'
               </div>
 
             </div>
