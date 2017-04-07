@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) { // cek dah klik submit blm
   $rows = mysqli_num_rows($query);
   if ($rows == 1){//jika ada
     //cek role
-
+    $_SESSION['session_id']=$user;
     $row = mysqli_fetch_array($query);
     $userRole= $row['role'];
     if ($userRole=='0') {
@@ -31,7 +31,8 @@ if (isset($_POST['submit'])) { // cek dah klik submit blm
       $_SESSION['login_admin']=$user;
       header("location: user_wd3/index.php");
     }
-  }else{ //jika tidak ada
+  }else{ //jika user tidak ada
+      $_SESSION['session_id']='notLogin';
     echo "<script type='text/javascript'>alert('Username atau Password belum terdaftar');</script>";
   }
   mysqli_close($koneksi); // Menutup koneksi
