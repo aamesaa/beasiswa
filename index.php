@@ -73,7 +73,7 @@ date_default_timezone_set('Asia/Jakarta');
 
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
-          
+
 
           }
 
@@ -158,7 +158,7 @@ date_default_timezone_set('Asia/Jakarta');
           </div>
           <div class="col-md-2">
             <br>
-            <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
+            <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"id="submit" class="btn btn-embossed btn-primary" style="margin-right: 42.5%; padding-top: 10000">Detail</a>
           </div>
         </div>
       </div>

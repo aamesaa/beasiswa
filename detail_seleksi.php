@@ -55,8 +55,8 @@ date_default_timezone_set('Asia/Jakarta');
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
-          <li class="menuItem"><a href="#infoBeasiswa">Info Beasiswa </a></li>
-          <li class="menuItem"><a href="#hasilSeleksi">Hasil Seleksi </a></li>
+          <li class="menuItem"><a href="index.php#infoBeasiswa">Info Beasiswa </a></li>
+          <li class="menuItem"><a href="index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
@@ -67,7 +67,7 @@ date_default_timezone_set('Asia/Jakarta');
             <li><a href="function/logout.php">Logout</a></li>
             </ul>
             </li>';
-            
+
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
           }
@@ -79,9 +79,11 @@ date_default_timezone_set('Asia/Jakarta');
   <div id="infoBeasiswa" class="content-section-a" style="border-top: 0; margin-top:-50;">
     <div class='container'>
       <div class="row">
+        <a href="index.php#hasilSeleksi">Back to Home</a>
         <H3 class="text-center">Pengumuman Hasil Seleksi</H3>
         <br>
         <br>
+
         <div class="col-md-1"></div>
         <div class="col-md-10">
         <table class="table table-bordered">
