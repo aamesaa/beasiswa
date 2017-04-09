@@ -1,3 +1,11 @@
+<?php
+
+Include("../function/koneksi.php");
+//Include_once ("../function/login.php");
+$getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,48 +55,123 @@
         <ul class="nav navbar-nav">
           <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
-            <li class="menuItem dropdown">
+          <li class="menuItem dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="function/logout.php">Logout</a></li>
+              <li><a href="function/logout.php">Logout</a></li>
             </ul>
-            </li>
+          </li>
 
         </ul>
       </div>
     </div>
   </nav>
+  <div class="container">
+    <div class="row">
+      <br/>  <br/><br/>
+      <h2 class="text-center">Daftar Beasiswa</h2>
+      <br/>
+      <table class="table-striped table table-bordered">
+        <thead class="text-center">
+          <th>Kode</th>
+          <th>Nama beasiswa</th>
+          <th>Semester</th>
+          <th>Thn Ajaran</th>
+          <th>Tgl Buka</th>
+          <th>Tgl Tutup</th>
+          <th>Kuota</th>
+          <th>Ditampilkan</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <?php
+          while ($rowBsw= mysqli_fetch_array($getDataBsw)){
+            $ketTampil="Tidak";
+            if($rowBsw['isTampil']==1){
+              $ketTampil="Ya";
+            }
+            echo'
+            <tr>
+            <td>'.$rowBsw['kd_bsw'].'</td>
+            <td>'.$rowBsw['nama_bsw'].'</td>
+            <td>'.$rowBsw['semt'].'</td>
+            <td>'.$rowBsw['thn_ajar'].'</td>
+            <td>'.$rowBsw['tgl_buka'].'</td>
+            <td>'.$rowBsw['tgl_tutup'].'</td>
+            <td>'.$rowBsw['kuota'].'</td>
+            <td>'.$ketTampil.'</td>
+            <td>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
+            &nbsp
+            <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'">Pendaftar</a>
+            &nbsp
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Beasiswa</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>'.$rowBsw['nama_bsw'].'</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            </tr>
+
+            ';
+
+
+          }
+          ?>
+          <td>
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
 
 
 
 
-
-  <!-- JavaScript -->
-  <script src="../js/jquery-1.10.2.js"></script>
-  <script src="../js/bootstrap.js"></script>
-  <script src="../js/owl.carousel.js"></script>
-  <script src="../js/script.js"></script>
-  <!-- StikyMenu -->
-  <script src="../js/stickUp.min.js"></script>
-  <script type="text/javascript">
-  jQuery(function($) {
+<!-- JavaScript -->
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/owl.carousel.js"></script>
+<script src="../js/script.js"></script>
+<!-- StikyMenu -->
+<script src="../js/stickUp.min.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
   $(document).ready( function() {
     $('.navbar-default').stickUp();
 
   });
-  });
+});
 
-  </script>
-  <!-- Smoothscroll -->
-    <script type="text/javascript" src="../js/jquery.corner.js"></script>
-    <script src="../js/wow.min.js"></script>
-    <script>
-    new WOW().init();
-    </script>
-    <script src="../js/classie.js"></script>
-    <script src="../js/uiMorphingButton_inflow.js"></script>
-    <!-- Magnific Popup core JS file -->
-    <script src="../js/jquery.magnific-popup.js"></script>
+</script>
+<!-- Smoothscroll -->
+<script type="text/javascript" src="../js/jquery.corner.js"></script>
+<script src="../js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
+<script src="../js/classie.js"></script>
+<script src="../js/uiMorphingButton_inflow.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="../js/jquery.magnific-popup.js"></script>
 
 </body>
 </html>

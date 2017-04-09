@@ -86,7 +86,7 @@ date_default_timezone_set('Asia/Jakarta');
 
         <div class="col-md-1"></div>
         <div class="col-md-10">
-        <table class="table table-bordered">
+        <table class="table table-striped">
 
           <?php
             $kode_slk = $_GET['id'];
