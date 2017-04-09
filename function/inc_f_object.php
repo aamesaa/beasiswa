@@ -1,12 +1,15 @@
 <?php
-function _myobject($object,$name,$class,$id,$value,$caption,$maxlength,$size,$rows,$cols,$required,$placeholder,$disabled) {
+function _myobject($object,$name,$class,$id,$value,$caption,$maxlength,$size,$rows,$cols,$required,$placeholder,$disabled,$max) {
 	switch ($object) {
 		case 1:		//textbox
 			return '<input type="text" name="'.$name.'" class="'.$class.'" id="'.$id.'" '.$required.' placeholder="'.$placeholder.'" '.$disabled.'> <br>';
 			break;
-		case 11:		//textbox
-			echo '<input type="text" name="'.$name.'" class="'.$class.'" id="'.$id.'" value="'.$value.'" maxlength="'.$maxlength.'" size="'.$size.'" '.$required.' placeholder="'.$placeholder.'" '.$disabled.'>';
+		case 11:		//textbox angka
+			return '<input type="number" name="'.$name.'" class="'.$class.'" id="'.$id.'" value="'.$value.'" max="'.$max.'" size="'.$size.'" '.$required.' placeholder="'.$placeholder.'" '.$disabled.'>';
 			break;
+		case 12:		//textbox nominal
+				return '<input type="number" name="'.$name.'" class="'.$class.'" id="'.$id.'" value="'.$value.'" max="'.$max.'" size="'.$size.'" '.$required.' step="100000" '.$disabled.'>';
+				break;
 		case 2:		//hidden
 			echo '<input type="hidden" name="'.$name.'" id="'.$id.'" value="'.$value.'">';
 			break;

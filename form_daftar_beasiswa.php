@@ -92,7 +92,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
       <br/> <br/>
       <div class="col-lg-1 col-md-1"></div>
       <div class="col-md-10 col-lg-10">
-        <form action="create_daftar_beasiswa.php" class="form-inline " method="POST" enctype="multipart/form-data">
+        <form action="function/upload.php" class="form-inline " method="POST" enctype="multipart/form-data">
           <table>
             <tr>
                 <td> Nama Beasiswa </td>
@@ -105,7 +105,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
                 <td><?php echo $rowBsw['semt']; ?></td>
             </tr>
             <tr>
-                <td> Semester </td>
+                <td> Tahun Ajaran </td>
                 <td> &nbsp : &nbsp</td>
                 <td><?php echo $rowBsw['thn_ajar']; ?><br/></td>
             </tr>
@@ -137,7 +137,11 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
 
             <?php
             while ($rowSyrBsw=mysqli_fetch_array($getSyrBeasiswa)){
-              $input =_myobject($rowSyrBsw['tipe_syarat'],$rowSyrBsw['nama_syarat'],"form-control","nm","","","","","","","required",$rowSyrBsw['nama_syarat'],"");
+              $maxValue="";
+              if($rowSyrBsw['nama_syarat']=="IPK"){
+                $maxValue=4;
+              }
+              $input =_myobject($rowSyrBsw['tipe_syarat'],$rowSyrBsw['nama_syarat'],"form-control","nm","","","","","","","required",$rowSyrBsw['nama_syarat'],"",$maxValue);
               echo '
               <tr>
               <div class="form-group">
@@ -159,7 +163,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
 
 
 
-
+            <input type="submit" name="submit" id="submit" value="Daftar" class="btn btn-embossed wow tada btn-embossed btn-primary text-center " style="margin-right: 42.5%">
         </form>
       </div>
     </div>

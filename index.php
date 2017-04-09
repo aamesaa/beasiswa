@@ -69,12 +69,8 @@ date_default_timezone_set('Asia/Jakarta');
             </ul>
             </li>
             ';
-
-
           } else {//blm login
             echo'<li class="menuItem"><a href="form_login.php">Login</a></li>';
-
-
           }
 
           ?>
@@ -152,9 +148,9 @@ date_default_timezone_set('Asia/Jakarta');
           <div class="col-md-10">
           <a href="detail_seleksi.php?id='.$row['kd_bsw'].'"> <h4> '.
           $row['nama_bsw'].
-          ' </h4> </a>
-          <p>'.$row['nama_bsw'].'</p>
-          <p>'.$row['Keterangan'].'</p>
+          ' </h4></a>
+          <p>Semester &nbsp &nbsp &nbsp &nbsp : &nbsp'.$row['semt'].'<br/>Tahun ajaran :&nbsp
+          '.$row['thn_ajar'].'</p>
           </div>
           <div class="col-md-2">
             <br>
@@ -167,6 +163,43 @@ date_default_timezone_set('Asia/Jakarta');
     ?>
   </div>
 </div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h3 class="footer-title">SIMBA</h3>
+        <p>SIMBA - Sistem Informasi Beasiswa<br/>
+          Merupakan sistem informasi beasiswa internal UKDW.<br/>
+          Mahasiswa dapat mendapatkan informasi mengenai beasiswa beserta detai pendaftarannya
+          serta melakukan pendaftaran<br/><br/>
+          Developed by
+          <a rel="cc:attributionURL" href="http://www.github.com/aamesaa"
+           property="dc:title">Azhalia Amesa </a> and
+           <a rel="dc:creator" href="http://www.github.com/charolinesepta97"
+           property="cc:attributionName">Charoline Septa</a> <br/>
+           for Pemrograman Terintegrasi Terapan's project
+       </p>
+
+
+
+      </div> <!-- /col-xs-7 -->
+
+      <div class="col-md-5">
+        <div class="footer-banner">
+          <h3 class="footer-title">Biro Kemahasiswaan dan Alumni</h3>
+          <ul>
+            <li>Gd Filia,&nbsp Jln Dr. Wahidin Sudirohusodo No 5-25</li>
+            <li>Gondokusuman, Yogyakarta 66224</li>
+            <li>0274 786157</li>
+
+          </ul>
+          Go to: <a href="http://www.ukdw.ac.id" target="_blank">www.ukdw.ac.id</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- JavaScript -->
 <script src="js/jquery-1.10.2.js"></script>
