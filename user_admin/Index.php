@@ -104,8 +104,9 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
             &nbsp
-            <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'">Pendaftar</a>
+            <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
+            <button class="btn btn-danger btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
@@ -116,10 +117,89 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                     <h4 class="modal-title">Edit Beasiswa</h4>
                   </div>
                   <div class="modal-body">
-                    <p>'.$rowBsw['nama_bsw'].'</p>
+                  <div class="container">
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$rowBsw['nama_bsw'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="semester">Semester:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="semester" name="semester" value="'.$rowBsw['semt'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="thnajar">Th. Ajar:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="thnajar" name="thnajar" value="'.$rowBsw['thn_ajar'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="mulai">Tgl. Mulai:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="mulai" name="mulai" value="'.$rowBsw['tgl_buka'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="tutup">Tgl. Tutup:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="tutup" name="tutup" value="'.$rowBsw['tgl_tutup'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="kuota">Kuota:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="kuota" name="kuota" value="'.$rowBsw['kuota'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="tampil">Ditampilkan:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="tampil" name="tampil" value="'.$rowBsw['isTampil'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="ket">Keterangan:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="ket" name="ket" value="'.$rowBsw['Keterangan'].'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="ket">Syarat:</label>
+                      <div class="col-sm-7">
+                      <div class="col-sm-offset-1 col-sm-7">
+                          <label><input type="checkbox"> Scan KTM</label>
+                          <br>
+                          <label><input type="checkbox"> Nominal yang diminta</label>
+                          <br>
+                          <label><input type="checkbox"> IPK</label>
+                          <br>
+                          <label><input type="checkbox"> Scan slip gaji</label>
+                          <br>
+                          <label><input type="checkbox"> Scan surat keterangan tidak mampu</label>
+                          <br>
+                          <label><input type="checkbox"> Scan KHS</label>
+                          <br>
+                          <label><input type="checkbox"> Jumlah sks yang diambil</label>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                  </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
