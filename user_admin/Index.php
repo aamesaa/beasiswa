@@ -140,13 +140,13 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="mulai">Tgl. Mulai:</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="mulai" name="mulai" value="'.$rowBsw['tgl_buka'].'">
+                        <input type="date" class="form-control" id="mulai" name="mulai" value="'.$rowBsw['tgl_buka'].'">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="tutup">Tgl. Tutup:</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="tutup" name="tutup" value="'.$rowBsw['tgl_tutup'].'">
+                        <input type="date" class="form-control" id="tutup" name="tutup" value="'.$rowBsw['tgl_tutup'].'">
                       </div>
                     </div>
                     <div class="form-group">
