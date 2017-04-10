@@ -106,19 +106,15 @@ date_default_timezone_set('Asia/Jakarta');
             <td><?php echo $rowBsw['nama_bsw'];?></td>
           </tr>
           <tr>
-            <td> Tanggal mulai pendaftaran </td>
+            <td> Masa Pendaftaran </td>
             <td>&nbsp:&nbsp</td>
-            <td><?php echo $rowBsw['tgl_buka'];?></td>
+            <td><?php echo $rowBsw['tgl_buka'];?> s.d. <?php echo $rowBsw['tgl_tutup'];?></td>
           </tr>
-          <tr>
-            <td> Tanggal akhir pendaftaran </td>
-            <td> &nbsp:&nbsp</td>
-            <td> <?php echo $rowBsw['tgl_tutup'];?></td>
-          </tr>
+
           <tr>
             <td> Keterangan</td>
             <td> &nbsp:&nbsp</td>
-            <td><?php echo $rowBsw['Keterangan'];?></td>
+            <td><p><?php echo $rowBsw['Keterangan'];?></p></td>
           </tr>
         </table>
       </div>

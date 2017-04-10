@@ -58,6 +58,7 @@ date_default_timezone_set('Asia/Jakarta');
         <ul class="nav navbar-nav">
           <li class="menuItem"><a href="index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="index.php#hasilSeleksi">Hasil Seleksi </a></li>
+
           <?php
           if(isset($_SESSION['login_user'])){//sudah login
             $username= $_SESSION['login_user'];
@@ -115,7 +116,7 @@ date_default_timezone_set('Asia/Jakarta');
 
               <div class="panel-footer hitam" style="text-align: left">
                 Periode Pendaftaran: '.$row['tgl_buka'] .' s.d. '. $row['tgl_tutup'].' <br>
-                Status Pendaftaran : '.$availableMsg.' today :'.date("Y-m-d").
+                Status Pendaftaran : '.$availableMsg.
 
                 'Penerima Beasiswa : '.$row['kuota'].'
               </div>
