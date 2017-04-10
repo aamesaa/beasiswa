@@ -61,7 +61,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
               <li><a href="function/logout.php">Logout</a></li>
             </ul>
           </li>
-
+          
         </ul>
       </div>
     </div>
