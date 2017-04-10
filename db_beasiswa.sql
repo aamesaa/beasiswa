@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2017 at 10:49 AM
+-- Generation Time: Apr 10, 2017 at 07:54 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -29,6 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `beasiswa` (
   `kd_bsw` char(3) NOT NULL,
   `nama_bsw` varchar(99) NOT NULL,
+  `semt` char(6) NOT NULL,
+  `thn_ajar` char(9) NOT NULL,
   `tgl_buka` date NOT NULL,
   `tgl_tutup` date NOT NULL,
   `kuota` int(11) NOT NULL,
@@ -40,12 +42,13 @@ CREATE TABLE `beasiswa` (
 -- Dumping data for table `beasiswa`
 --
 
-INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`) VALUES
-('A01', 'Beasiswa Anak Karyawan', '2017-04-07', '2017-04-09', 125, 1, 'Beasiswa bagi anak karyawan'),
-('B01', 'Beasiswa Prestasi', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi'),
-('B08', 'bb', '2017-04-06', '2017-04-08', 9, 0, 'n'),
-('K01', 'Beasiswa Kebutuhan', '2016-11-15', '2016-11-22', 150, 1, 'Bagi mahasiswa yang membutuhkan'),
-('P01', 'Pinjaman Registrasi', '2017-04-07', '2017-04-09', 125, 1, 'pinjamaann bagi mhs');
+INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`) VALUES
+('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 125, 1, 'Beasiswa bagi anak karyawan'),
+('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm'),
+('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi'),
+('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana'),
+('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 1, 'Bagi mahasiswa yang membutuhkan'),
+('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum');
 
 -- --------------------------------------------------------
 
@@ -65,6 +68,14 @@ CREATE TABLE `mahasiswa` (
   `no_telp` char(12) NOT NULL,
   `total_sks` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`NIM`, `kd_prodi`, `nama_mhs`, `gender`, `tgl_lahir`, `email`, `alamat`, `kode_pos`, `no_telp`, `total_sks`) VALUES
+('72140033', '72', 'Charoline Septa', 'P', '1997-02-21', 'cs@mail.com', 'smd', '55224', '098', 134),
+('user', '71', 'Azhalia Amesa', 'L', '1996-05-04', 'aamesaa@mail.com', 'klaten', '55224', '098', 134);
 
 -- --------------------------------------------------------
 
@@ -107,6 +118,14 @@ CREATE TABLE `ref_gender` (
   `nama_gender` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `ref_gender`
+--
+
+INSERT INTO `ref_gender` (`gender`, `nama_gender`) VALUES
+('L', 'pria'),
+('P', 'wanita');
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +137,17 @@ CREATE TABLE `ref_prodi` (
   `nama_prodi` varchar(99) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `ref_prodi`
+--
+
+INSERT INTO `ref_prodi` (`kd_prodi`, `nama_prodi`) VALUES
+('01', 'theologi'),
+('41', 'Kedokteran'),
+('61', 'Bioteknologi'),
+('71', 'Teknik Informatika'),
+('72', 'Sistem Informasi');
+
 -- --------------------------------------------------------
 
 --
@@ -127,7 +157,7 @@ CREATE TABLE `ref_prodi` (
 CREATE TABLE `ref_syarat` (
   `kd_syarat` char(3) NOT NULL,
   `nama_syarat` varchar(99) NOT NULL,
-  `tipe_syarat` char(1) NOT NULL
+  `tipe_syarat` char(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -135,13 +165,12 @@ CREATE TABLE `ref_syarat` (
 --
 
 INSERT INTO `ref_syarat` (`kd_syarat`, `nama_syarat`, `tipe_syarat`) VALUES
-('K01', 'Scan KTM', '1'),
-('K02', 'IPK', '2'),
-('S03', 'nominal pengajuan', '3'),
-('S04', 'Surat keterangan tidak mampu', '1'),
-('S05', 'Surat tagihan listrik terakhir', '1'),
-('S06', 'Jumlah SKS yang diambil', '3'),
-('S07', '', '');
+('K01', 'Scan KTM', '9'),
+('K02', 'IPK', '11'),
+('S03', 'nominal pengajuan', '12'),
+('S04', 'Surat keterangan tidak mampu', '9'),
+('S05', 'Surat tagihan listrik terakhir', '9'),
+('S06', 'Jumlah SKS yang diambil', '11');
 
 -- --------------------------------------------------------
 
@@ -166,7 +195,9 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 (4, 'S04', 'A01'),
 (5, 'S03', 'A01'),
 (6, 'K01', 'B01'),
-(7, 'K02', 'B01');
+(7, 'K02', 'B01'),
+(8, 'K01', 'K01'),
+(9, 'K01', 'B01');
 
 -- --------------------------------------------------------
 
@@ -290,7 +321,7 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT for table `syarat_bsw`
 --
 ALTER TABLE `syarat_bsw`
-  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `syarat_daftar`
 --
