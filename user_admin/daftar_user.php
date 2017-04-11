@@ -107,12 +107,58 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM system_usr");
               <td>'.$row['user_id'].'</td>
               <td class="text-center">'.$row['role'].'</td>
               <td>
+              <!-- Trigger the modal with a button -->
               <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
               &nbsp
               <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
 
-              </td>
-            </tr>';
+              <!-- Modal -->
+              <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" style="color:#34495e;">&times;</button>
+                      <h4 class="modal-title">Edit Beasiswa</h4>
+                    </div>
+                    <div class="modal-body">
+                    <div class="container">
+
+                      <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="user_id">Kode Beasiswa :</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'">
+                      </div>
+                    </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="role" name="role" value="'.$row['role'].'">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+
+                      </div>
+
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              </tr>
+
+              ';
             }
             ?>
           </tbody>
