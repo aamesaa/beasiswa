@@ -122,7 +122,13 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                   <div class="modal-body">
                   <div class="container">
 
-                  <form class="form-horizontal">
+                    <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="kd_bsw">Kode Beasiswa :</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'" disabled>
+                    </div>
+                  </div>
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
                       <div class="col-sm-6">
@@ -132,13 +138,13 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="semester">Semester:</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="semester" name="semester" value="'.$rowBsw['semt'].'">
+                        <input type="text" class="form-control" id="semt" name="semester" value="'.$rowBsw['semt'].'">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="thnajar">Th. Ajar:</label>
+                      <label class="control-label col-sm-2" for="thn_ajar">Th. Ajar:</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="thnajar" name="thnajar" value="'.$rowBsw['thn_ajar'].'">
+                        <input type="text" class="form-control" id="thn_ajar" name="thn_ajar" value="'.$rowBsw['thn_ajar'].'">
                       </div>
                     </div>
                     <div class="form-group">
@@ -200,7 +206,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                   <div class="modal-footer">
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-embossed btn-info">Submit</button>
+                      <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
                     </div>
                   </div>
                 </form>
