@@ -15,9 +15,9 @@ date_default_timezone_set('Asia/Jakarta');
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/..css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/ js/bootstrap.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Custom Google Web Font -->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -86,7 +86,8 @@ date_default_timezone_set('Asia/Jakarta');
 
         <div class="col-md-1"></div>
         <div class="col-md-10">
-        <table class="table table-striped">
+
+        <table class="table table-striped table-responsive table-condensed">
 
           <?php
             $kode_slk = $_GET['id'];
@@ -124,7 +125,7 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </div>
-  <!-- JavaScript -->
+<!-- JavaScript -->
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/owl.carousel.js"></script>

@@ -13,12 +13,12 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
   <!--CSS-->
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/..css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/..../js/bootstrap.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Custom Google Web Font -->
-  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
 
@@ -71,7 +71,8 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
       <br/>  <br/><br/>
       <h2 class="text-center">Daftar Beasiswa</h2>
       <br/>
-      <table class="table-striped table table-bordered">
+      <a href="form_create_beasiswa.php" class="btn btn-info pull-right">Tambah </a>
+      <table class="table-striped table table-condensed">
         <thead class="text-center">
           <th>Kode</th>
           <th>Nama beasiswa</th>
@@ -80,15 +81,17 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
           <th>Tgl Buka</th>
           <th>Tgl Tutup</th>
           <th>Kuota</th>
-          <th>Ditampilkan</th>
-          <th>Action</th>
+          <th class="text-center">Ditampilkan</th>
+          <th class="text-center">Action</th>
         </thead>
         <tbody>
           <?php
           while ($rowBsw= mysqli_fetch_array($getDataBsw)){
             $ketTampil="Tidak";
+            $warna="#34495e";
             if($rowBsw['isTampil']==1){
               $ketTampil="Ya";
+              $warna="red";
             }
             echo'
             <tr>
@@ -99,28 +102,29 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             <td>'.$rowBsw['tgl_buka'].'</td>
             <td>'.$rowBsw['tgl_tutup'].'</td>
             <td>'.$rowBsw['kuota'].'</td>
-            <td>'.$ketTampil.'</td>
+            <td class="text-center" style="color:'.$warna.'">'.$ketTampil.'</td>
             <td>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
+            <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
             &nbsp
             <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
-            <button class="btn btn-danger btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
+            <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" style="color:#34495e;">&times;</button>
                     <h4 class="modal-title">Edit Beasiswa</h4>
                   </div>
                   <div class="modal-body">
                   <div class="container">
+
                   <form class="form-horizontal">
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa:</label>
+                      <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
                       <div class="col-sm-6">
                         <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$rowBsw['nama_bsw'].'">
                       </div>
@@ -190,16 +194,16 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                     <div class="form-group">
 
                     </div>
-                    <div class="form-group">
-                      <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                      </div>
-                    </div>
-                  </form>
+
                   </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-embossed btn-info">Submit</button>
+                    </div>
+                  </div>
+                </form>
                   </div>
                 </div>
               </div>
