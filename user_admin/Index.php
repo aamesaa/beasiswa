@@ -93,6 +93,23 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
               $ketTampil="Ya";
               $warna="red";
             }
+
+
+            $isSemtGenap ="";
+            $isSemtGanjil="";
+            if($rowBsw['semt']=="Genap"){
+                $isSemtGenap="selected";
+            }elseif($rowBsw['semt']=="Ganjil"){
+                $isSemtGanjil="selected";
+            }
+            $isTampilvalue="";
+            $isNotTampilvalue="";
+            if($rowBsw['isTampil'])
+            {
+                $isTampilvalue="checked";
+            }else{
+                $isNotTampilvalue="checked";
+            }
             echo'
             <tr>
             <td>'.$rowBsw['kd_bsw'].'</td>
@@ -136,9 +153,12 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="semester">Semester:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="semt" name="semester" value="'.$rowBsw['semt'].'">
+                      <label class="control-label col-sm-2" for="semt">Semester:</label>
+                      <div class="col-sm-4">
+                         <select name="semester" class="form-control" id="semt">
+                          <option value="Genap"'.$isSemtGenap.' >Genap</option>
+                          <option value="Ganjil"'.$isSemtGanjil.'>Ganjil</option>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group">
@@ -165,11 +185,13 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                         <input type="text" class="form-control" id="kuota" name="kuota" value="'.$rowBsw['kuota'].'">
                       </div>
                     </div>
+ 
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="tampil">Ditampilkan:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="tampil" name="tampil" value="'.$rowBsw['isTampil'].'">
-                      </div>
+                        <label class="control-label col-sm-2" for="tampil">Ditampilkan:</label>
+                        <div class=" col-sm-4">
+                          <label ><input type="radio" name="tampil" value="1"'.$isTampilvalue.'>&nbsp Ya &nbsp &nbsp </label>
+                          <label ><input type="radio" name="tampil" value="0"'.$isNotTampilvalue.'>&nbsp Tidak</label>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Keterangan:</label>

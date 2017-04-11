@@ -108,8 +108,8 @@ include("../function/koneksi.php");
         <label class="control-label col-sm-2" for="semt">Semester:</label>
         <div class="col-sm-4">
           <select name="semt" class="form-control" id="semt">
-            <option value="genap" >Genap</option>
-            <option value="ganjil">Ganjil</option>
+            <option value="Genap" >Genap</option>
+            <option value="Ganjil">Ganjil</option>
           </select>
         </div>
       </div>
@@ -155,7 +155,7 @@ include("../function/koneksi.php");
           $sql=mysqli_query($koneksi,"SELECT * FROM ref_syarat");
           while ($row= mysqli_fetch_array($sql)){
             echo'
-              <label><input type="checkbox" value="" name="'.$row['nama_syarat'].'">&nbsp;'.$row['nama_syarat'].'</label>
+              <label><input type="checkbox" value="1" name="'.$row['nama_syarat'].'">&nbsp;'.$row['nama_syarat'].'</label>
               <br/>
             ';
           }
