@@ -126,7 +126,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="kd_bsw">Kode Beasiswa :</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'" disabled>
+                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'">
                     </div>
                   </div>
                     <div class="form-group">
