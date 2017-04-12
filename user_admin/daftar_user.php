@@ -119,26 +119,15 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
 
                     <form class="form-horizontal" action="edit_user.php" method="POST">
                     <div class="form-group">
-                    <label class="control-label col-sm-2" for="kd_bsw">User Id :</label>
+                    <label class="control-label col-sm-2" for="user_id">User Id :</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$row['user_id'].'">
+                      <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'">
                     </div>
                     </div>
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="role">Role:</label>
-                      <div class="col-sm-4">
-                        <select name="role" class="form-control" id="role">
-                          <option value="9" >Wakil Rektor 3</option>
-                          <option value="2" >Wakil Dekan 3</option>
-                          <option value="1" >Admin</option>
-                          <option value="0" >Mahasiswa</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label col-sm-2" for="namabsw">Role :</label>
+                      <label class="control-label col-sm-2" for="role">Role :</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$row['role'].'">
+                        <input type="text" class="form-control" id="role" name="role" value="'.$row['role'].'">
                       </div>
                     </div>
                     </div>
