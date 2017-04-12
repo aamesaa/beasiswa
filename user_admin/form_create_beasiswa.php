@@ -85,7 +85,7 @@ include("../function/koneksi.php");
       <div class="form-group">
         <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
         <div class="col-sm-4">
-          <select name="namabsw" class="form-control" id="thnajar">
+          <select name="namabsw" class="form-control" id="namabsw">
             <option value="Beasiswa Anak Karyawan" >Beasiswa Anak Karyawan</option>
             <option value="Beasiswa Prestasi" >Beasiswa Prestasi</option>
             <option value="Beasiswa Kebutuhan" >Beasiswa Kebutuhan</option>

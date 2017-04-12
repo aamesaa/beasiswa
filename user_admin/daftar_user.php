@@ -107,7 +107,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
             <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog">
+            <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog" action="edit_user.php">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -117,7 +117,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
                   <div class="modal-body">
                   <div class="container">
 
-                    <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
+                    <form class="form-horizontal" action="edit_user.php" method="POST">
                     <div class="form-group">
                     <label class="control-label col-sm-2" for="kd_bsw">User Id :</label>
                     <div class="col-sm-6">
