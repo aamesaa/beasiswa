@@ -1,6 +1,5 @@
 <?php
 include("../function/koneksi.php");
-
 $kd_bsw=$_POST['kd_bsw'];
 $nama_bsw=$_POST['namabsw'];
 $thn_ajar=$_POST['thn_ajar'];
@@ -14,12 +13,14 @@ $sql="UPDATE  beasiswa SET nama_bsw ='$nama_bsw', thn_ajar = '$thn_ajar', tgl_bu
       WHERE kd_bsw = '$kd_bsw' ";
 $hasil = mysqli_query($koneksi,$sql);
 echo $sql;
-if($hasil){
-  echo'<div class="alert alert-succes">Berhasil diubah</div>';
+$GLOBALS['mssg']="";
 
+if($hasil){
+    $mssg='<div class="alert alert-succes">Berhasil diubah</div>';
+    header("location: index.php");
 }else{
 
-  echo'<div class="alert alert-danger">Gagal diubah</div>';
-
+    $GLOBALS['mssg']='<div class="alert alert-danger">Gagal diubah</div>';
+    header("location: index.php");
 }
  ?>

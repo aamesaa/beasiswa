@@ -155,7 +155,7 @@ include("../function/koneksi.php");
           $sql=mysqli_query($koneksi,"SELECT * FROM ref_syarat");
           while ($row= mysqli_fetch_array($sql)){
             echo'
-              <label><input type="checkbox" value="1" name="'.$row['nama_syarat'].'">&nbsp;'.$row['nama_syarat'].'</label>
+              <label><input type="checkbox" name="syarat_bsw[]" value="'.$row['kd_syarat'].'">&nbsp;'.$row['nama_syarat'].'</label>
               <br/>
             ';
           }
