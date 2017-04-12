@@ -1,9 +1,9 @@
 <?php
 
 Include("../function/koneksi.php");
-//Include_once ("../function/login.php");
+//Include("../function/login.php");
 $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
-
+//Include_once("edit_beasiswa.php");
 ?>
 
 <!DOCTYPE HTML>
@@ -68,9 +68,16 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
   </nav>
   <div class="container">
     <div class="row">
+
       <br/>  <br/><br/>
+
       <h2 class="text-center">Daftar Beasiswa</h2>
-      <br/>
+        <?php
+        if(isset($GLOBALS['mssg'])){
+            echo $GLOBALS['mssg'];
+        }
+        ?>
+      <br/><br/>
       <a href="form_create_beasiswa.php" class="btn btn-info pull-right">Tambah </a>
       <table class="table-striped table table-condensed">
         <thead class="text-center">
@@ -126,7 +133,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             &nbsp
             <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
-            <a href="delete_beasiswa.php" action="delete_beasiswa.php" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
+            <a href="delete_beasiswa.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
