@@ -2,7 +2,7 @@
 
 Include("../function/koneksi.php");
 //Include_once ("../function/login.php");
-$getDataBsw=mysqli_query($koneksi,"SELECT * FROM system_usr");
+$getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
 
 ?>
 
@@ -66,133 +66,132 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM system_usr");
       </div>
     </div>
   </nav>
-  <div id="dftruser" class="content-section-a" style="border-top: 0; margin-top:-50;">
-    <div class='container'>
-      <div class="row">
-        <a href="index.php#hasilSeleksi">Back to Home</a>
-        <H2 class="text-center">Daftar User</H2>
-        <br>
-        <a href="form_create_user.php" class="btn btn-info pull-right">Tambah </a>
-        <br>
-        <br>
+  <div class="container">
+    <div class="row">
+      <br/>  <br/><br/>
+      <h2 class="text-center">Daftar User</h2>
+      <br/>
+      <a href="create_user.php" class="btn btn-info pull-right">Tambah </a>
+    </br>
+  </br>
+</br>
+      <div class="col-md-3"></div>
 
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-
-        <table class="table table-striped table-responsive table-condensed">
-
+      <div class="col-md-6">
+      <table class="table-striped table table-condensed">
+        <thead class="text-center">
+          <th class="text-center"style="width:900">User Id</th>
+          <th class="text-center"style="width:200">Role</th>
+          <th class="text-center"style="width:100">Action</th>
+        </thead>
+        <tbody>
           <?php
-            //$kode_slk = $_GET['id'];
-            //$q0 = "SELECT * from beasiswa where kd_bsw='$kode_slk'";
-            //$squery = mysqli_query($koneksi,$q0);
-            //$row1 = mysqli_fetch_array($squery);
-            //echo'<h4>'.$row1['nama_bsw'].'</h4>';
-          ?>
+          $q1 = "SELECT * from system_usr";
 
-          <thead style="text-center">
+        $squery = mysqli_query($koneksi,$q1);
+
+        while($row = mysqli_fetch_array($squery))
+
+        {
+
+
+            echo'
             <tr>
-              <th class="text-center"style="width:900">User Id</th>
-              <th class="text-center"style="width:200">Role</th>
-              <th class="text-center"style="width:100">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $q1 = "SELECT * from system_usr";
-            $squery = mysqli_query($koneksi,$q1);
-            while($row = mysqli_fetch_array($squery))
-            {
-            echo '
-            <tr>
-              <td>'.$row['user_id'].'</td>
-              <td class="text-center">'.$row['role'].'</td>
-              <td>
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
-              &nbsp
-              <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
+            <td>'.$row['user_id'].'</td>
+            <td class="text-center">'.$row['role'].'</td>
+            <td class="text-center"style="width:100">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
+            &nbsp
 
-              <!-- Modal -->
-              <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" style="color:#34495e;">&times;</button>
-                      <h4 class="modal-title">Edit Beasiswa</h4>
-                    </div>
-                    <div class="modal-body">
-                    <div class="container">
+            <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
 
-                      <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style="color:#34495e;">&times;</button>
+                    <h4 class="modal-title">Edit Beasiswa</h4>
+                  </div>
+                  <div class="modal-body">
+                  <div class="container">
+
+                    <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="user_id">Kode Beasiswa :</label>
+                    <label class="control-label col-sm-2" for="kd_bsw">User Id :</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$row['user_id'].'">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="namabsw">Role :</label>
                       <div class="col-sm-6">
-                        <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'">
+                        <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$row['role'].'">
                       </div>
                     </div>
-                      <div class="form-group">
-                        <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" id="role" name="role" value="'.$row['role'].'">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-
-                      </div>
-
                     </div>
+                  </div>
+                  <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
                     </div>
-                    <div class="modal-footer">
-                    <div class="form-group">
-                      <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
-                      </div>
-                    </div>
-                  </form>
-                    </div>
+                  </div>
+                </form>
                   </div>
                 </div>
               </div>
+            </div>
 
 
-              </tr>
+            </tr>
 
-              ';
-            }
-            ?>
-          </tbody>
-        </table>
-        </div>
+            ';
 
-      </div>
+
+          }
+          ?>
+          <td>
+
+          </div>
+        </td>
+      </tr>
+      </tbody>
+      </table>
     </div>
-  </div>
+</div>
+</div>
+
+
+
+
 <!-- JavaScript -->
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/owl.carousel.js"></script>
-  <script src="js/script.js"></script>
-  <!-- StikyMenu -->
-  <script src="js/stickUp.min.js"></script>
-  <script type="text/javascript">
-  jQuery(function($) {
-    $(document).ready( function() {
-      $('.navbar-default').stickUp();
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/owl.carousel.js"></script>
+<script src="../js/script.js"></script>
+<!-- StikyMenu -->
+<script src="../js/stickUp.min.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+  $(document).ready( function() {
+    $('.navbar-default').stickUp();
 
-    });
   });
+});
 
-  </script>
-  <!-- Smoothscroll -->
-  <script type="text/javascript" src="js/jquery.corner.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script>
-  new WOW().init();
-  </script>
-  <script src="js/classie.js"></script>
-  <script src="js/uiMorphingButton_inflow.js"></script>
-  <!-- Magnific Popup core JS file -->
-  <script src="js/jquery.magnific-popup.js"></script>
+</script>
+<!-- Smoothscroll -->
+<script type="text/javascript" src="../js/jquery.corner.js"></script>
+<script src="../js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
+<script src="../js/classie.js"></script>
+<script src="../js/uiMorphingButton_inflow.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="../js/jquery.magnific-popup.js"></script>
 
+</body>
 </html>
