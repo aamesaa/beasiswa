@@ -125,6 +125,17 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
                     </div>
                     </div>
                     <div class="form-group">
+                      <label class="control-label col-sm-2" for="role">Role:</label>
+                      <div class="col-sm-4">
+                        <select name="role" class="form-control" id="role">
+                          <option value="9" >Wakil Rektor 3</option>
+                          <option value="2" >Wakil Dekan 3</option>
+                          <option value="1" >Admin</option>
+                          <option value="0" >Mahasiswa</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label class="control-label col-sm-2" for="namabsw">Role :</label>
                       <div class="col-sm-6">
                         <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$row['role'].'">
