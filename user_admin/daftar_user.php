@@ -71,7 +71,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
       <br/>  <br/><br/>
       <h2 class="text-center">Daftar User</h2>
       <br/>
-      <a href="create_user.php" class="btn btn-info pull-right">Tambah </a>
+      <a href="form_create_user.php" class="btn btn-info pull-right">Tambah </a>
     </br>
   </br>
 </br>
