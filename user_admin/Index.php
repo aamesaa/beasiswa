@@ -126,7 +126,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             &nbsp
             <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
-            <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
+            <a href="delete_beasiswa.php" action="delete_beasiswa.php" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
@@ -185,7 +185,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                         <input type="text" class="form-control" id="kuota" name="kuota" value="'.$rowBsw['kuota'].'">
                       </div>
                     </div>
- 
+
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="tampil">Ditampilkan:</label>
                         <div class=" col-sm-4">

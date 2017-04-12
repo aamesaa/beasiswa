@@ -1,7 +1,16 @@
 <?php
-$kode_beasiswa = $_GET['kode_bsw'];
-$q0 = "DELETE from beasiswa where kd_bsw='$kode_beasiswa'";
-$squery = mysqli_query($koneksi,$q0);
-$row1 = mysqli_fetch_array($squery);
-//test
-?>
+include("../function/koneksi.php");
+
+$kd_bsw=$_POST['kd_bsw'];
+$sql="DELETE FROM beasiswa WHERE kd_bsw='$kd_bsw'";
+$hasil = mysqli_query($koneksi,$sql);
+echo $sql;
+if($hasil){
+  echo'<div class="alert alert-succes">Berhasil dihapus</div>';
+
+}else{
+
+  echo'<div class="alert alert-danger">Gagal dihapus</div>';
+
+}
+ ?>
