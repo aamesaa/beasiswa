@@ -103,6 +103,21 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
               $warna="red";
             }
 
+            $isAnakKar = "";
+            $isBswPres = "";
+            $isBesKeb = "";
+            $isPinReg = "";
+            if($rowBsw['nama_bsw']=="Beasiswa Anak Karyawan"){
+                $isAnakKar="selected";
+            }elseif($rowBsw['nama_bsw']=="Beasiswa Prestasi"){
+                $isBswPres="selected";
+            }
+            elseif($rowBsw['nama_bsw']=="Beasiswa Kebutuhan"){
+                $isBesKeb="selected";
+            }
+            elseif($rowBsw['nama_bsw']=="Pinjaman Registrasi"){
+                $isPinReg="selected";
+            }
 
             $isSemtGenap ="";
             $isSemtGanjil="";
@@ -111,6 +126,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             }elseif($rowBsw['semt']=="Ganjil"){
                 $isSemtGanjil="selected";
             }
+
             $isTampilvalue="";
             $isNotTampilvalue="";
             if($rowBsw['isTampil'])
@@ -155,12 +171,17 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                       <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'">
                     </div>
                   </div>
-                    <div class="form-group">
-                      <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="namabsw" name="namabsw" value="'.$rowBsw['nama_bsw'].'">
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="namabsw">Nama Beasiswa :</label>
+                    <div class="col-sm-4">
+                      <select name="namabsw" class="form-control" id="namabsw">
+                        <option value="Beasiswa Anak Karyawan"'.$isAnakKar.'>Beasiswa Anak Karyawan</option>
+                        <option value="Beasiswa Prestasi"'.$isBswPres.'>Beasiswa Prestasi</option>
+                        <option value="Beasiswa Kebutuhan"'.$isBesKeb.'>Beasiswa Kebutuhan</option>
+                        <option value="Pinjaman Registrasi"'.$isPinReg.'>Pinjaman Registrasi</option>
+                      </select>
                     </div>
+                  </div>
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="semt">Semester:</label>
                       <div class="col-sm-4">
