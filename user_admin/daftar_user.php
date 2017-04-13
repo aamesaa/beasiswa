@@ -58,6 +58,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
           <li class="menuItem dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li><a href="../user_admin/daftar_user.php">System User</a></li>
               <li><a href="function/logout.php">Logout</a></li>
             </ul>
           </li>
