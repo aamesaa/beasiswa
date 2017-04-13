@@ -80,7 +80,7 @@ date_default_timezone_set('Asia/Jakarta');
     <div class='container'>
       <div class="row">
         <a href="index.php#hasilSeleksi">Back to Home</a>
-        <H3 class="text-center">Pengumuman Hasil Seleksi</H3>
+        <H2 class="text-center">Pengumuman Hasil Seleksi</H2>
         <br>
         <br>
 
@@ -125,6 +125,7 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </div>
+</body>
 <!-- JavaScript -->
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/bootstrap.js"></script>
