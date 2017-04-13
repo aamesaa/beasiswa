@@ -53,6 +53,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
+          <li class="menuItem"><a href="../user_admin/pinjaman.php">Pinjaman </a></li>
           <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <li class="menuItem dropdown">
@@ -70,6 +71,8 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
   <div class="container">
     <div class="row">
       <br/>  <br/><br/>
+      <a href="index.php"> <span class="glyphicon glyphicon-chevron-left"></span>Back to Home</a>
+    </br>
       <h2 class="text-center">Daftar User</h2>
       <br/>
       <a href="form_create_user.php" class="btn btn-info pull-right">Tambah </a>
@@ -122,6 +125,12 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
                     <div class="col-sm-6">
                       <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'">
                     </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="password">Password :</label>
+                      <div class="col-sm-6">
+                        <input type="password" class="form-control" id="password" name="password" value="'.$row['password'].'">
+                      </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="role">Role :</label>
