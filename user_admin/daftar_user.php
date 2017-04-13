@@ -104,9 +104,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
             &nbsp
-
-            <button class="btn btn-danger btn-embossed btn-xs">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></button>
-
+            <a href="delete_user.php?user_id='.$row['user_id'].'" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog" action="edit_user.php">
               <div class="modal-dialog modal-lg">

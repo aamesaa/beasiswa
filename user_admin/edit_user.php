@@ -13,6 +13,6 @@ if($hasil){
 }else{
 
   echo'<div class="alert alert-danger">Gagal diubah</div>';
-
 }
+header("location: daftar_user.php");
  ?>

@@ -14,5 +14,6 @@ if($hasil){
 
   echo'<div class="alert alert-danger">Gagal ditambahkan</div>';
 
-}
+} 
+header("location: daftar_user.php");
  ?>
