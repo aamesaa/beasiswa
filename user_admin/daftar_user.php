@@ -91,14 +91,24 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
         <tbody>
           <?php
           $q1 = "SELECT * from system_usr";
-
-        $squery = mysqli_query($koneksi,$q1);
-
-        while($row = mysqli_fetch_array($squery))
-
-        {
-
-
+          $squery = mysqli_query($koneksi,$q1);
+          while($row = mysqli_fetch_array($squery))
+          {
+          $isWR3 = "";
+          $isWD3 = "";
+          $isAdmin = "";
+          $isMhs = "";
+          if($row['role']=="9"){
+              $isWR3="selected";
+          }elseif($row['role']=="2"){
+              $isWD3="selected";
+          }
+          elseif($row['role']=="1"){
+              $isAdmin="selected";
+          }
+          elseif($row['role']=="0"){
+              $isMhs="selected";
+          }
             echo'
             <tr>
             <td>'.$row['user_id'].'</td>
@@ -132,12 +142,19 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
                         <input type="password" class="form-control" id="password" name="password" value="'.$row['password'].'">
                       </div>
                     </div>
+
                     <div class="form-group">
-                      <label class="control-label col-sm-2" for="role">Role :</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="role" name="role" value="'.$row['role'].'">
+                      <label class="control-label col-sm-2" for="role">Role:</label>
+                      <div class="col-sm-4">
+                        <select name="role" class="form-control" id="role">
+                          <option value="9"'.$isWR3.'>Wakil Rektor 3</option>
+                          <option value="2"'.$isWD3.'>Wakil Dekan 3</option>
+                          <option value="1"'.$isAdmin.'>Admin</option>
+                          <option value="0"'.$isMhs.'>Mahasiswa</option>
+                        </select>
                       </div>
                     </div>
+
                     </div>
                   </div>
                   <div class="modal-footer">
