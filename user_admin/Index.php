@@ -81,6 +81,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
         ?>
       <br/><br/>
       <a href="form_create_beasiswa.php" class="btn btn-info pull-right">Tambah </a>
+      <br/><br/><br/>
       <table class="table-striped table table-condensed">
         <thead class="text-center">
           <th>Kode</th>
