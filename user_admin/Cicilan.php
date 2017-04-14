@@ -49,6 +49,7 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
+          <li class="menuItem"><a href="Cicilan.php">Pengembalian </a></li>
           <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <li class="menuItem dropdown">
@@ -97,15 +98,15 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                   <td>'.$rowPjm['nama_mhs'].'</td>
                   <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
                   <td style="text-align:right">'.$sisa.'</td>
-                  <td class="text-center"> 
+                  <td class="text-center">
                     <button class="btn btn-xs btn-default btn-embossed">a</button>
                     <button class="btn btn-xs btn-info btn-embossed">i</button>
                     <button class="btn btn-xs btn-success btn-embossed">u</button>
                     </td>
-              
+
               </tr>
-              
-              
+
+
               ';
 
                   }

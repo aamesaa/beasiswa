@@ -53,6 +53,7 @@ include("../function/koneksi.php");
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
+          <li class="menuItem"><a href="Cicilan.php">Pengembalian </a></li>
           <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <li class="menuItem dropdown">
