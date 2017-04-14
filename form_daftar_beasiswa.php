@@ -137,7 +137,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
             </tr>
 
             <?php
-            $input_syr =_myobject(2,"kd_bsw","form-control","nm",&$kode_bsw_dipilih,"","","","","","required",$rowSyrBsw['nama_syarat'],"",$maxValue);
+            $input_syr =_myobject(2,"kd_bsw","form-control","nm",$kode_bsw_dipilih,"","","","","","required",$rowSyrBsw['nama_syarat'],"",$maxValue);
 
             while ($rowSyrBsw=mysqli_fetch_array($getSyrBeasiswa)){
               $maxValue="";

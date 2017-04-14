@@ -137,21 +137,31 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     while($hasil1=mysqli_fetch_array($row1)){
                         
                         $sql2="SELECT isi_syarat FROM syarat_daftar WHERE kd_syarat_bsw = '$hasil1[0]' AND kd_daftar='$hasil0[0]'";
-                        echo 'sql 2 :'.$sql2."<br>";
+
                         $row2 = mysqli_query($koneksi,$sql2);
-                        if(!$row2){
-                            while($hasil3=mysqli_fetch_array($sql2)){
-                                echo '<td>'.$row2[0].'</td>';
+                        $hasil2=mysqli_fetch_array($row2);
+                        echo 'sql 2 :'.$sql2."hasil :";
+                        echo $hasil2[0].'<br/>';
+                        if(!$hasil2[0]){
+                            echo '<td> kosong</td>';
+                        }else{
+                            echo '<td>'.$hasil2[0].'</td>';
+                        }
+
+                        /*if(!$hasil2[0]){
+                            while($hasil3=mysqli_fetch_array($row2)){
+                                echo '<td>'.$hasil2[0].'</td>';
                             }
                         }else{
+
                             echo '<td>'.$hasil1[1].' &nbsp; : kosong</td>';
-                        }
+                        } */
 
                     }
                     echo'
                         <td>
                             <a><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
-                            <a><span class="glyphicon glyphicon-list-alt btn btn-sm btn-primary btn-embossed"></span></a>
+                            
                         </td>
                     </tr>
                     ';

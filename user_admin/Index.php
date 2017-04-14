@@ -284,9 +284,9 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
              //$hasil= mysqli_field_count($koneksi);
              //echo $hasil;
               if(!$getSyr){
-                  echo 'bisa';
-              }else{
                   echo 'ga ada';
+              }else{
+                  echo 'ada';
               }
 
 
