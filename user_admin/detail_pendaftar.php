@@ -82,7 +82,6 @@ $rowBsw = mysqli_fetch_array($bswExc);
             <h2 class="text-center">Detail Pendaftar</h2>
             <br/>
             <table>
-
                 <tr>
                     <td>Nama Beasiswa &nbsp; </td>
                     <td>:&nbsp;</td>
@@ -98,8 +97,6 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     <td>:&nbsp;</td>
                     <td> <?php echo $rowBsw[2];?><br/> </td>
                 </tr>
-
-
             </table>
             <br/>
             <table class="table table-striped">
@@ -113,7 +110,6 @@ $rowBsw = mysqli_fetch_array($bswExc);
                         $sqlNamaBsw= "SELECT nama_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
                         $exc = mysqli_query($koneksi,$sqlNamaBsw);
                         while($row =mysqli_fetch_array($exc)){
-
                             echo '<th>'.$row[0].'</th>';
                         }
                     ?>
@@ -124,12 +120,11 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 $sql1="SELECT kd_syarat_bsw, nama_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
                 $row1=mysqli_query($koneksi,$sql1);
 
-                //ambil syarat
+                //ambil syarat, dipindah ke arry buat nti diambil
                 while($hasil1=mysqli_fetch_array($row1)){
                     $arrHasil1[] = $hasil1['kd_syarat_bsw'];
 
                 }
-
                 //ambil semua data
                 while($hasil0 = mysqli_fetch_array($daftarExc)){
 
