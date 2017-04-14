@@ -2,7 +2,7 @@
 
 Include("../function/koneksi.php");
 //Include("../function/login.php");
-$getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
+$getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC");
 //Include_once("edit_beasiswa.php");
 ?>
 
