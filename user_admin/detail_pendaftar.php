@@ -79,6 +79,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
     <div class="container">
         <div class="row">
             <br/><br/><br/>
+            <a href="index.php">Back to Home</a>
             <h2 class="text-center">Detail Pendaftar</h2>
             <br/>
             <table>
@@ -149,14 +150,26 @@ $rowBsw = mysqli_fetch_array($bswExc);
                                 echo '<td>'.$hasil2[0].'</td>';
                             }
                         }
+                        if(!$hasil0[5]){
+                            echo'
+                                <td>
+                                    <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
+                                    
+                                </td>
+                            </tr>
+                            ';
+                        }else{
+                            echo'
+                                <td>
+                                    <strong >DITERIMA</strong>
+                                    
+                                </td>
+                            </tr>
+                            ';
 
-                    echo'
-                        <td>
-                            <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
-                            
-                        </td>
-                    </tr>
-                    ';
+                        }
+
+
                 }
 
 

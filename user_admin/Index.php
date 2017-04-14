@@ -274,6 +274,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
           }
 
           $getSyrBsw=mysqli_query($koneksi,"SELECT * FROM ref_syarat");
+
           while($syrBsw= mysqli_fetch_array($getSyrBsw)){
               $getS = mysqli_query($koneksi,"SELECT * FROM syarat_bsw WHERE kd_syarat ='$syrBsw[kd_syarat]'");
               $getSyr=mysqli_fetch_array($getS);
