@@ -53,7 +53,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
-          <li class="menuItem"><a href="../user_admin/pinjaman.php">Pinjaman </a></li>
+          <li class="menuItem"><a href="Cicilan.php">Pengembalian </a></li>
           <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
           <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <li class="menuItem dropdown">
@@ -233,6 +233,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Syarat:</label>
                       <div class="col-sm-7">
+            
                       <div class="col-sm-offset-1 col-sm-7">
                           <label><input type="checkbox"> Scan KTM</label>
                           <br>
@@ -250,9 +251,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
                       </div>
                       </div>
                     </div>
-                    <div class="form-group">
-
-                    </div>
+ 
 
                   </div>
                   </div>
@@ -272,9 +271,27 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa");
             </tr>
 
             ';
+          }
+
+          $getSyrBsw=mysqli_query($koneksi,"SELECT * FROM ref_syarat");
+          while($syrBsw= mysqli_fetch_array($getSyrBsw)){
+              $getS = mysqli_query($koneksi,"SELECT * FROM syarat_bsw WHERE kd_syarat ='$syrBsw[kd_syarat]'");
+              $getSyr=mysqli_fetch_array($getS);
+              $ckbox='a';
+              echo  $syrBsw['nama_syarat'];
+              echo '<br/>';
+              echo  $getSyr['kd_bsw'];
+             //$hasil= mysqli_field_count($koneksi);
+             //echo $hasil;
+              if(!$getSyr){
+                  echo 'bisa';
+              }else{
+                  echo 'ga ada';
+              }
 
 
           }
+
           ?>
           <td>
 

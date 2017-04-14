@@ -12,13 +12,14 @@ $ket=$_POST['ket'];
 $kuota=$_POST['kuota'];
 $sql="INSERT INTO beasiswa VALUES('$kd_bsw', '$nama_bsw', '$semt','$thnajar', '$tgl_mulai', '$tgl_selesai', '$kuota', '$tampil','$ket')";
 $hasil = mysqli_query($koneksi,$sql);
-echo $sql;
-if($hasil){
-  echo'<div class="alert alert-succes">Berhasil ditambahkan</div>';
 
-}else{
-
-  echo'<div class="alert alert-danger">Gagal ditambahkan</div>';
+foreach($_POST['syarat_bsw'] as $check) {
+   $insertSql = "INSERT INTO syarat_bsw(kd_syarat, kd_bsw) VALUES ('$check','$kd_bsw')";
+   if(!mysqli_query($koneksi,$insertSql)){
+       echo("Error description: " . mysqli_error($con));
+   }
 
 }
+    header("location: index.php");
+
  ?>

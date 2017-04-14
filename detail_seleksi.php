@@ -125,7 +125,7 @@ date_default_timezone_set('Asia/Jakarta');
       </div>
     </div>
   </div>
-</body>
+
 <!-- JavaScript -->
   <script src="js/jquery-1.10.2.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -152,5 +152,5 @@ date_default_timezone_set('Asia/Jakarta');
   <script src="js/uiMorphingButton_inflow.js"></script>
   <!-- Magnific Popup core JS file -->
   <script src="js/jquery.magnific-popup.js"></script>
-
+</body>
 </html>
