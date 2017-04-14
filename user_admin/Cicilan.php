@@ -98,21 +98,19 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                   <td>'.$rowPjm['nama_mhs'].'</td>
                   <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
                   <td style="text-align:right">'.$sisa.'</td>
-<<<<<<< HEAD
                   <td class="text-center">
                     <button class="btn btn-xs btn-default btn-embossed">a</button>
                     <button class="btn btn-xs btn-info btn-embossed">i</button>
                     <button class="btn btn-xs btn-success btn-embossed">u</button>
                     </td>
 
-=======
-                  <td class="text-center"> 
+                  <td class="text-center">
                     <a><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
                     <a><span class="glyphicon glyphicon-plus btn btn-sm btn-primary btn-embossed"></span></a>
-                  
+
                   </td>
-              
->>>>>>> origin/development
+
+
               </tr>
 
 
