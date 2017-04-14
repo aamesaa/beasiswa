@@ -78,10 +78,11 @@ $rowBsw = mysqli_fetch_array($bswExc);
     </nav>
     <div class="container">
         <div class="row">
-            <br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/>
             <h2 class="text-center">Detail Pendaftar</h2>
             <br/>
             <table>
+
                 <tr>
                     <td>Nama Beasiswa &nbsp; </td>
                     <td>:&nbsp;</td>
@@ -98,8 +99,10 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     <td> <?php echo $rowBsw[2];?><br/> </td>
                 </tr>
 
+
             </table>
-            <table class="table table-bordered">
+            <br/>
+            <table class="table table-striped">
                 <tr>
                     <th>No Pendaftaran</th>
                     <th>NIM</th>
@@ -108,7 +111,6 @@ $rowBsw = mysqli_fetch_array($bswExc);
 
                     <?php
                         $sqlNamaBsw= "SELECT nama_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
-                    echo"sql namabsw = ".$sqlNamaBsw."<br/>";
                         $exc = mysqli_query($koneksi,$sqlNamaBsw);
                         while($row =mysqli_fetch_array($exc)){
 
@@ -120,8 +122,14 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 </tr>
                 <?php
                 $sql1="SELECT kd_syarat_bsw, nama_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
-                echo"sql 1 = ".$sql1."<br/>";
                 $row1=mysqli_query($koneksi,$sql1);
+
+                //ambil syarat
+                while($hasil1=mysqli_fetch_array($row1)){
+                    $arrHasil1[] = $hasil1['kd_syarat_bsw'];
+
+                }
+
                 //ambil semua data
                 while($hasil0 = mysqli_fetch_array($daftarExc)){
 
@@ -134,38 +142,28 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     
                     ';
                     //ambil syarat
-                    while($hasil1=mysqli_fetch_array($row1)){
-                        
-                        $sql2="SELECT isi_syarat FROM syarat_daftar WHERE kd_syarat_bsw = '$hasil1[0]' AND kd_daftar='$hasil0[0]'";
+                        foreach ($arrHasil1 as $item){
 
-                        $row2 = mysqli_query($koneksi,$sql2);
-                        $hasil2=mysqli_fetch_array($row2);
-                        echo 'sql 2 :'.$sql2."hasil :";
-                        echo $hasil2[0].'<br/>';
-                        if(!$hasil2[0]){
-                            echo '<td> kosong</td>';
-                        }else{
-                            echo '<td>'.$hasil2[0].'</td>';
-                        }
+                            $sql2="SELECT isi_syarat FROM syarat_daftar WHERE kd_syarat_bsw = '$item' AND kd_daftar='$hasil0[0]'";
 
-                        /*if(!$hasil2[0]){
-                            while($hasil3=mysqli_fetch_array($row2)){
+                            $row2 = mysqli_query($koneksi,$sql2);
+                            $hasil2=mysqli_fetch_array($row2);
+                            if(!$hasil2[0]){
+                                echo '<td> kosong</td>';
+                            }else{
                                 echo '<td>'.$hasil2[0].'</td>';
                             }
-                        }else{
+                        }
 
-                            echo '<td>'.$hasil1[1].' &nbsp; : kosong</td>';
-                        } */
-
-                    }
                     echo'
                         <td>
-                            <a><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
+                            <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
                             
                         </td>
                     </tr>
                     ';
                 }
+
 
                 ?>
 
