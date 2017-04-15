@@ -100,6 +100,20 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 </tr>
             </table>
             <br/>
+
+            <?php
+            if($rowBsw['isPublish']==0){
+                echo'
+                  <a href="publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-info pull-right">Publikasi </a>';
+            }elseif($rowBsw['isPublish']==1){
+                echo "";
+            }
+            ?>
+
+
+          </br>
+          </br>
+          </br>
             <table class="table table-striped">
                 <tr>
                     <th>No Pendaftaran</th>

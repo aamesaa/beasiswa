@@ -92,6 +92,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
           <th>Tgl Tutup</th>
           <th>Kuota</th>
           <th class="text-center">Ditampilkan</th>
+          <th class="text-center">Publikasi</th>
           <th class="text-center">Action</th>
         </thead>
         <tbody>
@@ -102,6 +103,15 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             if($rowBsw['isTampil']==1){
               $ketTampil="Ya";
               $warna="red";
+            }
+
+            if($rowBsw['isPublish']==1){
+              $ketTampil1="Ya";
+              $warna1="blue";
+            }
+            elseif ($rowBsw['isPublish']==0) {
+              $ketTampil1="Tidak";
+              $warna1="34495e";
             }
 
             $isAnakKar = "";
@@ -146,20 +156,21 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             <td>'.$rowBsw['tgl_tutup'].'</td>
             <td>'.$rowBsw['kuota'].'</td>
             <td class="text-center" style="color:'.$warna.'">'.$ketTampil.'</td>
+            <td class="text-center" style="color:'.$warna1.'">'.$ketTampil1.'</td>
             <td>
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
             &nbsp
             <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
-            
+
             <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash"></span></button>
-            &nbsp 
-            
+            &nbsp
+
              <!-- Modal DELETE -->
             <div id="delModal'.$rowBsw['kd_bsw'].'" class="modal fade" role="dialog">
               <div class="modal-dialog modal-lg">
-            
+
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
@@ -174,7 +185,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                     <a href="delete_beasiswa.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger btn-embossed btn-sm" style="text-decoration: none">Delete</a>
                   </div>
                 </div>
-            
+
               </div>
             </div>
 
@@ -250,6 +261,8 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                           <label ><input type="radio" name="tampil" value="0"'.$isNotTampilvalue.'>&nbsp Tidak</label>
                         </div>
                     </div>
+
+
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Keterangan:</label>
                       <div class="col-sm-6">
@@ -259,7 +272,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Syarat:</label>
                       <div class="col-sm-7">
-            
+
                       <div class="col-sm-offset-1 col-sm-7">
                           <label><input type="checkbox"> Scan KTM</label>
                           <br>
@@ -277,7 +290,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                       </div>
                       </div>
                     </div>
- 
+
 
                   </div>
                   </div>

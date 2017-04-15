@@ -1,9 +1,10 @@
 <?php
 include("../function/koneksi.php");
-$kd_daftar=$_POST['kd_daftar'];
-$nominal_disetujui=$_POST['nominal_disetujui'];
-$sql="UPDATE  pendaftaran SET nominal_disetujui ='$nominal_disetujui'
-      WHERE kd_daftar = '$kd_daftar'";
+$kd_bsw=$_GET['kd_bsw'];
+$sql="UPDATE  beasiswa SET isPublish = 1
+      WHERE kd_bsw = '$kd_bsw'";
+echo $sql;
+
 if(!mysqli_query($koneksi,$sql)){
 
     echo("Error description: " . mysqli_error($koneksi));
