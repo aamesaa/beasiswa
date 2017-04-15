@@ -153,15 +153,15 @@ $rowBsw = mysqli_fetch_array($bswExc);
                         if(!$hasil0[5]){
                             echo'
                                 <td>
-                                    <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed" data-toggle="modal" data-target="#myModal"></span></a>
-                                    <div class="modal fade" id="myModal" role="dialog">
+                                    <a class="btn btn-sm btn-info btn-embossed" style="text-decoration: none"data-toggle="modal" data-target="#myModal'.$hasil0[0].'">Terima</a>
+                                    <div class="modal fade" id="myModal'.$hasil0[0].'" role="dialog">
                                       <div class="modal-dialog">
 
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Modal Header</h4>
+                                            <h4 class="modal-title">Penerimaan Beasiswa</h4>
                                           </div>
                                           <div class="modal-body">
 
@@ -169,7 +169,8 @@ $rowBsw = mysqli_fetch_array($bswExc);
                                             <div class="form-group">
                                             <label class="control-label col-sm-4" for="kd_daftar">Kode Daftar :</label>
                                             <div class="col-sm-6">
-                                              <input type="text" class="form-control" id="kd_daftar" name="kd_daftar" value="'.$hasil0[0].'">
+                                              <p>'.$hasil0[0].'</p>
+                                              <input type="hidden" class="form-control" id="kd_daftar" name="kd_daftar" value="'.$hasil0[0].'" >
                                             </div>
                                             </div>
                                             <div class="form-group">
