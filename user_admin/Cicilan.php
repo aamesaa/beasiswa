@@ -104,7 +104,6 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                               <td class="text-center">
                                 
                                     <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="	glyphicon glyphicon-list-alt"></span></button>
-
                                     <!-- Modal -->
                                     <div id="myModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
                                       <div class="modal-dialog">
@@ -119,7 +118,7 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                                            '.getDetailCicilan($rowPjm['kd_daftar'] ).'\
                                           </div>
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                           </div>
                                         </div>
                                     

@@ -21,11 +21,8 @@ function getDetailCicilan ($kd_dftr){
             <td>'.$row['tgl_bayar'].'</td>
             <td style="text-align:right;">'.$row['nominal_bayar'].'</td>
         </tr>
-        
         ';
-
     }
-
     $table='
     <table>
         <tr>
