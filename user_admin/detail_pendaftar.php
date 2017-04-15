@@ -135,7 +135,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     <td>'.$hasil0[1].'</td>
                     <td>'.$hasil0[2].'</td>
                     <td>'.$hasil0[3].'</td>
-                    
+
                     ';
                     //ambil syarat
                         foreach ($arrHasil1 as $item){
@@ -153,8 +153,45 @@ $rowBsw = mysqli_fetch_array($bswExc);
                         if(!$hasil0[5]){
                             echo'
                                 <td>
+<<<<<<< Updated upstream
                                     <a href="terima_bsw.php?kd='.$hasil0[0].'"><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
                                     
+=======
+                                    <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed" data-toggle="modal" data-target="#myModal"></span></a>
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                      <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Modal Header</h4>
+                                          </div>
+                                          <div class="modal-body">
+
+                                            <form class="form-horizontal" action="edit_pendaftaran.php" method="POST">
+                                            <div class="form-group">
+                                            <label class="control-label col-sm-4" for="kd_daftar">Kode Daftar :</label>
+                                            <div class="col-sm-6">
+                                              <input type="text" class="form-control" id="kd_daftar" name="kd_daftar" value="'.$hasil0[0].'">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <label class="control-label col-sm-4" for="nominal_disetujui">Nominal Disetujui :</label>
+                                            <div class="col-sm-6">
+                                              <input type="text" class="form-control" id="nominal_disetujui" name="nominal_disetujui">
+                                            </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
+                                        </div>
+
+                                      </div>
+                                    </div>
+
+>>>>>>> Stashed changes
                                 </td>
                             </tr>
                             ';
@@ -162,7 +199,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                             echo'
                                 <td>
                                     <strong >DITERIMA</strong>
-                                    
+
                                 </td>
                             </tr>
                             ';
@@ -211,4 +248,3 @@ $rowBsw = mysqli_fetch_array($bswExc);
 
 </body>
 </HTML>
-
