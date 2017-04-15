@@ -153,7 +153,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                         if(!$hasil0[5]){
                             echo'
                                 <td>
-                                    <a><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
+                                    <a href="terima_bsw.php?kd='.$hasil0[0].'"><span class="glyphicon glyphicon-plus btn btn-xs btn-info btn-embossed"></span></a>
                                     
                                 </td>
                             </tr>
