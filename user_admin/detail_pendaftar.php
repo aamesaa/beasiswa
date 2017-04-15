@@ -108,7 +108,8 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 echo'
                   <a href="publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-info pull-right">Publikasi </a>';
             }elseif($rowBsw['isPublish']==1){
-                echo "";
+                echo '
+                <a href="batal_publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger pull-right"> Batal Publikasi </a>';
             }
             ?>
 
