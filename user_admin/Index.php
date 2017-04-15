@@ -168,8 +168,8 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             &nbsp
 
              <!-- Modal DELETE -->
-            <div id="delModal'.$rowBsw['kd_bsw'].'" class="modal fade" role="dialog">
-              <div class="modal-dialog modal-lg">
+            <div id="delModal'.$rowBsw['kd_bsw'].'" class="modal fade " role="dialog">
+              <div class="modal-dialog modal-sm">
 
                 <!-- Modal content-->
                 <div class="modal-content">
