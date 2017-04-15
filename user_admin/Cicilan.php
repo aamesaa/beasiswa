@@ -1,5 +1,7 @@
 <?php
 Include("../function/koneksi.php");
+Include ("../function/coba.php");
+Include ("../function/create_modal.php");
 //Include_once ("../function/login.php");
 $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
 $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
@@ -100,28 +102,51 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                               <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
                               <td style="text-align:right">'.$sisa.'</td>
                               <td class="text-center">
-                                <a href="detail_cicilan.php?kd_dftar='.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
-                                <a><span class="glyphicon glyphicon-plus btn btn-sm btn-primary btn-embossed"></span></a>
-                              </td>
-                          </tr>
+                                
+                                    <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="	glyphicon glyphicon-list-alt"></span></button>
+
+                                    <!-- Modal -->
+                                    <div id="myModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
+                                      <div class="modal-dialog">
+                                    
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Detail Cicilan pinjaman</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                           '.getDetailCicilan($rowPjm['kd_daftar'] ).'\
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
+                                    
+                                      </div>
+                                    </div>
+           
+                               
                        ';
+
+                      //$modalId= "MyModal".$rowPjm['kd_daftar'];
+                      //echo createModal($modalId,"Detail Pinjaman",getDetailCicilan($rowPjm['kd_daftar']),"<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>");
+
                   }
                   ?>
               </table>
-          </div>
-      </div>
-
 
 
   </div>
 
+
   <!-- JavaScript -->
-  <script src="js/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/owl.carousel.js"></script>
-  <script src="js/script.js"></script>
+  <script src="../js/jquery-1.10.2.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/owl.carousel.js"></script>
+  <script src="../js/script.js"></script>
   <!-- StikyMenu -->
-  <script src="js/stickUp.min.js"></script>
+  <script src="../js/stickUp.min.js"></script>
   <script type="text/javascript">
       jQuery(function($) {
           $(document).ready( function() {
@@ -132,15 +157,15 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
 
   </script>
   <!-- Smoothscroll -->
-  <script type="text/javascript" src="js/jquery.corner.js"></script>
-  <script src="js/wow.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.corner.js"></script>
+  <script src="../js/wow.min.js"></script>
   <script>
       new WOW().init();
   </script>
-  <script src="js/classie.js"></script>
-  <script src="js/uiMorphingButton_inflow.js"></script>
+  <script src="../js/classie.js"></script>
+  <script src="../js/uiMorphingButton_inflow.js"></script>
   <!-- Magnific Popup core JS file -->
-  <script src="js/jquery.magnific-popup.js"></script>
+  <script src="../js/jquery.magnific-popup.js"></script>
 
 
 

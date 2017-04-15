@@ -19,7 +19,7 @@ function getDetailCicilan ($kd_dftr){
         $hasil= $hasil.'
         <tr>
             <td>'.$row['tgl_bayar'].'</td>
-            <td>'.$row['nominal_bayar'].'</td>
+            <td style="text-align:right;">'.$row['nominal_bayar'].'</td>
         </tr>
         
         ';
@@ -29,8 +29,8 @@ function getDetailCicilan ($kd_dftr){
     $table='
     <table>
         <tr>
-            <th>Tanggal</th>
-            <th>Jumlah</th>
+            <th class="text-center">Tanggal</th>
+            <th class="text-center">Jumlah</th>
         </tr>
         '.$hasil.'
     </table>    
