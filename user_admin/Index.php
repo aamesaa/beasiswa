@@ -152,7 +152,33 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             &nbsp
             <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
             &nbsp
-            <a href="delete_beasiswa.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
+            
+            <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash"></span></button>
+            &nbsp 
+            
+             <!-- Modal DELETE -->
+            <div id="delModal'.$rowBsw['kd_bsw'].'" class="modal fade" role="dialog">
+              <div class="modal-dialog modal-lg">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure to delete this record?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancel</button>
+                    <a href="delete_beasiswa.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger btn-embossed btn-sm" style="text-decoration: none">Delete</a>
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+
+
 
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$rowBsw['kd_bsw'].'" role="dialog">
