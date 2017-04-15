@@ -72,6 +72,9 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
       <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
+              <?php
+
+              ?>
               <table class="table table-striped table-bordered">
                   <tr ">
                   <th class="text-center" width="13%">Kode Daftar</th>
@@ -84,40 +87,25 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
 
                   <?php
                   while ($rowPjm =  mysqli_fetch_array($getDataPinjaman)){
-
                       $sisa=(string)$rowPjm[4];
                       if ($sisa==0){
                           $sisa = "<strong style='color: #68bacd'>Lunas</strong>";
                       }
-
-
+                      $getKodeDftr= $rowPjm['kd_daftar'];
                       echo'
-              <tr>
-                  <td>'.$rowPjm['kd_daftar'].'</td>
-                  <td>'.$rowPjm['nim'].'</td>
-                  <td>'.$rowPjm['nama_mhs'].'</td>
-                  <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
-                  <td style="text-align:right">'.$sisa.'</td>
-                  <td class="text-center">
-                    <button class="btn btn-xs btn-default btn-embossed">a</button>
-                    <button class="btn btn-xs btn-info btn-embossed">i</button>
-                    <button class="btn btn-xs btn-success btn-embossed">u</button>
-                    </td>
-
-                  <td class="text-center">
-                    <a><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
-                    <a><span class="glyphicon glyphicon-plus btn btn-sm btn-primary btn-embossed"></span></a>
-
-                  </td>
-
-
-              </tr>
-
-
-              ';
-
+                          <tr>
+                              <td>'.$rowPjm['kd_daftar'].'</td>
+                              <td>'.$rowPjm['nim'].'</td>
+                              <td>'.$rowPjm['nama_mhs'].'</td>
+                              <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
+                              <td style="text-align:right">'.$sisa.'</td>
+                              <td class="text-center">
+                                <a href="detail_cicilan.php?kd_dftar='.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt btn btn-sm btn-info btn-embossed"></span></a>
+                                <a><span class="glyphicon glyphicon-plus btn btn-sm btn-primary btn-embossed"></span></a>
+                              </td>
+                          </tr>
+                       ';
                   }
-
                   ?>
               </table>
           </div>
@@ -126,7 +114,6 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
 
 
   </div>
-
 
   <!-- JavaScript -->
   <script src="js/jquery-1.10.2.js"></script>
@@ -158,4 +145,5 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
 
 
 </body>
+
 </html>

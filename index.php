@@ -91,7 +91,7 @@ date_default_timezone_set('Asia/Jakarta');
       <br><br>
 
       <?php
-        $sql=mysqli_query($koneksi,"SELECT * FROM beasiswa where isTampil='1'");
+        $sql=mysqli_query($GLOBALS["koneksi"],"SELECT * FROM beasiswa where isTampil='1'");
         while ($row= mysqli_fetch_array($sql))
         {
           //Cek bisa daftar ga
@@ -140,7 +140,7 @@ date_default_timezone_set('Asia/Jakarta');
     <br><br>
 
     <?php
-    $squery = mysqli_query($koneksi, "select * from beasiswa");
+    $squery = mysqli_query($GLOBALS['koneksi'], "select * from beasiswa");
     while($row = mysqli_fetch_array($squery))
     {
     echo '
