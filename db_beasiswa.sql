@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2017 at 05:05 PM
+-- Generation Time: Apr 15, 2017 at 12:59 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -35,24 +35,23 @@ CREATE TABLE `beasiswa` (
   `tgl_tutup` date NOT NULL,
   `kuota` int(11) NOT NULL,
   `isTampil` tinyint(1) NOT NULL,
-  `Keterangan` mediumtext NOT NULL
+  `Keterangan` mediumtext NOT NULL,
+  `isPublish` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `beasiswa`
 --
 
-INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`) VALUES
-('111', 'Beasiswa Kebutuhan', 'Genap', '2014/2015', '2017-04-12', '2017-04-19', 999, 1, 'aaa'),
-('220', 'Beasiswa Anak Karyawan', 'Genap', '2001/2009', '2017-04-12', '2017-04-13', 200, 1, 'Keterangan'),
-('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 125, 1, 'Beasiswa bagi anak karyawan'),
-('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm'),
-('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi'),
-('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana'),
-('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 0, 'Bagi mahasiswa yang membutuhkan'),
-('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna '),
-('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad'),
-('sss', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 1, 'qqq');
+INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`, `isPublish`) VALUES
+('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 125, 1, 'Beasiswa bagi anak karyawan', 0),
+('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm', 0),
+('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
+('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana', 0),
+('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 0, 'Bagi mahasiswa yang membutuhkan', 0),
+('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 1),
+('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad', 1),
+('sss', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 0, 'qqq', 0);
 
 -- --------------------------------------------------------
 
@@ -94,7 +93,7 @@ CREATE TABLE `pendaftaran` (
   `kd_bsw` char(3) NOT NULL,
   `tgl_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `semester` char(9) NOT NULL,
-  `thn_ajaran` char(6) NOT NULL,
+  `thn_ajaran` char(8) NOT NULL,
   `nominal_pengajuan` int(11) NOT NULL,
   `nominal_disetujui` int(11) DEFAULT NULL,
   `sisa_pinjaman` int(11) DEFAULT NULL
@@ -105,10 +104,11 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `semester`, `thn_ajaran`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
-('11111111', '72140033', 'P09', '2017-04-10 06:22:04', 'GenAP', '19/10', 10000000, NULL, NULL),
-('12122', '72140034', 'P09', '2017-04-13 13:05:54', 'GENAP', '2014', 9999, 46578, NULL),
-('BBBBBB', '72140033', 'P01', '2017-04-10 06:21:25', 'Genap', '16/17', 10000000, 900000, NULL),
-('uuu', '72140033', 'A01', '2017-04-11 01:01:01', 'j', '6', 233, 12334, NULL);
+('11111111', '72140033', 'P01', '2017-04-10 06:22:04', 'GenAP', '19/10', 10000000, NULL, NULL),
+('12122', '72140034', 'P09', '2017-04-13 13:05:54', 'GENAP', '2014', 9999, 46578, 46578),
+('333333', '72140034', 'P09', '2017-04-14 16:30:09', 'Genap', '201020', 10000000, NULL, NULL),
+('BBBBBB', '72140033', 'P09', '2017-04-10 06:21:25', 'Genap', '16/17', 10000000, 900000, 500000),
+('uuu', '72140033', 'P01', '2017-04-11 01:01:01', 'j', '6', 233, 12334, 0);
 
 -- --------------------------------------------------------
 
@@ -124,11 +124,25 @@ CREATE TABLE `pengembalian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `pengembalian`
+--
+
+INSERT INTO `pengembalian` (`kd_bayar`, `kd_daftar`, `tgl_bayar`, `nominal_bayar`) VALUES
+(3, 'BBBBBB', '2017-04-13 15:11:14', 100000),
+(5, 'BBBBBB', '2017-04-13 16:03:57', 50000),
+(6, '12122', '2017-04-13 16:08:23', 46500),
+(7, 'uuu', '2017-04-13 16:10:23', 111),
+(8, 'uuu', '2017-04-13 16:12:27', 4),
+(9, 'uuu', '2017-04-13 16:27:03', 12330),
+(11, 'BBBBBB', '2017-04-15 09:34:44', 50000),
+(14, 'BBBBBB', '2017-04-15 09:44:00', 200000);
+
+--
 -- Triggers `pengembalian`
 --
 DELIMITER $$
 CREATE TRIGGER `TG_update_sisa_pinjaman` AFTER INSERT ON `pengembalian` FOR EACH ROW BEGIN
- UPDATE pendaftaran SET sisa_pinjamank=sisa_pinjaman-NEW.nominal_bayar
+ UPDATE pendaftaran SET sisa_pinjaman=sisa_pinjaman-NEW.nominal_bayar
  WHERE kd_daftar=NEW.kd_daftar;
 END
 $$
@@ -240,7 +254,7 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 (92, 'S05', 'K01'),
 (93, 'S10', 'K01'),
 (94, 'S03', 'P01'),
-(95, 'S08', 'P01'),
+(95, 'S08', 'P09'),
 (96, 'S07', 'P01'),
 (97, 'S09', 'P01'),
 (98, 'S11', 'P01'),
@@ -272,6 +286,14 @@ CREATE TABLE `syarat_daftar` (
   `kd_syarat_bsw` int(11) NOT NULL,
   `isi_syarat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `syarat_daftar`
+--
+
+INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `isi_syarat`) VALUES
+(1, 'BBBBBB', 95, 'ssss'),
+(2, '12122', 95, 'zxZXZXX');
 
 -- --------------------------------------------------------
 
@@ -398,7 +420,7 @@ ALTER TABLE `system_usr`
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `syarat_bsw`
 --
@@ -408,7 +430,7 @@ ALTER TABLE `syarat_bsw`
 -- AUTO_INCREMENT for table `syarat_daftar`
 --
 ALTER TABLE `syarat_daftar`
-  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --

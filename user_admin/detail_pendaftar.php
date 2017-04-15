@@ -82,23 +82,25 @@ $rowBsw = mysqli_fetch_array($bswExc);
             <a href="index.php">Back to Home</a>
             <h2 class="text-center">Detail Pendaftar</h2>
             <br/>
-            <table>
-                <tr>
-                    <td>Nama Beasiswa &nbsp; </td>
-                    <td>:&nbsp;</td>
-                    <td><?php echo $rowBsw[0];?> </td>
-                </tr>
-                <tr>
-                    <td>Semester</td>
-                    <td>:&nbsp;</td>
-                    <td><?php echo $rowBsw[1];?></td>
-                </tr>
-                <tr>
-                    <td> Thn Ajaran </td>
-                    <td>:&nbsp;</td>
-                    <td> <?php echo $rowBsw[2];?><br/> </td>
-                </tr>
-            </table>
+            <div class="alert alert-info">
+                <table>
+                    <tr>
+                        <td>Nama Beasiswa &nbsp; </td>
+                        <td>:&nbsp;</td>
+                        <td><?php echo $rowBsw[0];?> </td>
+                    </tr>
+                    <tr>
+                        <td>Semester</td>
+                        <td>:&nbsp;</td>
+                        <td><?php echo $rowBsw[1];?></td>
+                    </tr>
+                    <tr>
+                        <td> Thn Ajaran </td>
+                        <td>:&nbsp;</td>
+                        <td> <?php echo $rowBsw[2];?><br/> </td>
+                    </tr>
+                </table>
+            </div>
             <br/>
             <table class="table table-striped">
                 <tr>

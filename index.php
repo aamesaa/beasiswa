@@ -140,7 +140,7 @@ date_default_timezone_set('Asia/Jakarta');
     <br><br>
 
     <?php
-    $squery = mysqli_query($GLOBALS['koneksi'], "select * from beasiswa");
+    $squery = mysqli_query($GLOBALS['koneksi'], "select * from beasiswa where isPublish = '1'");
     while($row = mysqli_fetch_array($squery))
     {
     echo '
