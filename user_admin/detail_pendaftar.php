@@ -186,7 +186,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                                             <div class="form-group">
                                             <label class="control-label col-sm-4" for="kd_daftar">Kode Daftar :</label>
                                             <div class="col-sm-6">
-                                              <p>'.$hasil0[0].'</p>
+                                              <input type="text" class="form-control" id="kd_daftar" name="kd_daftar" value="'.$hasil0[0].'" disabled >
                                               <input type="hidden" class="form-control" id="kd_daftar" name="kd_daftar" value="'.$hasil0[0].'" >
                                             </div>
                                             </div>
