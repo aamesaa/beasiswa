@@ -10,13 +10,15 @@ $tgl_selesai=$_POST['tutup'];
 $tampil=$_POST['tampil'];
 $ket=$_POST['ket'];
 $kuota=$_POST['kuota'];
-$sql="INSERT INTO beasiswa VALUES('$kd_bsw', '$nama_bsw', '$semt','$thnajar', '$tgl_mulai', '$tgl_selesai', '$kuota', '$tampil','$ket')";
+$sql="INSERT INTO beasiswa VALUES('$kd_bsw', '$nama_bsw', '$semt','$thnajar', '$tgl_mulai', '$tgl_selesai', '$kuota', '$tampil','$ket','0')";
 $hasil = mysqli_query($koneksi,$sql);
-
+echo $sql."<br/>";
 foreach($_POST['syarat_bsw'] as $check) {
+
    $insertSql = "INSERT INTO syarat_bsw(kd_syarat, kd_bsw) VALUES ('$check','$kd_bsw')";
+   echo $insertSql."<br/>";
    if(!mysqli_query($koneksi,$insertSql)){
-       echo("Error description: " . mysqli_error($con));
+       echo("Error description: " . mysqli_error($koneksi)."<br/>");
    }
 
 }
