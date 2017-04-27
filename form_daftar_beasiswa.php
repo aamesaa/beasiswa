@@ -93,7 +93,11 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
       <div class="col-lg-1 col-md-1"></div>
       <div class="col-md-10 col-lg-10">
         <form action="function/upload.php" class="form-inline " method="POST" enctype="multipart/form-data">
-          <table>
+
+            <input type="hidden" name="kd_bsw" id="kd_bsw" value="<?php echo $rowBsw['kd_bsw']; ?>">
+            <input type="hidden" name="nim" id="nim" value="<?php echo $rowMhs['nim']; ?>">
+
+            <table>
 
             <tr>
                 <td> Nama Beasiswa </td>

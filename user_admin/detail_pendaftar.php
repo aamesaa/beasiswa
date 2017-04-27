@@ -101,6 +101,8 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     </tr>
                 </table>
             </div>
+
+
             <br/>
 
             <?php

@@ -272,6 +272,7 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Syarat:</label>
                       <div class="col-sm-7">
+              
 
                       <div class="col-sm-offset-1 col-sm-7">
                           <label><input type="checkbox"> Scan KTM</label>
