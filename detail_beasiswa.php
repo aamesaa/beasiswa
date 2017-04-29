@@ -118,6 +118,7 @@ date_default_timezone_set('Asia/Jakarta');
           </tr>
         </table>
       </div>
+
       <?php
       $getSyrSql="SELECT nama_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw'";
       $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
@@ -131,8 +132,8 @@ date_default_timezone_set('Asia/Jakarta');
           echo $rowSyrBsw['nama_syarat'];
           echo "</li>";
         }
-
          ?>
+
        </ul>
       </div>
     <?php

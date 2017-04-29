@@ -101,8 +101,23 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     </tr>
                 </table>
             </div>
-            <br/>
 
+
+            <?php
+            $getSyrSql="SELECT nama_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw'";
+            $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
+            ?>
+            <div class="alert alert-info" id="syaratBsw">
+              <h4> Syarat</h4>
+              <ul style="list-style-type:disc">
+              <?php
+              while ($rowSyrBsw=mysqli_fetch_array($getSyrBeasiswa)){
+                echo"<li> - &nbsp";
+                echo $rowSyrBsw['nama_syarat'];
+                echo "</li>";
+              }
+              ?>
+            </div>
             <?php
             if($rowBsw['isPublish']==0){
                 echo'
@@ -112,8 +127,9 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 <a href="batal_publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger pull-right"> Batal Publikasi </a>';
             }
             ?>
-
-
+            &nbsp; &nbsp; &nbsp;
+            <a href="eksport.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>
+            &nbsp; &nbsp; &nbsp;
           </br>
           </br>
           </br>
