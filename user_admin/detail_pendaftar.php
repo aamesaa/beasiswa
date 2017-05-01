@@ -102,7 +102,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 </table>
             </div>
 
-
+            <br/>
             <?php
             $getSyrSql="SELECT nama_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw'";
             $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
