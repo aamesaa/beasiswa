@@ -8,5 +8,5 @@ header("Content-type: application/vnd-ms-excel");
 header("Content-Disposition: attachment; filename=beasiswa-export.xls");
 
 // Tambahkan table
-include 'data.php';
+include 'detail_pendaftar.php';
 ?>
