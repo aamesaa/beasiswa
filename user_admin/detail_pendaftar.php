@@ -128,7 +128,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
             }
             ?>
             &nbsp; &nbsp; &nbsp;
-            <a href="eksport.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>
+            <a href="export.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>
             &nbsp; &nbsp; &nbsp;
           </br>
           </br>
