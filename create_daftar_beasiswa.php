@@ -15,6 +15,9 @@ $nim =$_SESSION['session_id'];
 $kd_bsw=$_POST['kd_bsw'];
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+if (1==1)
+
+    
 
 
 ?>
