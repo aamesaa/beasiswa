@@ -1,4 +1,6 @@
 <?php
+Include("../function/koneksi.php");
+$kd_bsw=$_POST['kd_bsw'];
 // Fungsi header dengan mengirimkan raw data excel
 header("Content-type: application/vnd-ms-excel");
 

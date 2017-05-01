@@ -1,5 +1,6 @@
 <?php
 Include("../function/koneksi.php");
+$kd_bsw=$_POST['kd_bsw'];
 ?>
 <html>
 <table border="1">
@@ -14,7 +15,7 @@ Include("../function/koneksi.php");
 	</tr>
 	<?php
 	//query menampilkan data
-	$sql = mysql_query("SELECT * FROM siswa ORDER BY id ASC");
+	$sql = mysql_query("SELECT * FROM beasiswa where kd_bsw='$kd_bsw' and nominal_disetujui is not null ");
 	$no = 1;
 	while($data = mysql_fetch_assoc($sql)){
 		echo '
