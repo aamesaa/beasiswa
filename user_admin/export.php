@@ -5,7 +5,33 @@ header("Content-type: application/vnd-ms-excel");
 
 // Mendefinisikan nama file ekspor "hasil-export.xls"
 header("Content-Disposition: attachment; filename=beasiswa-export.xls");
+$kd_bsw = $_GET['kd_bsw'];
 
 // Tambahkan table
-include 'detail_pendaftar.php';
+include 'data.php';
+/*echo'
+<table border="1">
+	<tr>
+		<th>NO.</th>
+		<th>NIM</th>
+	</tr>';
+
+
+	//query menampilkan data
+    $query="SELECT * FROM pendaftaran where kd_bsw='".$_GET['kd_bsw']."' and nominal_disetujui is not null ";
+	$sql = mysqli_query($koneksi,$query);
+
+	$no = 1;
+	while($data = mysqli_fetch_array($sql)){
+        echo '
+		<tr>
+			<td>'.$no.'</td>
+			<td>'.$data['nim'].'</td>
+		</tr>
+		';
+        $no++;
+    }
+echo'</table>';*/
+
+
 ?>

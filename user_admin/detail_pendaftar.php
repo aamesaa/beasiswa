@@ -126,9 +126,9 @@ $rowBsw = mysqli_fetch_array($bswExc);
                 echo '
                 <a href="batal_publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger pull-right"> Batal Publikasi </a>';
             }
+
+            echo'<a href="export.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>';
             ?>
-            &nbsp; &nbsp; &nbsp;
-            <a href="export.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>
             &nbsp; &nbsp; &nbsp;
           </br>
           </br>
