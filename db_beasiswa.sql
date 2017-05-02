@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2017 at 12:59 PM
+-- Generation Time: May 02, 2017 at 09:58 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -48,6 +48,7 @@ INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `t
 ('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm', 0),
 ('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
 ('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana', 0),
+('B10', 'Beasiswa Anak Karyawan', 'Genap', '2013/2012', '2017-04-12', '2017-04-27', 99, 1, 'ww', 0),
 ('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 0, 'Bagi mahasiswa yang membutuhkan', 0),
 ('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 1),
 ('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad', 1),
@@ -88,7 +89,7 @@ INSERT INTO `mahasiswa` (`NIM`, `kd_prodi`, `nama_mhs`, `gender`, `tgl_lahir`, `
 --
 
 CREATE TABLE `pendaftaran` (
-  `kd_daftar` char(8) NOT NULL,
+  `kd_daftar` int(8) NOT NULL,
   `nim` char(8) NOT NULL,
   `kd_bsw` char(3) NOT NULL,
   `tgl_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -104,11 +105,11 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `semester`, `thn_ajaran`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
-('11111111', '72140033', 'P01', '2017-04-10 06:22:04', 'GenAP', '19/10', 10000000, NULL, NULL),
-('12122', '72140034', 'P09', '2017-04-13 13:05:54', 'GENAP', '2014', 9999, 46578, 46578),
-('333333', '72140034', 'P09', '2017-04-14 16:30:09', 'Genap', '201020', 10000000, NULL, NULL),
-('BBBBBB', '72140033', 'P09', '2017-04-10 06:21:25', 'Genap', '16/17', 10000000, 900000, 500000),
-('uuu', '72140033', 'P01', '2017-04-11 01:01:01', 'j', '6', 233, 12334, 0);
+(12122, '72140034', 'P09', '2017-04-13 13:05:54', 'GENAP', '2014', 9999, 46578, 0),
+(55555, '72140033', 'P01', '2017-04-11 01:01:01', 'j', '6', 233, 12334, 0),
+(333333, '72140034', 'P09', '2017-04-14 16:30:09', 'Genap', '201020', 10000000, 1000, NULL),
+(444444, '72140033', 'P09', '2017-04-10 06:21:25', 'Genap', '16/17', 10000000, 900000, 500000),
+(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 'GenAP', '19/10', 10000000, 700000, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,7 @@ INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `semester
 
 CREATE TABLE `pengembalian` (
   `kd_bayar` int(11) NOT NULL,
-  `kd_daftar` char(8) NOT NULL,
+  `kd_daftar` int(8) NOT NULL,
   `tgl_bayar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nominal_bayar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -128,14 +129,19 @@ CREATE TABLE `pengembalian` (
 --
 
 INSERT INTO `pengembalian` (`kd_bayar`, `kd_daftar`, `tgl_bayar`, `nominal_bayar`) VALUES
-(3, 'BBBBBB', '2017-04-13 15:11:14', 100000),
-(5, 'BBBBBB', '2017-04-13 16:03:57', 50000),
-(6, '12122', '2017-04-13 16:08:23', 46500),
-(7, 'uuu', '2017-04-13 16:10:23', 111),
-(8, 'uuu', '2017-04-13 16:12:27', 4),
-(9, 'uuu', '2017-04-13 16:27:03', 12330),
-(11, 'BBBBBB', '2017-04-15 09:34:44', 50000),
-(14, 'BBBBBB', '2017-04-15 09:44:00', 200000);
+(3, 444444, '2017-04-13 15:11:14', 100000),
+(5, 444444, '2017-04-13 16:03:57', 50000),
+(6, 12122, '2017-04-13 16:08:23', 46500),
+(7, 55555, '2017-04-13 16:10:23', 111),
+(8, 55555, '2017-04-13 16:12:27', 4),
+(9, 55555, '2017-04-13 16:27:03', 12330),
+(11, 444444, '2017-04-15 09:34:44', 50000),
+(14, 444444, '2017-04-15 09:44:00', 200000),
+(15, 12122, '2017-04-17 14:58:52', 8),
+(16, 12122, '2017-04-17 14:59:05', 570),
+(17, 12122, '2017-04-18 05:09:07', 1000),
+(18, 12122, '2017-04-18 05:09:13', 45000),
+(19, 444444, '2017-04-18 05:10:02', 0);
 
 --
 -- Triggers `pengembalian`
@@ -272,7 +278,10 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 (110, 'S04', 'P09'),
 (111, 'S06', 'P09'),
 (112, 'S08', 'P09'),
-(113, 'S10', 'P09');
+(113, 'S10', 'P09'),
+(139, 'S05', 'B10'),
+(140, 'S06', 'B10'),
+(141, 'S07', 'B10');
 
 -- --------------------------------------------------------
 
@@ -282,7 +291,7 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 
 CREATE TABLE `syarat_daftar` (
   `kd_syarat_dftr` int(11) NOT NULL,
-  `kd_daftar` char(8) NOT NULL,
+  `kd_daftar` int(8) NOT NULL,
   `kd_syarat_bsw` int(11) NOT NULL,
   `isi_syarat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -292,8 +301,8 @@ CREATE TABLE `syarat_daftar` (
 --
 
 INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `isi_syarat`) VALUES
-(1, 'BBBBBB', 95, 'ssss'),
-(2, '12122', 95, 'zxZXZXX');
+(1, 11111111, 95, 'ssss'),
+(2, 12122, 95, 'zxZXZXX');
 
 -- --------------------------------------------------------
 
@@ -312,31 +321,10 @@ CREATE TABLE `system_usr` (
 --
 
 INSERT INTO `system_usr` (`user_id`, `password`, `role`) VALUES
-('72140033', 'halohalo', 0),
+('72140033', 'halohalo', 9),
 ('admin', 'admin', 1),
 ('user', 'user', 0),
 ('wd', 'wd', 9);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_syarat_beasiswa`
---
-CREATE TABLE `view_syarat_beasiswa` (
-`kd_syarat` char(3)
-,`nama_syarat` varchar(99)
-,`kd_syarat_bsw` int(11)
-,`nama_bsw` varchar(99)
-);
-
--- --------------------------------------------------------
-
---
--- Structure for view `view_syarat_beasiswa`
---
-DROP TABLE IF EXISTS `view_syarat_beasiswa`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_syarat_beasiswa`  AS  select `sb`.`kd_syarat` AS `kd_syarat`,`s`.`nama_syarat` AS `nama_syarat`,`sb`.`kd_syarat_bsw` AS `kd_syarat_bsw`,`b`.`nama_bsw` AS `nama_bsw` from ((`syarat_bsw` `sb` join `ref_syarat` `s` on((`sb`.`kd_syarat` = `s`.`kd_syarat`))) join `beasiswa` `b` on((`sb`.`kd_bsw` = `b`.`kd_bsw`))) order by `sb`.`kd_syarat_bsw` ;
 
 --
 -- Indexes for dumped tables
@@ -417,15 +405,20 @@ ALTER TABLE `system_usr`
 --
 
 --
+-- AUTO_INCREMENT for table `pendaftaran`
+--
+ALTER TABLE `pendaftaran`
+  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111112;
+--
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `syarat_bsw`
 --
 ALTER TABLE `syarat_bsw`
-  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT for table `syarat_daftar`
 --
@@ -446,14 +439,14 @@ ALTER TABLE `mahasiswa`
 -- Constraints for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  ADD CONSTRAINT `pendaftaran_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`NIM`),
-  ADD CONSTRAINT `pendaftaran_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`);
+  ADD CONSTRAINT `pendaftaran_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`NIM`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `pendaftaran_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  ADD CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`);
+  ADD CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `syarat_bsw`
@@ -466,8 +459,8 @@ ALTER TABLE `syarat_bsw`
 -- Constraints for table `syarat_daftar`
 --
 ALTER TABLE `syarat_daftar`
-  ADD CONSTRAINT `syarat_daftar_ibfk_1` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`),
-  ADD CONSTRAINT `syarat_daftar_ibfk_2` FOREIGN KEY (`kd_syarat_bsw`) REFERENCES `syarat_bsw` (`kd_syarat_bsw`);
+  ADD CONSTRAINT `syarat_daftar_ibfk_2` FOREIGN KEY (`kd_syarat_bsw`) REFERENCES `syarat_bsw` (`kd_syarat_bsw`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `syarat_daftar_ibfk_3` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
