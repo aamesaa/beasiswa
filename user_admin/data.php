@@ -17,11 +17,20 @@ Include("../function/koneksi.php");
 	<?php
 
 	//query menampilkan data
-  $query="SELECT kd_daftar, nim, nama_mhs,tgl_daftar, nominal_pengajuan, nominal_disetujui from pendaftaran p NATURAL JOIN mahasiswa m  where kd_bsw='".$_GET['kd_bsw']."' and nominal_disetujui is not null";
 
+	$query1="SELECT * FROM beasiswa";
+	$sql1 = mysqli_query($koneksi,$query1);
+	$data1 = mysqli_fetch_array($sql1);
+	echo'
+	<h3> '.$data1['nama_bsw'].'</h3> </br>
+	<h3>Semester '.$data1['semt'].' </h3> </br>
+	<h3>Tahun ajaran '.$data1['thn_ajar'].' </h3> </br>';
+
+
+	$query="SELECT kd_daftar, nim, nama_mhs,tgl_daftar, nominal_pengajuan, nominal_disetujui from pendaftaran p NATURAL JOIN mahasiswa m  where kd_bsw='".$_GET['kd_bsw']."' and nominal_disetujui is not null";
 	$sql = mysqli_query($koneksi,$query);
-
 	$no = 1;
+
 	while($data = mysqli_fetch_array($sql)){
 		echo '
 		<tr>
