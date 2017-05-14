@@ -14,7 +14,7 @@ $rowMhs= mysqli_fetch_array($getDataMhs);
 $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa where kd_bsw= '$kode_bsw_dipilih'");
 $rowBsw= mysqli_fetch_array($getDataBsw);
 
-$getSyrSql="SELECT nama_syarat, tipe_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw_dipilih'";
+$getSyrSql="SELECT kd_syarat, nama_syarat, tipe_syarat FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kode_bsw_dipilih'";
 $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
 //echo $kode_bsw_dipilih ;
 //echo $nim;
@@ -92,10 +92,10 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
       <br/> <br/>
       <div class="col-lg-1 col-md-1"></div>
       <div class="col-md-10 col-lg-10">
-        <form action="function/upload.php" class="form-inline " method="POST" enctype="multipart/form-data">
+        <form action="form_daftar_beasiswa_create.php" class="form-inline " method="POST" enctype="multipart/form-data">
 
             <input type="hidden" name="kd_bsw" id="kd_bsw" value="<?php echo $rowBsw['kd_bsw']; ?>">
-            <input type="hidden" name="nim" id="nim" value="<?php echo $rowMhs['nim']; ?>">
+            <input type="hidden" name="nim" id="nim" value="<?php echo $rowMhs['NIM']; ?>">
 
             <table>
 
@@ -148,7 +148,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
               if($rowSyrBsw['nama_syarat']=="IPK"){
                 $maxValue=4;
               }
-              $input =_myobject($rowSyrBsw['tipe_syarat'],$rowSyrBsw['nama_syarat'],"form-control","nm","","","","","","","required",$rowSyrBsw['nama_syarat'],"",$maxValue);
+              $input =_myobject($rowSyrBsw['tipe_syarat'],$rowSyrBsw['kd_syarat'],"form-control",$rowSyrBsw['kd_syarat'],"","","","","","","required",$rowSyrBsw['nama_syarat'],"",$maxValue);
 
               echo '
               <tr>
