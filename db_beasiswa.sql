@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 02, 2017 at 09:58 AM
+-- Generation Time: May 15, 2017 at 02:41 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -46,12 +46,12 @@ CREATE TABLE `beasiswa` (
 INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`, `isPublish`) VALUES
 ('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 125, 1, 'Beasiswa bagi anak karyawan', 0),
 ('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm', 0),
-('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
+('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-10', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
 ('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana', 0),
 ('B10', 'Beasiswa Anak Karyawan', 'Genap', '2013/2012', '2017-04-12', '2017-04-27', 99, 1, 'ww', 0),
 ('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 0, 'Bagi mahasiswa yang membutuhkan', 0),
-('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-09', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 1),
-('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad', 1),
+('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-05-17', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 1),
+('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 0, 'sdaadsad', 1),
 ('sss', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 0, 'qqq', 0);
 
 -- --------------------------------------------------------
@@ -93,8 +93,6 @@ CREATE TABLE `pendaftaran` (
   `nim` char(8) NOT NULL,
   `kd_bsw` char(3) NOT NULL,
   `tgl_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `semester` char(9) NOT NULL,
-  `thn_ajaran` char(8) NOT NULL,
   `nominal_pengajuan` int(11) NOT NULL,
   `nominal_disetujui` int(11) DEFAULT NULL,
   `sisa_pinjaman` int(11) DEFAULT NULL
@@ -104,12 +102,12 @@ CREATE TABLE `pendaftaran` (
 -- Dumping data for table `pendaftaran`
 --
 
-INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `semester`, `thn_ajaran`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
-(12122, '72140034', 'P09', '2017-04-13 13:05:54', 'GENAP', '2014', 9999, 46578, 0),
-(55555, '72140033', 'P01', '2017-04-11 01:01:01', 'j', '6', 233, 12334, 0),
-(333333, '72140034', 'P09', '2017-04-14 16:30:09', 'Genap', '201020', 10000000, 1000, NULL),
-(444444, '72140033', 'P09', '2017-04-10 06:21:25', 'Genap', '16/17', 10000000, 900000, 500000),
-(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 'GenAP', '19/10', 10000000, 700000, NULL);
+INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
+(12122, '72140034', 'P09', '2017-04-13 13:05:54', 9999, 46578, 0),
+(55555, '72140033', 'P01', '2017-04-11 01:01:01', 233, 12334, 0),
+(333333, '72140034', 'P09', '2017-04-14 16:30:09', 10000000, 1000, NULL),
+(444444, '72140033', 'P09', '2017-04-10 06:21:25', 10000000, 900000, 500000),
+(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -302,7 +300,17 @@ CREATE TABLE `syarat_daftar` (
 
 INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `isi_syarat`) VALUES
 (1, 11111111, 95, 'ssss'),
-(2, 12122, 95, 'zxZXZXX');
+(2, 12122, 95, 'zxZXZXX'),
+(3, 11111111, 94, '200000'),
+(4, 11111111, 96, '11111111_S07'),
+(5, 11111111, 97, '11111111_S09'),
+(6, 11111111, 98, '1111'),
+(7, 11111111, 99, '11111111_S10'),
+(8, 11111111, 94, '100000'),
+(9, 11111111, 96, '11111111_S07.pdf'),
+(10, 11111111, 97, '11111111_S09.pdf'),
+(11, 11111111, 98, '1111'),
+(12, 11111111, 99, '11111111_S10.pdf');
 
 -- --------------------------------------------------------
 
@@ -321,7 +329,7 @@ CREATE TABLE `system_usr` (
 --
 
 INSERT INTO `system_usr` (`user_id`, `password`, `role`) VALUES
-('72140033', 'halohalo', 9),
+('72140033', 'halohalo', 0),
 ('admin', 'admin', 1),
 ('user', 'user', 0),
 ('wd', 'wd', 9);
@@ -408,7 +416,7 @@ ALTER TABLE `system_usr`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111112;
+  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111125;
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
@@ -423,7 +431,7 @@ ALTER TABLE `syarat_bsw`
 -- AUTO_INCREMENT for table `syarat_daftar`
 --
 ALTER TABLE `syarat_daftar`
-  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --

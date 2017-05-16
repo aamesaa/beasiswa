@@ -6,7 +6,7 @@
  * Time: 9:02 PM
  */
 
-$name= $_GET['file'];
+$name= $_GET['file'].'.pdf';
 
     header('Content-Description: File Transfer');
     header('Content-Type: application/force-download');
