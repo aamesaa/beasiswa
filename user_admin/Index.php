@@ -272,23 +272,9 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                     <div class="form-group">
                       <label class="control-label col-sm-2" for="ket">Syarat:</label>
                       <div class="col-sm-7">
-              
 
-                      <div class="col-sm-offset-1 col-sm-7">
-                          <label><input type="checkbox"> Scan KTM</label>
-                          <br>
-                          <label><input type="checkbox"> Nominal yang diminta</label>
-                          <br>
-                          <label><input type="checkbox"> IPK</label>
-                          <br>
-                          <label><input type="checkbox"> Scan slip gaji</label>
-                          <br>
-                          <label><input type="checkbox"> Scan surat keterangan tidak mampu</label>
-                          <br>
-                          <label><input type="checkbox"> Scan KHS</label>
-                          <br>
-                          <label><input type="checkbox"> Jumlah sks yang diambil</label>
-                      </div>
+
+
                       </div>
                     </div>
 
