@@ -151,7 +151,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
 
                 </tr>
                 <?php
-                $sql1="SELECT kd_syarat_bsw, nama_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
+                $sql1="SELECT kd_syarat_bsw, nama_syarat, tipe_syarat FROM syarat_bsw NATURAL JOIN ref_syarat WHERE kd_bsw='$kode_bsw'";
                 $row1=mysqli_query($koneksi,$sql1);
 
                 //ambil syarat, dipindah ke arry buat nti diambil
@@ -174,15 +174,20 @@ $rowBsw = mysqli_fetch_array($bswExc);
                         foreach ($arrHasil1 as $item){
                             //TODO: ambil tipe syrr, trus nti dibah yg tipe syarat 9 jadi link
 
-                            $sql2="SELECT isi_syarat FROM syarat_daftar WHERE kd_syarat_bsw = '$item' AND kd_daftar='$hasil0[0]'";
+                            $sql2="SELECT isi_syarat, tipe_syarat FROM syarat_daftar NATURAL JOIN ref_syarat NATURAL JOIN syarat_bsw WHERE kd_syarat_bsw = '$item' AND kd_daftar='$hasil0[0]'";
 
                             $row2 = mysqli_query($koneksi,$sql2);
                             $hasil2=mysqli_fetch_array($row2);
                             if(!$hasil2[0]){
                                 echo '<td> kosong</td>';
-                            }else{
+                            }elseif($hasil2[1]=='9'){
+                                echo '<td><a href="../uploads/'.$hasil2[0].'" target="_blank">downlod</a></td>';
+                                //echo '<a href="uploads/" target="_blank">downlod</a>';
+                            }
+                            else{
                                 echo '<td>'.$hasil2[0].'</td>';
                             }
+
                         }
                         if(!$hasil0[5]){
                             echo'
