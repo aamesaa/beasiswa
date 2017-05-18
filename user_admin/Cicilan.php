@@ -71,6 +71,13 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
 
       <h2 class="text-center">Daftar Pinjaman</h2>
       <br/>
+      <br/>
+      <?php
+        echo '<a href="export1.php" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>';
+      ?>
+
+      <br/>
+      <br/>
       <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
@@ -92,23 +99,28 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                       $sisa=(string)$rowPjm[4];
                       if ($sisa==0){
                           $sisa = "<strong style='color: #68bacd'>Lunas</strong>";
-                      }
+                        }else{
+                          $sisa=(string) number_format($rowPjm[4]);
+                        }
                       $getKodeDftr= $rowPjm['kd_daftar'];
+
                       echo'
+
                           <tr>
                               <td>'.$rowPjm['kd_daftar'].'</td>
                               <td>'.$rowPjm['nim'].'</td>
                               <td>'.$rowPjm['nama_mhs'].'</td>
-                              <td style="text-align:right">'.$rowPjm['nominal_disetujui'].'</td>
+                              <td style="text-align:right">' .number_format($rowPjm['nominal_disetujui']).'</td>
+
                               <td style="text-align:right">'.$sisa.'</td>
                               <td >
-                                
+
                                     <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt"></span></button>
                                      <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#addModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-plus"></span></button>
                                     <!-- Modal DETAIL -->
                                     <div id="myModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
                                       <div class="modal-dialog modal-lg">
-                                    
+
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                           <div class="modal-header">
@@ -133,20 +145,20 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                                             <td>'.$rowPjm['nama_mhs'].'</td>
                                           </tr>
                                           </table>
-                                           '.getDetailCicilan($rowPjm['kd_daftar'] ).'
+                                           '.getDetailCicilan($rowPjm['kd_daftar']).'
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                                           </div>
                                         </div>
-                                    
+
                                       </div>
                                     </div>
-                                   
+
                                     <!-- Modal ADD -->
                                     <div id="addModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
                                       <div class="modal-dialog">
-                                    
+
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                           <div class="modal-header">
@@ -172,7 +184,7 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                                           </tr>
                                           </table>
                                           <form method="POST" action="add_cicilan.php" class="form-horizontal">
-                                          
+
                                             <div class="form-group">
                                               <label class="control-label col-sm-2" for="thn_ajar">Nominal</label>
                                               <div class="col-sm-6">
@@ -180,7 +192,7 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                                                  <input type="hidden" min="0 "class="form-control" id="kd_daftar" name="kd_daftar" value="'.$rowPjm['kd_daftar'].'">
                                               </div>
                                             </div>
-                                          
+
                                           </div>
                                           <div class="modal-footer">
                                            <div class="form-group">
@@ -190,12 +202,12 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                                           </div>
                                           </div>
                                         </div>
-                                    
+
                                       </div>
                                     </div>
                                     </form>
-           
-                               
+
+
                        ';
 
                       //$modalId= "MyModal".$rowPjm['kd_daftar'];
