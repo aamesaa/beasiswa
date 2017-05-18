@@ -97,7 +97,7 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                   <?php
                   while ($rowPjm =  mysqli_fetch_array($getDataPinjaman)){
                       $sisa=(string)$rowPjm[4];
-                      if ($sisa==0){
+                      if ($sisa<=0){
                           $sisa = "<strong style='color: #68bacd'>Lunas</strong>";
                         }else{
                           $sisa=(string) number_format($rowPjm[4]);
