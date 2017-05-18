@@ -74,9 +74,6 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
       <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
-              <?php
-
-              ?>
               <table class="table table-striped table-bordered">
                   <tr ">
                   <th class="text-center" width="13%">Kode Daftar</th>

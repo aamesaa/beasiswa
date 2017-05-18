@@ -31,7 +31,7 @@ if (1==1)
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>
-<a href='download.php?file=baru.pdf'>download</a>
+<a href='download.php?file=baru'>download</a>
 <a href='uploads/baru.pdf' target="_blank">downlod</a>
 </body>
 </html>

@@ -172,6 +172,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     ';
                     //ambil syarat
                         foreach ($arrHasil1 as $item){
+                            //TODO: ambil tipe syrr, trus nti dibah yg tipe syarat 9 jadi link
 
                             $sql2="SELECT isi_syarat FROM syarat_daftar WHERE kd_syarat_bsw = '$item' AND kd_daftar='$hasil0[0]'";
 

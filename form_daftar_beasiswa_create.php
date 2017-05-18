@@ -26,8 +26,11 @@ if($hasil){
     echo'<div class="alert alert-danger">Gagal ditambahkan</div>';
 
 }
+$getKd= "SELECT kd_daftar FROM pendaftaran LIMIT 1";
 
-$kd_daftar="11111111";
+$kd_daftar_eksekusi=mysqli_query($koneksi, $getKd);
+$kd_daftar_arr=mysqli_fetch_array($kd_daftar_eksekusi);
+$kd_daftar = $kd_daftar_arr["kd_daftar"];
 //TODO: get kd_daftar after insert on master
 /**ADD DATA DI DETAIL**/
 $getSyrSql="SELECT kd_syarat, nama_syarat, tipe_syarat, kd_syarat_bsw FROM ref_syarat rs NATURAL JOIN syarat_bsw sb NATURAL JOIN beasiswa b WHERE b.kd_bsw='$kd_bsw'";
@@ -80,5 +83,7 @@ while($hasil=mysqli_fetch_array($getSyrBeasiswa)){
        }
 
    }
+
+    header("location: daftar_succes.php");
 
 }
