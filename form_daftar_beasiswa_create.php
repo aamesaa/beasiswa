@@ -84,6 +84,6 @@ while($hasil=mysqli_fetch_array($getSyrBeasiswa)){
 
    }
 
-    header("location: daftar_succes.php");
+    header("location: daftar_succes.php?id=".$kd_bsw);
 
 }
