@@ -2,7 +2,7 @@
 
 Include("../function/koneksi.php");
 //Include_once ("../function/login.php");
-$getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
+$getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_ref");
 
 ?>
 
@@ -90,7 +90,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
         </thead>
         <tbody>
           <?php
-          $q1 = "SELECT * from system_usr";
+          $q1 = "SELECT * from system_usr natural join user_ref";
           $squery = mysqli_query($koneksi,$q1);
           while($row = mysqli_fetch_array($squery))
           {
@@ -112,7 +112,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr");
             echo'
             <tr>
             <td>'.$row['user_id'].'</td>
-            <td class="text-center">'.$row['role'].'</td>
+            <td class="text-center">'.$row['role_name'].'</td>
             <td class="text-center"style="width:100">
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>

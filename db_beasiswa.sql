@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2017 at 02:41 AM
--- Server version: 10.1.19-MariaDB
+-- Generation Time: 21 Mei 2017 pada 10.34
+-- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `beasiswa`
+-- Struktur dari tabel `beasiswa`
 --
 
 CREATE TABLE `beasiswa` (
@@ -40,7 +40,7 @@ CREATE TABLE `beasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `beasiswa`
+-- Dumping data untuk tabel `beasiswa`
 --
 
 INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`, `isPublish`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Struktur dari tabel `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -74,7 +74,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data untuk tabel `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`NIM`, `kd_prodi`, `nama_mhs`, `gender`, `tgl_lahir`, `email`, `alamat`, `kode_pos`, `no_telp`, `total_sks`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `mahasiswa` (`NIM`, `kd_prodi`, `nama_mhs`, `gender`, `tgl_lahir`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftaran`
+-- Struktur dari tabel `pendaftaran`
 --
 
 CREATE TABLE `pendaftaran` (
@@ -99,20 +99,20 @@ CREATE TABLE `pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pendaftaran`
+-- Dumping data untuk tabel `pendaftaran`
 --
 
 INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
 (12122, '72140034', 'P09', '2017-04-13 13:05:54', 9999, 46578, 0),
 (55555, '72140033', 'P01', '2017-04-11 01:01:01', 233, 12334, 0),
 (333333, '72140034', 'P09', '2017-04-14 16:30:09', 10000000, 1000, NULL),
-(444444, '72140033', 'P09', '2017-04-10 06:21:25', 10000000, 900000, 500000),
-(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, NULL, NULL);
+(444444, '72140033', 'P01', '2017-04-10 06:21:25', 10000000, 900000, 500000),
+(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, 9000000, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengembalian`
+-- Struktur dari tabel `pengembalian`
 --
 
 CREATE TABLE `pengembalian` (
@@ -123,7 +123,7 @@ CREATE TABLE `pengembalian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengembalian`
+-- Dumping data untuk tabel `pengembalian`
 --
 
 INSERT INTO `pengembalian` (`kd_bayar`, `kd_daftar`, `tgl_bayar`, `nominal_bayar`) VALUES
@@ -139,10 +139,11 @@ INSERT INTO `pengembalian` (`kd_bayar`, `kd_daftar`, `tgl_bayar`, `nominal_bayar
 (16, 12122, '2017-04-17 14:59:05', 570),
 (17, 12122, '2017-04-18 05:09:07', 1000),
 (18, 12122, '2017-04-18 05:09:13', 45000),
-(19, 444444, '2017-04-18 05:10:02', 0);
+(19, 444444, '2017-04-18 05:10:02', 0),
+(1002, 11111111, '2017-05-18 08:53:29', 500);
 
 --
--- Triggers `pengembalian`
+-- Trigger `pengembalian`
 --
 DELIMITER $$
 CREATE TRIGGER `TG_update_sisa_pinjaman` AFTER INSERT ON `pengembalian` FOR EACH ROW BEGIN
@@ -155,7 +156,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_gender`
+-- Struktur dari tabel `ref_gender`
 --
 
 CREATE TABLE `ref_gender` (
@@ -164,7 +165,7 @@ CREATE TABLE `ref_gender` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_gender`
+-- Dumping data untuk tabel `ref_gender`
 --
 
 INSERT INTO `ref_gender` (`gender`, `nama_gender`) VALUES
@@ -174,7 +175,7 @@ INSERT INTO `ref_gender` (`gender`, `nama_gender`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_prodi`
+-- Struktur dari tabel `ref_prodi`
 --
 
 CREATE TABLE `ref_prodi` (
@@ -183,7 +184,7 @@ CREATE TABLE `ref_prodi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_prodi`
+-- Dumping data untuk tabel `ref_prodi`
 --
 
 INSERT INTO `ref_prodi` (`kd_prodi`, `nama_prodi`) VALUES
@@ -196,7 +197,7 @@ INSERT INTO `ref_prodi` (`kd_prodi`, `nama_prodi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_syarat`
+-- Struktur dari tabel `ref_syarat`
 --
 
 CREATE TABLE `ref_syarat` (
@@ -206,7 +207,7 @@ CREATE TABLE `ref_syarat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_syarat`
+-- Dumping data untuk tabel `ref_syarat`
 --
 
 INSERT INTO `ref_syarat` (`kd_syarat`, `nama_syarat`, `tipe_syarat`) VALUES
@@ -228,7 +229,7 @@ INSERT INTO `ref_syarat` (`kd_syarat`, `nama_syarat`, `tipe_syarat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `syarat_bsw`
+-- Struktur dari tabel `syarat_bsw`
 --
 
 CREATE TABLE `syarat_bsw` (
@@ -238,7 +239,7 @@ CREATE TABLE `syarat_bsw` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `syarat_bsw`
+-- Dumping data untuk tabel `syarat_bsw`
 --
 
 INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
@@ -284,7 +285,7 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `syarat_daftar`
+-- Struktur dari tabel `syarat_daftar`
 --
 
 CREATE TABLE `syarat_daftar` (
@@ -295,7 +296,7 @@ CREATE TABLE `syarat_daftar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `syarat_daftar`
+-- Dumping data untuk tabel `syarat_daftar`
 --
 
 INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `isi_syarat`) VALUES
@@ -315,7 +316,7 @@ INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `is
 -- --------------------------------------------------------
 
 --
--- Table structure for table `system_usr`
+-- Struktur dari tabel `system_usr`
 --
 
 CREATE TABLE `system_usr` (
@@ -325,14 +326,32 @@ CREATE TABLE `system_usr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `system_usr`
+-- Dumping data untuk tabel `system_usr`
 --
 
 INSERT INTO `system_usr` (`user_id`, `password`, `role`) VALUES
-('72140033', 'halohalo', 0),
-('admin', 'admin', 1),
-('user', 'user', 0),
-('wd', 'wd', 9);
+('72140033', 'halohalo', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_ref`
+--
+
+CREATE TABLE `user_ref` (
+  `role` int(255) NOT NULL,
+  `role_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user_ref`
+--
+
+INSERT INTO `user_ref` (`role`, `role_name`) VALUES
+(0, 'Mahasiswa'),
+(1, 'Admin'),
+(2, 'Wakil Dekan 3'),
+(9, 'Wakil Rektor 3');
 
 --
 -- Indexes for dumped tables
@@ -406,7 +425,15 @@ ALTER TABLE `syarat_daftar`
 -- Indexes for table `system_usr`
 --
 ALTER TABLE `system_usr`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `role` (`role`),
+  ADD KEY `role_2` (`role`);
+
+--
+-- Indexes for table `user_ref`
+--
+ALTER TABLE `user_ref`
+  ADD PRIMARY KEY (`role`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -416,12 +443,12 @@ ALTER TABLE `system_usr`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111125;
+  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111112;
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
 --
 -- AUTO_INCREMENT for table `syarat_bsw`
 --
@@ -433,42 +460,48 @@ ALTER TABLE `syarat_bsw`
 ALTER TABLE `syarat_daftar`
   MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `mahasiswa`
+-- Ketidakleluasaan untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `mahasiswa_ibfk_2` FOREIGN KEY (`kd_prodi`) REFERENCES `ref_prodi` (`kd_prodi`),
   ADD CONSTRAINT `mahasiswa_ibfk_3` FOREIGN KEY (`gender`) REFERENCES `ref_gender` (`gender`);
 
 --
--- Constraints for table `pendaftaran`
+-- Ketidakleluasaan untuk tabel `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   ADD CONSTRAINT `pendaftaran_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`NIM`) ON UPDATE CASCADE,
   ADD CONSTRAINT `pendaftaran_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengembalian`
+-- Ketidakleluasaan untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
   ADD CONSTRAINT `pengembalian_ibfk_1` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `syarat_bsw`
+-- Ketidakleluasaan untuk tabel `syarat_bsw`
 --
 ALTER TABLE `syarat_bsw`
   ADD CONSTRAINT `syarat_bsw_ibfk_1` FOREIGN KEY (`kd_syarat`) REFERENCES `ref_syarat` (`kd_syarat`),
   ADD CONSTRAINT `syarat_bsw_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`);
 
 --
--- Constraints for table `syarat_daftar`
+-- Ketidakleluasaan untuk tabel `syarat_daftar`
 --
 ALTER TABLE `syarat_daftar`
   ADD CONSTRAINT `syarat_daftar_ibfk_2` FOREIGN KEY (`kd_syarat_bsw`) REFERENCES `syarat_bsw` (`kd_syarat_bsw`) ON UPDATE CASCADE,
   ADD CONSTRAINT `syarat_daftar_ibfk_3` FOREIGN KEY (`kd_daftar`) REFERENCES `pendaftaran` (`kd_daftar`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `system_usr`
+--
+ALTER TABLE `system_usr`
+  ADD CONSTRAINT `system_usr_ibfk_1` FOREIGN KEY (`role`) REFERENCES `user_ref` (`role`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
