@@ -172,10 +172,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                     ';
                     //ambil syarat
                         foreach ($arrHasil1 as $item){
-                            //TODO: ambil tipe syrr, trus nti dibah yg tipe syarat 9 jadi link
-
                             $sql2="SELECT isi_syarat, tipe_syarat FROM syarat_daftar NATURAL JOIN ref_syarat NATURAL JOIN syarat_bsw WHERE kd_syarat_bsw = '$item' AND kd_daftar='$hasil0[0]'";
-
                             $row2 = mysqli_query($koneksi,$sql2);
                             $hasil2=mysqli_fetch_array($row2);
                             if(!$hasil2[0]){
