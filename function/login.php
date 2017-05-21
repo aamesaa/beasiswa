@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) { // cek dah klik submit blm
     if ($userRole=='0') {
       $_SESSION['login_user']=$user;
       header("location: index.php");
-    } else if($userRole=='1'){
+    }else if($userRole=='1'){
       $_SESSION['login_admin']=$user;
       header("location: user_admin/index.php");
     }else if($userRole=='9'){
