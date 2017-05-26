@@ -54,8 +54,6 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
         <ul class="nav navbar-nav">
           <li class="menuItem"><a href="Cicilan.php">Pengembalian </a></li>
-          <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
-          <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
           <li class="menuItem dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
             <ul class="dropdown-menu">

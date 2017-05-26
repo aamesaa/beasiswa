@@ -62,13 +62,11 @@ $rowBsw = mysqli_fetch_array($bswExc);
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
                 <ul class="nav navbar-nav">
                     <li class="menuItem"><a href="Cicilan.php">Pengembalian </a></li>
-                    <li class="menuItem"><a href="../index.php#infoBeasiswa">Info Beasiswa </a></li>
-                    <li class="menuItem"><a href="../index.php#hasilSeleksi">Hasil Seleksi </a></li>
                     <li class="menuItem dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="../user_admin/daftar_user.php">System User</a></li>
-                            <li><a href="function/logout.php">Logout</a></li>
+                            <li><a href="../function/logout.php">Logout</a></li>
                         </ul>
                     </li>
 
