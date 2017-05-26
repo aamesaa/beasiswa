@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 21 Mei 2017 pada 10.34
+-- Generation Time: 26 Mei 2017 pada 14.16
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -45,14 +45,13 @@ CREATE TABLE `beasiswa` (
 
 INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`, `isPublish`) VALUES
 ('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 125, 1, 'Beasiswa bagi anak karyawan', 0),
-('A02', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-07', '2017-04-10', 111, 0, 'mmmm', 0),
+('A03', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 0, 'qqq', 0),
 ('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-10', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
 ('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 0, 'nanana', 0),
 ('B10', 'Beasiswa Anak Karyawan', 'Genap', '2013/2012', '2017-04-12', '2017-04-27', 99, 1, 'ww', 0),
 ('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 0, 'Bagi mahasiswa yang membutuhkan', 0),
 ('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-05-17', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 1),
-('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 0, 'sdaadsad', 1),
-('sss', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 0, 'qqq', 0);
+('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 0, 'sdaadsad', 1);
 
 -- --------------------------------------------------------
 
@@ -78,9 +77,16 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`NIM`, `kd_prodi`, `nama_mhs`, `gender`, `tgl_lahir`, `email`, `alamat`, `kode_pos`, `no_telp`, `total_sks`) VALUES
+('01140001', '01', 'Evelina Putri', 'P', '1996-04-26', 'evelina@mail.com', 'Purwokerto', '12345', '081210113154', 114),
+('11140001', '11', 'Renny Rusmadayanti', 'P', '1996-05-01', 'renny@mail.com', 'Pontianak', '13345', '081210113155', 120),
+('12150001', '12', 'Reinald Ariel', 'L', '1997-05-01', 'renata@mail.com', 'maguwo', '55283', '081210113254', 111),
+('24120001', '24', 'Nikita Willy', 'P', '1996-05-01', 'nikita@mail.com', 'kota baru', '55288', '081210113156', 124),
+('31150001', '31', 'Josea', 'L', '1997-05-02', 'joe@mail.com', 'kudus', '15656', '08525126678', 130),
+('41140001', '41', 'Lupita Nyong', 'P', '1997-05-03', 'lupita@mail.com', 'kota gede', '55287', '081210113144', 120),
+('61140001', '61', 'Ryan Wibowo', 'L', '1996-05-01', 'ryan@mail.com', 'sleman', '55288', '081210113166', 114),
+('71140011', '71', 'Juan Salsa', 'L', '1996-05-04', 'aamesaa@mail.com', 'klaten', '55224', '098', 134),
 ('72140033', '72', 'Charoline Septa', 'P', '1997-02-21', 'cs@mail.com', 'smd', '55224', '098', 134),
-('72140034', '72', 'nama', 'L', '2017-04-12', 'njnkjni22', 'mnjn', '222', '2j2', 11),
-('user', '71', 'Azhalia Amesa', 'L', '1996-05-04', 'aamesaa@mail.com', 'klaten', '55224', '098', 134);
+('72140034', '72', 'Azhalia Amesa', 'L', '2017-04-12', 'aamesaa@mail.com', 'mnjn', '222', '2j2', 11);
 
 -- --------------------------------------------------------
 
@@ -107,7 +113,8 @@ INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `nominal_
 (55555, '72140033', 'P01', '2017-04-11 01:01:01', 233, 12334, 0),
 (333333, '72140034', 'P09', '2017-04-14 16:30:09', 10000000, 1000, NULL),
 (444444, '72140033', 'P01', '2017-04-10 06:21:25', 10000000, 900000, 500000),
-(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, 9000000, NULL);
+(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, 900000, 900000),
+(11111112, '01140001', 'P01', '2017-05-26 09:40:53', 1000000, 900000, 900000);
 
 -- --------------------------------------------------------
 
@@ -188,9 +195,13 @@ CREATE TABLE `ref_prodi` (
 --
 
 INSERT INTO `ref_prodi` (`kd_prodi`, `nama_prodi`) VALUES
-('01', 'theologi'),
+('01', 'Teologi'),
+('11', 'Manajemen'),
+('12', 'Akuntansi'),
+('24', 'Desain Produk'),
+('31', 'Bioteknologi'),
 ('41', 'Kedokteran'),
-('61', 'Bioteknologi'),
+('61', 'Arsitektur'),
 ('71', 'Teknik Informatika'),
 ('72', 'Sistem Informasi');
 
@@ -264,14 +275,14 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 (97, 'S09', 'P01'),
 (98, 'S11', 'P01'),
 (99, 'S10', 'P01'),
-(100, 'K01', 'sss'),
-(101, 'K02', 'sss'),
-(102, 'S03', 'sss'),
-(103, 'S04', 'sss'),
-(104, 'S05', 'sss'),
-(105, 'S06', 'sss'),
-(106, 'S07', 'sss'),
-(107, 'S13', 'sss'),
+(100, 'K01', 'A03'),
+(101, 'K02', 'A03'),
+(102, 'S03', 'A03'),
+(103, 'S04', 'A03'),
+(104, 'S05', 'A03'),
+(105, 'S06', 'A03'),
+(106, 'S07', 'A03'),
+(107, 'S13', 'A03'),
 (108, 'K01', 'P09'),
 (109, 'K02', 'P09'),
 (110, 'S04', 'P09'),
@@ -330,7 +341,9 @@ CREATE TABLE `system_usr` (
 --
 
 INSERT INTO `system_usr` (`user_id`, `password`, `role`) VALUES
-('72140033', 'halohalo', 0);
+('72140033', 'halohalo', 0),
+('72140034', 'halohalo', 0),
+('admin', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -443,7 +456,7 @@ ALTER TABLE `user_ref`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111112;
+  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111113;
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
@@ -488,7 +501,7 @@ ALTER TABLE `pengembalian`
 --
 ALTER TABLE `syarat_bsw`
   ADD CONSTRAINT `syarat_bsw_ibfk_1` FOREIGN KEY (`kd_syarat`) REFERENCES `ref_syarat` (`kd_syarat`),
-  ADD CONSTRAINT `syarat_bsw_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`);
+  ADD CONSTRAINT `syarat_bsw_ibfk_2` FOREIGN KEY (`kd_bsw`) REFERENCES `beasiswa` (`kd_bsw`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `syarat_daftar`
