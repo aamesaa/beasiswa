@@ -197,6 +197,11 @@ Include ("../function/create_modal.php");
                                             <td>: </td>
                                             <td>'.$rowPjm['nama_mhs'].'</td>
                                           </tr>
+                                          <tr>
+                                            <td>Sisa Pinjaman</td>
+                                            <td>: </td>
+                                            <td>'.$sisa.'</td>
+                                          </tr>
                                           </table>
                                            '.getDetailCicilan($rowPjm['kd_daftar']).'
                                           </div>

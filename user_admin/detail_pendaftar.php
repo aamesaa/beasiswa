@@ -202,6 +202,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                                           <div class="modal-body">
 
                                             <form class="form-horizontal" action="edit_pendaftaran.php" method="POST">
+                                            <input type="hidden" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$kode_bsw.'" >
                                             <div class="form-group">
                                             <label class="control-label col-sm-4" for="kd_daftar">Kode Daftar :</label>
                                             <div class="col-sm-6">
