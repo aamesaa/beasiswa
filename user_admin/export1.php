@@ -6,6 +6,12 @@ header("Content-type: application/vnd-ms-excel");
 // Mendefinisikan nama file ekspor "hasil-export.xls"
 header("Content-Disposition: attachment; filename=beasiswa-export-cicilan.xls");
 
+if (isset($_GET['kd'])){
+    $kd_prodi=$_GET['kd'];
+} else{
+    $kd_prodi="All";
+}
+
 
 // Tambahkan table
 
@@ -23,7 +29,8 @@ echo'
 
 	//query menampilkan data
 
-	$query1="SELECT * FROM beasiswa where kd_bsw like 'P%'";
+    $query1="SELECT * FROM beasiswa where kd_bsw like 'P%'";
+
 	$sql1 = mysqli_query($koneksi,$query1);
 	$data1 = mysqli_fetch_array($sql1);
 	echo'
@@ -34,7 +41,13 @@ echo'
 
 
 	//$query="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
-    $query="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+    if($kd_prodi =="All") {
+        $query = "SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+    }else{
+        $query = "SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1 and kd_prodi=$kd_prodi";
+
+    }
+
     $sql = mysqli_query($koneksi,$query);
 	$no = 1;
 
