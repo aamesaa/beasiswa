@@ -1,5 +1,6 @@
 <?php
 Include("../function/koneksi.php");
+Include("Cicilan.php");
 
 
 ?>
@@ -26,8 +27,10 @@ Include("../function/koneksi.php");
 	<h3>Tahun ajaran '.$data1['thn_ajar'].' </h3> </br>';
 
 
-	$query="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
-	$sql = mysqli_query($koneksi,$query);
+
+	//$query="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+    $query=$GLOBALS["q"];
+    $sql = mysqli_query($koneksi,$query);
 	$no = 1;
 
 	while($data = mysqli_fetch_array($sql)){

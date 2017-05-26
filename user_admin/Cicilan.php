@@ -89,34 +89,48 @@ Include ("../function/create_modal.php");
                   </select>
           </div>
           <input type="submit" class="btn btn-info">
-      <?php
-        echo '<a href="export1.php" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>';
-      ?>
+
+
+
+              <a href="export1.php?<?php echo $_GET['prodi']; ?>" class="btn btn-success pull-right">Download</a>
+          </form>
+
+
 
       </form>
       <br/>
               <?php
+              if(isset($_GET['prodi'])){
               $kd_prodi= intval ($_GET['prodi']);
-              switch ($kd_prodi){
+              switch ($kd_prodi) {
                   case 01:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Theologi</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Theologi</strong></p>";
+                      break;
                   case 11:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Manaajemen</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Manaajemen</strong></p>";
+                      break;
                   case 12:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Akuntansi</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Akuntansi</strong></p>";
+                      break;
                   case 31:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Bioteknologi</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Bioteknologi</strong></p>";
+                      break;
                   case 41:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Kedokteran</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Kedokteran</strong></p>";
+                      break;
                   case 61:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Arsitek</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Arsitek</strong></p>";
+                      break;
                   case 62:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Desain Produk</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Desain Produk</strong></p>";
+                      break;
                   case 71:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Teknik Informatika</strong></p>";break;
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Teknik Informatika</strong></p>";
+                      break;
                   case 72:
-                      echo"<p>Menampilan daftar pinjaman <strong>Prodi Sistem Informasi</strong></p>";break;
-
+                      echo "<p>Menampilan daftar pinjaman <strong>Prodi Sistem Informasi</strong></p>";
+                      break;
+              }
               }
               ?>
           </div>
@@ -135,17 +149,16 @@ Include ("../function/create_modal.php");
 
                   <?php
 
-                  if(isset($_GET['prodi'])){
-                      $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1 AND kd_prodi='".$_GET['prodi']."'";
-
-                  } else{
-                      $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
-                  }
-                  if($_GET['prodi']=="All"){
-                      $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+                  if(isset($_GET['prodi'])) {
+                      $GLOBALS["q"] = "SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1 AND kd_prodi='" . $_GET['prodi'] . "'";
+                  }else if(isset($_GET['prodi'])AND $_GET['prodi']=="All"){
+                      $GLOBALS["q"]="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+                  } else {
+                      $GLOBALS["q"]="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
                   }
 
-                  $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
+
+                  $getDataPinjaman=mysqli_query($koneksi,$GLOBALS["q"]);// ambil data pendaftar yang pinjaman
                   while ($rowPjm =  mysqli_fetch_array($getDataPinjaman)){
 
                       $sisa=(string)$rowPjm[4];
