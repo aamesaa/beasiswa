@@ -45,7 +45,7 @@ Include ("../function/create_modal.php");
           <span class="icon-bar"></span>
         </button>
       </div>
-      <a class="" href="index.php" ">
+      <a class="" href="index.php">
         <img src="../img/logo2.png" height="45px" style="margin-top:8px; margin-left:0" id="logo"/>
       </a>
       <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse stuckMenu">
@@ -92,8 +92,10 @@ Include ("../function/create_modal.php");
           <input type="submit" class="btn btn-info">
 
 
-
-              <a href="export1.php?<?php echo $_GET['prodi']; ?>" class="btn btn-success pull-right">Download</a>
+          <?php
+          echo'
+          <a href="export1.php" class="btn btn-success pull-right">Download</a>
+          ';?>
           </form>
 
 
