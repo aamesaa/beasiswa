@@ -55,6 +55,7 @@ while($hasil=mysqli_fetch_array($getSyrBeasiswa)){
        $target_dir = "uploads/";
 
        $target_file = $target_dir . $fileName;
+
        $uploadOk = 1;
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
