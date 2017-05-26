@@ -3,8 +3,7 @@ Include("../function/koneksi.php");
 Include ("../function/coba.php");
 Include ("../function/create_modal.php");
 //Include_once ("../function/login.php");
-$q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
-$getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -70,15 +69,37 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
       <h2 class="text-center">Daftar Pinjaman</h2>
       <br/>
       <br/>
+      <div class="row">
+          <div class="col-md-12">
+      <form class="form-inline" action="Cicilan.php" method="get">
+          <div class="form-group ">
+              <label class="control-label" for="prodi">Filter &nbsp;: &nbsp;</label>
+
+                  <select name="prodi" class="form-control" id="prodi" style="height: ;: auto">
+                      <option  >All</option>
+                      <option value="01" >Theologi S1</option>
+                      <option value="11" >Manajemen</option>
+                      <option value="12" >Akuntansi</option>
+                      <option value="31" >Bioteknologi</option>
+                      <option value="41" >Kedokteran</option>
+                      <option value="61"  >Arsitek</option>
+                      <option value="62" >Desain Produk</option>
+                      <option value="71" >Teknik Informastika</option>
+                      <option value="72" >Sistem Informasi</option>
+                  </select>
+          </div>
+          <input type="submit" class="btn btn-info">
       <?php
         echo '<a href="export1.php" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>';
       ?>
 
+      </form>
       <br/>
       <br/>
+          </div>
+      </div>
       <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
+          <div class="col-md-12">
               <table class="table table-striped table-bordered">
                   <tr ">
                   <th class="text-center" width="13%">Kode Daftar</th>
@@ -90,6 +111,15 @@ $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                   </tr>
 
                   <?php
+
+                  if(isset($_GET['prodi'])){
+                      $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1 AND kd_prodi='".$_GET['prodi']."'";
+
+                  } else{
+                      $q="SELECT pendaftaran.kd_daftar, pendaftaran.nim, nama_mhs, pendaftaran.nominal_disetujui, sisa_pinjaman FROM pendaftaran NATURAL JOIN mahasiswa NATURAL JOIN beasiswa WHERE pendaftaran.kd_bsw like 'P%'AND nominal_disetujui is not null and isTampil = 1";
+                  }
+
+                  $getDataPinjaman=mysqli_query($koneksi,$q);// ambil data pendaftar yang pinjaman
                   while ($rowPjm =  mysqli_fetch_array($getDataPinjaman)){
 
                       $sisa=(string)$rowPjm[4];
