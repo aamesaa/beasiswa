@@ -236,7 +236,7 @@ color: #34495e;
 color: #ffffff;
 }
 .navbar-default .navbar-brand:hover {
-color: ##34495e;
+color: #34495e;
 }
 
 .navbar-brand {
@@ -253,7 +253,7 @@ color: ##34495e;
 .intro-header {
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: px;
+	padding-bottom: 0px;
 	color: #f8f8f8;
 	background: url(../img/intro/intro5_ss.jpg) no-repeat center center;
 

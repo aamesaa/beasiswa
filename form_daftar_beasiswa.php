@@ -156,7 +156,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
                 <td>
                   <label for="'.$rowSyrBsw['nama_syarat'].'">'.$rowSyrBsw['nama_syarat'].' </label>
                 </td>
-                <td> &nbsp : &nbsp</td>
+                <td> &nbsp; : &nbsp;</td>
                 <td>
                 '.$input.'
                 </td>

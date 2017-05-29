@@ -63,7 +63,7 @@ include_once('function/login.php'); // Memasuk-kan skrip Login
 
 <body id="home">
   <form action="" method="post">
-    <div id="contact" class="content-section-ss">
+    <div id="contact" class="content-section-ss" style="height: 100%">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center wrap_title">
@@ -105,6 +105,7 @@ include_once('function/login.php'); // Memasuk-kan skrip Login
           </div>
         </div>
       </div>
+    </div>
     </br>
   </br>
 </form>

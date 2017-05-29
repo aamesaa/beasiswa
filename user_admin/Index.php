@@ -75,12 +75,16 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
         <?php
         if(isset($GLOBALS['mssg'])){
             echo $GLOBALS['mssg'];
+            //echo'ada';
+        }
+        else{
+            //echo 'ga ada';
         }
         ?>
       <br/><br/>
       <a href="form_create_beasiswa.php" class="btn btn-info pull-right">Tambah </a>
       <br/><br/><br/>
-      <table class="table-striped table table-condensed">
+      <table class="table-striped  table-bordered table table-condensed">
         <thead class="text-center">
           <th>Kode</th>
           <th>Nama beasiswa</th>
@@ -157,14 +161,16 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             <td class="text-center" style="color:'.$warna1.'">'.$ketTampil1.'</td>
             <td>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
-            &nbsp
-            <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list"></span></a>
-            &nbsp
-
-            <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash"></span></button>
-            &nbsp
-
+            <div style="margin-left:5px;">
+            
+                <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit" style="margin:0 0 0 0; padding:0"></span></button>
+                &nbsp
+                <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list" style="margin:0 0 0 0; padding:0"></span></a>
+                &nbsp
+    
+                <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash" style="margin:0 0 0 0; padding:0"></span></button>
+                &nbsp
+            </div>
              <!-- Modal DELETE -->
             <div id="delModal'.$rowBsw['kd_bsw'].'" class="modal fade " role="dialog">
               <div class="modal-dialog modal-sm">
@@ -203,8 +209,9 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
                     <form class="form-horizontal" action="edit_beasiswa.php" method="POST">
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="kd_bsw">Kode Beasiswa :</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'">
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control " id="kdbsw" name="kdbsw" value="'.$rowBsw['kd_bsw'].'" disabled>
+                      <input type="hidden" class="form-control " id="kd_bsw" name="kd_bsw" value="'.$rowBsw['kd_bsw'].'" >
                     </div>
                   </div>
                   <div class="form-group">

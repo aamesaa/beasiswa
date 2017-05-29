@@ -15,6 +15,7 @@ date_default_timezone_set('Asia/Jakarta');
   <title>SIMBA</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
+    <link rel="shortcut icon" href="img/simba.png">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>

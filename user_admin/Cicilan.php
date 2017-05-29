@@ -2,8 +2,27 @@
 Include("../function/koneksi.php");
 Include ("../function/coba.php");
 Include ("../function/create_modal.php");
+//Include_once ("../function/statusMessage.php");
+//$msg = new statusMessage();
 //Include_once ("../function/login.php");
+class statusMessages
+{
+    private $msg;
+    public function getMsg()
+    {
+        return $this->msg;
+    }
 
+    public function setMsg( $msg)
+    {
+        $this->msg = $msg;
+
+        return $this;
+    }
+
+}
+//$msgs = new statusMessage();
+$msg = new statusMessages();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -34,7 +53,7 @@ Include ("../function/create_modal.php");
 
 </head>
 
-<body>
+<body >
   <nav class="navbar-default" role="navigation" style="position: fixed; top: 0px;">
     <div class="container">
       <div class="navbar-header">
@@ -63,7 +82,7 @@ Include ("../function/create_modal.php");
       </div>
     </div>
   </nav>
-<br/><br/><br/><br/>
+<br/><br/>
 
   <div class="container">
 
@@ -74,7 +93,7 @@ Include ("../function/create_modal.php");
           <div class="col-md-12">
       <form class="form-inline" action="Cicilan.php" method="get">
           <div class="form-group ">
-              <label class="control-label" for="prodi">Filter &nbsp;: &nbsp;</label>
+              <label class="control-label" for="prodi">Prodi &nbsp;: &nbsp;</label>
 
                   <select name="prodi" class="form-control" id="prodi" style="height: ;: auto">
                       <option  >All</option>
@@ -89,12 +108,12 @@ Include ("../function/create_modal.php");
                       <option value="72" >Sistem Informasi</option>
                   </select>
           </div>
-          <input type="submit" class="btn btn-info">
+          <input type="submit" class="btn btn-info" value="OK">
           <?php
           if(isset($_GET['prodi'])) {
-              echo '<a href="export1.php?kd='.$_GET['prodi'].'" class="btn btn-success pull-right">Download</a>';
+              echo '<a href="export1.php?kd='.$_GET['prodi'].'" class="btn btn-primary pull-right">Download</a>';
           }else{
-              echo '<a href="export1.php?" class="btn btn-success pull-right">Download</a>';
+              echo '<a href="export1.php?" class="btn btn-primary pull-right">Download</a>';
           }
           ?>
           </form>
@@ -140,8 +159,20 @@ Include ("../function/create_modal.php");
               ?>
           </div>
       </div>
+      <?php
+        //Include_once ("add_cicilan.php");?>
+
       <div class="row">
           <div class="col-md-12">
+              <?php
+              if (isset($_GET['status'])=="s"){
+                  echo '<div class="alert alert-info alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil ditambahkan</div>';
+              }else if(isset($_GET['status'])=="s"){
+                  echo '<div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal ditambahkan</div>';
+              }
+              ?>
               <table class="table table-striped table-bordered">
                   <tr ">
                   <th class="text-center" width="13%">Kode Daftar</th>
@@ -186,9 +217,10 @@ Include ("../function/create_modal.php");
 
                               <td style="text-align:right">'.$sisa.'</td>
                               <td >
-
-                                    <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt"></span></button>
-                                     <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#addModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-plus"></span></button>
+                              <div style="margin-left:25px">
+                                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt " style="margin:0 0 0 0; padding:0"></span></button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-plus" style="margin:0 0 0 0; padding:0"></span></button>
+                              </div>
                                     <!-- Modal DETAIL -->
                                     <div id="myModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
                                       <div class="modal-dialog modal-lg">
@@ -259,22 +291,34 @@ Include ("../function/create_modal.php");
                                             <td>: </td>
                                             <td>'.$rowPjm['nama_mhs'].'</td>
                                           </tr>
-                                          </table>
+                                          <tr>
+                                            <td>Sisa Pinjaman</td>
+                                            <td>: </td>
+                                            <td>'.$sisa.'</td>
+                                          </tr>
+                                          
                                           <form method="POST" action="add_cicilan.php" class="form-horizontal">
 
                                             <div class="form-group">
-                                              <label class="control-label col-sm-2" for="thn_ajar">Nominal</label>
-                                              <div class="col-sm-6">
-                                                <input type="number" min="0 "class="form-control" id="nominal" name="nominal">
+                                            <tr>
+                                            <td>
+                                              <label class="control-label " for="thn_ajar">Nominal</label></td>
+                                              <td>: </td>
+                                              <td>
+                                              
+                                                <input type="number" min="0 "class="form-control" id="nominal" name="nominal" placeholder="1.000.000" required > 
                                                  <input type="hidden" min="0 "class="form-control" id="kd_daftar" name="kd_daftar" value="'.$rowPjm['kd_daftar'].'">
-                                              </div>
+                                             
+                                              </td>
+                                              </tr>
                                             </div>
+                                            </table>
 
                                           </div>
                                           <div class="modal-footer">
                                            <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                              <button type="submit" class="btn btn-embossed btn-info" value="submit">Submit</button>
+                                              <button type="submit" class="btn btn-embossed btn-info" name="submit" id="submit" value="submit">Submit</button>
                                             </div>
                                           </div>
                                           </div>
