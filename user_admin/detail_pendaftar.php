@@ -18,6 +18,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
 <HTML>
 <head>
     <title>SIMBA</title>
+    <link rel="shortcut icon" href="img/simba.png">
     <!--CSS-->
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">

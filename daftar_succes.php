@@ -22,6 +22,7 @@ date_default_timezone_set('Asia/Jakarta');
 <!DOCTYPE HTML>
 <html>
 <head>
+    <link rel="shortcut icon" href="img/simba.png">
     <!--CSS-->
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

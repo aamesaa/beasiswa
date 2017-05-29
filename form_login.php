@@ -9,7 +9,7 @@ include_once('function/login.php'); // Memasuk-kan skrip Login
   <meta name="description" content="Masuk SIMBA ">
   <meta name="author" content="">
   <title>Login SIMBA</title>
-
+    <link rel="shortcut icon" href="img/simba.png">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
