@@ -168,7 +168,7 @@ $msg = new statusMessages();
               if (isset($_GET['status'])=="s"){
                   echo '<div class="alert alert-info alert-dismissable">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil ditambahkan</div>';
-              }else if(isset($_GET['status'])=="s"){
+              }else if(isset($_GET['status'])=="f"){
                   echo '<div class="alert alert-danger alert-dismissable">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal ditambahkan</div>';
               }
@@ -216,11 +216,23 @@ $msg = new statusMessages();
                               <td style="text-align:right">' .number_format($rowPjm['nominal_disetujui']).'</td>
 
                               <td style="text-align:right">'.$sisa.'</td>
-                              <td >
-                              <div style="margin-left:25px">
+                                <td >
+                              <div style="margin-left:25px">';
+                      if ($sisa<=0){
+                          echo'
+                            
+                                <button type="button" class="btn btn-info btn-xs" style="margin-left:20px;"data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt " style="margin:0 0 0 0; padding:0"></span></button>
+                                
+                              ';
+                      }else{
+                          echo'
+                              
                                 <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt " style="margin:0 0 0 0; padding:0"></span></button>
                                 <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-plus" style="margin:0 0 0 0; padding:0"></span></button>
-                              </div>
+                              ';
+                      }
+                     echo'
+                                </div>
                                     <!-- Modal DETAIL -->
                                     <div id="myModal'.$rowPjm['kd_daftar'].'" class="modal fade" role="dialog">
                                       <div class="modal-dialog modal-lg">

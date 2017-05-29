@@ -17,6 +17,7 @@ foreach($_POST['syarat_bsw'] as $check) {
 
    $insertSql = "INSERT INTO syarat_bsw(kd_syarat, kd_bsw) VALUES ('$check','$kd_bsw')";
    echo $insertSql."<br/>";
+
    if(!mysqli_query($koneksi,$insertSql)){
        echo("Error description: " . mysqli_error($koneksi)."<br/>");
    }
