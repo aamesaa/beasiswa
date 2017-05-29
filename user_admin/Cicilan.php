@@ -128,31 +128,31 @@ $msg = new statusMessages();
                   $kd_prodi= intval ($_GET['prodi']);
                   switch ($kd_prodi) {
                       case 01:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Theologi</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Theologi</strong></p>";
                           break;
                       case 11:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Manaajemen</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Manaajemen</strong></p>";
                           break;
                       case 12:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Akuntansi</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Akuntansi</strong></p>";
                           break;
                       case 31:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Bioteknologi</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Bioteknologi</strong></p>";
                           break;
                       case 41:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Kedokteran</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Kedokteran</strong></p>";
                           break;
                       case 61:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Arsitek</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Arsitek</strong></p>";
                           break;
                       case 62:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Desain Produk</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Desain Produk</strong></p>";
                           break;
                       case 71:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Teknik Informatika</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Teknik Informatika</strong></p>";
                           break;
                       case 72:
-                          echo "<p>Menampilan daftar pinjaman <strong>Prodi Sistem Informasi</strong></p>";
+                          echo "<p>Menampilkan daftar pinjaman <strong>Prodi Sistem Informasi</strong></p>";
                           break;
                   }
               }

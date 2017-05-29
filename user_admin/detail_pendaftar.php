@@ -83,17 +83,17 @@ $rowBsw = mysqli_fetch_array($bswExc);
             <div class="alert alert-info">
                 <table>
                     <tr>
-                        <td>Nama Beasiswa &nbsp; </td>
+                        <td>Kode Beasiswa &nbsp; </td>
                         <td>:&nbsp;</td>
                         <td><?php echo $rowBsw[0];?> </td>
                     </tr>
                     <tr>
-                        <td>Semester</td>
+                        <td>Nama Beasiswa</td>
                         <td>:&nbsp;</td>
                         <td><?php echo $rowBsw[1];?></td>
                     </tr>
                     <tr>
-                        <td> Thn Ajaran </td>
+                        <td> Semester </td>
                         <td>:&nbsp;</td>
                         <td> <?php echo $rowBsw[2];?><br/> </td>
                     </tr>
