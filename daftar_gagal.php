@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: amesa
- * Date: 5/18/17
- * Time: 9:05 AM
+ * Date: 5/30/17
+ * Time: 5:44 PM
  */
 Include("function/koneksi.php");
 
@@ -96,13 +96,10 @@ date_default_timezone_set('Asia/Jakarta');
         <br/><br/> <br/><br/> <br/><br/> <br/><br/>
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="alert-info alert">
-
-                <strong>Success </strong></br>
-                Anda telah berhasil melakukan pendaftaran <strong> <?php echo $rowBsw['nama_bsw'];?></strong>.<br/>
-                Silahkan menunggu hasil seleksi beasiswa.
-                Hasil seleksi beasiswa akan dipublikasikan melalui website ini maksimal satu bulan setelah
-                tanggal penutupan pendaftaran
+            <div class="alert-danger alert">
+                <strong>Gagal </strong></br>
+                Anda gagal melakukan pendaftaran <strong> <?php echo $rowBsw['nama_bsw'];?></strong>.<br/>
+                Silahkan mengecek kembali persayaratan yang anda masukkan.
             </div>
             <a href="index.php">Back to Home</a>
         </div>

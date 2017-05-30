@@ -94,6 +94,15 @@ date_default_timezone_set('Asia/Jakarta');
     $getBeasiswa=mysqli_query($koneksi,$getBswSql);
 
     $rowBsw=mysqli_fetch_array($getBeasiswa);
+    $startTime = strtotime($rowBsw['tgl_buka']);
+
+    $newformatStart = date('d-M-Y',$startTime);
+
+    $endTime = strtotime($rowBsw['tgl_tutup']);
+
+    $newformatEnd = date('d-M-Y',$endTime);
+
+
     ?>
     <br>
     <div class="col-md-1 col-lg-1"></div>
@@ -109,7 +118,7 @@ date_default_timezone_set('Asia/Jakarta');
           <tr>
             <td> Masa Pendaftaran </td>
             <td>&nbsp:&nbsp</td>
-            <td><?php echo $rowBsw['tgl_buka'];?> s.d. <?php echo $rowBsw['tgl_tutup'];?></td>
+            <td><?php echo  $newformatStart;?> s.d. <?php echo $newformatEnd;?></td>
           </tr>
 
           <tr>

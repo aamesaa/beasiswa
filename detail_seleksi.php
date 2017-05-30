@@ -111,11 +111,12 @@ date_default_timezone_set('Asia/Jakarta');
             $squery = mysqli_query($koneksi,$q1);
             while($row = mysqli_fetch_array($squery))
             {
+                $nominal=(string) number_format($row['nominal_disetujui']);
             echo '
             <tr>
               <td class="text-center">'.$row['nim'].'</td>
               <td>'.$row['nama_mhs'].'</td>
-              <td class="text-right">'.$row['nominal_disetujui'].'</td>
+              <td class="text-right">'.$nominal.'</td>
             </tr>';
             }
             ?>
