@@ -120,10 +120,12 @@ $rowBsw = mysqli_fetch_array($bswExc);
             <?php
             if($rowBsw['isPublish']==0){
                 echo'
-                  <a href="publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-info pull-right">Publikasi </a>';
+                  <label class="pull-left"> Publikasi Hasil Seleksi: &nbsp; &nbsp;</label>
+                  <a href="publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-info pull-left">Publikasi </a>';
             }elseif($rowBsw['isPublish']==1){
                 echo '
-                <a href="batal_publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger pull-right"> Batal Publikasi </a>';
+                <label class="pull-left"> Publikasi Hasil Seleksi: &nbsp; &nbsp;</label>
+                <a href="batal_publikasi.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-danger pull-left"> Batal Publikasi </a>';
             }
 
             echo'<a href="export.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success pull-right" style="margin-right: 5px">Download </a>';
