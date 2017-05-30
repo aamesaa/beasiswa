@@ -149,14 +149,22 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             }else{
                 $isNotTampilvalue="checked";
             }
+
+              $startTime = strtotime($rowBsw['tgl_buka']);
+
+              $newformatStart = date('d-M-Y',$startTime);
+
+              $endTime = strtotime($rowBsw['tgl_tutup']);
+
+              $newformatEnd = date('d-M-Y',$endTime);
             echo'
             <tr>
             <td>'.$rowBsw['kd_bsw'].'</td>
             <td>'.$rowBsw['nama_bsw'].'</td>
             <td>'.$rowBsw['semt'].'</td>
             <td>'.$rowBsw['thn_ajar'].'</td>
-            <td>'.$rowBsw['tgl_buka'].'</td>
-            <td>'.$rowBsw['tgl_tutup'].'</td>
+            <td>'.$newformatStart.'</td>
+            <td>'.$newformatEnd.'</td>
             <td>'.$rowBsw['kuota'].'</td>
             <td class="text-center" style="color:'.$warna.'">'.$ketTampil.'</td>
             <td class="text-center" style="color:'.$warna1.'">'.$ketTampil1.'</td>

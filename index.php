@@ -101,10 +101,18 @@ date_default_timezone_set('Asia/Jakarta');
           if ($row['tgl_tutup'] > date("Y-m-d"))
           {
             $availableMsg='<font style="color:green">Pendaftaran dibuka</font> <br>';
-          } else
+          } else {
           $availableMsg='<font style="color:red">Pendaftaran ditutup</font> <br>';
+          }
+            $startTime = strtotime($row['tgl_buka']);
 
-          echo'
+            $newformatStart = date('d-M-Y',$startTime);
+
+            $endTime = strtotime($row['tgl_tutup']);
+
+            $newformatEnd = date('d-M-Y',$endTime);
+
+            echo'
           <div class="col-lg-6">
             <div class="panel panel-info">
               <div class="panel-heading" style="height:63px;">
@@ -117,7 +125,7 @@ date_default_timezone_set('Asia/Jakarta');
               </div>
 
               <div class="panel-footer hitam" style="text-align: left">
-                Periode Pendaftaran: '.$row['tgl_buka'] .' s.d. '. $row['tgl_tutup'].' <br>
+                Periode Pendaftaran: '.$newformatStart.' s.d. '.$newformatEnd.' <br>
                 Status Pendaftaran : '.$availableMsg.
 
                 'Penerima Beasiswa : '.$row['kuota'].'
