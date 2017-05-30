@@ -84,11 +84,18 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
       </br>
         <?php
         if (isset($_GET['status'])=="s"){
-            echo '<div class="alert alert-info alert-dismissable">
+            echo '<div class="alert alert-success alert-dismissable">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil ditambahkan</div>';
         }else if(isset($_GET['status'])=="f"){
             echo '<div class="alert alert-danger alert-dismissable">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal ditambahkan</div>';
+        }
+        if (isset($_GET['statuss'])=="s"){
+            echo '<div class="alert alert-info alert-dismissable">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil diubah</div>';
+        }else if(isset($_GET['statuss'])=="f"){
+            echo '<div class="alert alert-danger alert-dismissable">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal diubah</div>';
         }
         ?>
       <table class="table-striped table table-condensed">
