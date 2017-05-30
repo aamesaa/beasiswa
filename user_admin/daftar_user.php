@@ -73,14 +73,24 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
       <a href="index.php"> <span class="glyphicon glyphicon-chevron-left"></span>Back to Home</a>
     </br>
       <h2 class="text-center">Daftar User</h2>
-      <br/>
-      <a href="form_create_user.php" class="btn btn-info pull-right">Tambah </a>
-    </br>
+
   </br>
 </br>
       <div class="col-md-3"></div>
 
       <div class="col-md-6">
+        <a href="form_create_user.php" class="btn btn-info pull-right">Tambah </a>
+      </br>
+      </br>
+        <?php
+        if (isset($_GET['status'])=="s"){
+            echo '<div class="alert alert-info alert-dismissable">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil ditambahkan</div>';
+        }else if(isset($_GET['status'])=="f"){
+            echo '<div class="alert alert-danger alert-dismissable">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal ditambahkan</div>';
+        }
+        ?>
       <table class="table-striped table table-condensed">
         <thead class="text-center">
           <th class="text-center"style="width:900">User Id</th>
@@ -116,7 +126,30 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit"></span></button>
             &nbsp
-            <a href="delete_user.php?user_id='.$row['user_id'].'" class="btn btn-danger btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp <span class="glyphicon glyphicon-trash"></span></a>
+
+            <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$row['user_id'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash"></span></button>
+            &nbsp
+            <!-- Modal DELETE -->
+           <div id="delModal'.$row['user_id'].'" class="modal fade " role="dialog">
+             <div class="modal-dialog modal-sm">
+
+               <!-- Modal content-->
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   <h4 class="modal-title">Confirmation</h4>
+                 </div>
+                 <div class="modal-body">
+                   <p>Are you sure to delete this record?</p>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Cancel</button>
+                   <a href="delete_user.php?user_id='.$row['user_id'].'" class="btn btn-danger btn-embossed btn-sm" style="text-decoration: none">Delete</a>
+                 </div>
+               </div>
+
+             </div>
+           </div>
             <!-- Modal -->
             <div class="modal fade" id="myModal'.$row['user_id'].'" role="dialog" action="edit_user.php">
               <div class="modal-dialog modal-lg">
