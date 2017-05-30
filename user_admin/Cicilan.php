@@ -1,6 +1,6 @@
 <?php
 Include("../function/koneksi.php");
-Include ("../function/coba.php");
+Include("../function/detailCicilan.php");
 Include ("../function/create_modal.php");
 //Include_once ("../function/statusMessage.php");
 //$msg = new statusMessage();

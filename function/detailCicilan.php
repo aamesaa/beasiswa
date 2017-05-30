@@ -12,10 +12,14 @@ include("koneksi.php");
         $excSqlDetail = mysqli_query($GLOBALS['koneksi'], $sqlDetail );
         $hasil='';
         while($row = mysqli_fetch_array($excSqlDetail)){
+            $tgl = strtotime($row['tgl_bayar']);
+
+            $formatTgl = date('d-M-Y',$tgl);
+
             $hasil .='
         <tr>
-            <td>'.$row['tgl_bayar'].'</td>
-            <td>'.number_format($row['nominal_bayar']).'</td>
+            <td>'.$formatTgl.'</td>
+            <td style="text-align:right">'.number_format($row['nominal_bayar']).'</td>
         </tr>';
         }
 
