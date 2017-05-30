@@ -27,7 +27,7 @@ $msg = new statusMessages();
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link rel="shortcut icon" href="img/simba.png">
+    <link rel="shortcut icon" href="../img/simba.png">
     <title>SIMBA</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

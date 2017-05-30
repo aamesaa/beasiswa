@@ -9,7 +9,7 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link rel="shortcut icon" href="img/simba.png">
+    <link rel="shortcut icon" href="../img/simba.png">
   <title>SIMBA</title>
   <!--CSS-->
   <!-- Bootstrap core CSS -->
