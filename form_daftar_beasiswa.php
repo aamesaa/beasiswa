@@ -173,6 +173,7 @@ $getSyrBeasiswa=mysqli_query($koneksi,$getSyrSql);
 
             <input type="submit" name="submit" id="submit" value="Daftar" class="btn btn-embossed wow tada btn-embossed btn-primary text-center " style="margin-right: 42.5%">
         </form>
+          <p><i>NB: File yang diupload harus berupa pdf</i></p>
       </div>
     </div>
     <!-- JavaScript -->
