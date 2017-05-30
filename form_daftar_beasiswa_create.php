@@ -31,7 +31,7 @@ if($hasil){
     echo'<div class="alert alert-danger">Gagal ditambahkan</div>';
     $success =false;
 }
-$getKd= "SELECT kd_daftar FROM pendaftaran LIMIT 1";
+$getKd= "SELECT kd_daftar FROM pendaftaran ORDER BY kd_daftar DESC LIMIT 1";
 
 $kd_daftar_eksekusi=mysqli_query($koneksi, $getKd);
 $kd_daftar_arr=mysqli_fetch_array($kd_daftar_eksekusi);
@@ -100,7 +100,7 @@ while($hasil=mysqli_fetch_array($getSyrBeasiswa)) {
         }
 
     }
-    if ($success) {
+ if ($success) {
         header("location: daftar_succes.php?id=" . $kd_bsw);
     }else{
         header("location: daftar_gagal.php?id=" . $kd_bsw);
