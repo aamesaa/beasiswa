@@ -15,7 +15,7 @@ include("koneksi.php");
             $hasil .='
         <tr>
             <td>'.$row['tgl_bayar'].'</td>
-            <td>'.$row['nominal_bayar'].'</td>
+            <td>'.number_format($row['nominal_bayar']).'</td>
         </tr>';
         }
 
@@ -26,10 +26,9 @@ include("koneksi.php");
             <th class="text-center">Jumlah</th>
         </tr>
         '.$hasil.'
-    </table>    
-    
-    
+    </table>
+
+
     ';
         return $table;
 }
-
