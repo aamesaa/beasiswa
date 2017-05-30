@@ -85,6 +85,22 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
       <br/><br/>
       <a href="form_create_beasiswa.php" class="btn btn-info pull-right">Tambah </a>
       <br/><br/><br/>
+      <?php
+      if (isset($_GET['status'])=="s"){
+          echo '<div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil ditambahkan</div>';
+      }else if(isset($_GET['status'])=="f"){
+          echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal ditambahkan</div>';
+      }
+      if (isset($_GET['statuss'])=="s"){
+          echo '<div class="alert alert-info alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Berhasil diubah</div>';
+      }else if(isset($_GET['statuss'])=="f"){
+          echo '<div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Gagal diubah</div>';
+      }
+      ?>
       <table class="table-striped  table-bordered table table-condensed">
         <thead class="text-center">
           <th>Kode</th>
@@ -163,12 +179,12 @@ $getDataBsw=mysqli_query($koneksi,"SELECT * FROM beasiswa ORDER BY isTampil DESC
             <td>
             <!-- Trigger the modal with a button -->
             <div style="margin-left:5px;">
-            
+
                 <button type="button" class="btn btn-embossed btn-info btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#myModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-edit" style="margin:0 0 0 0; padding:0"></span></button>
                 &nbsp
                 <a href="detail_pendaftar.php?kd_bsw='.$rowBsw['kd_bsw'].'" class="btn btn-success btn-embossed btn-xs" style="text-decoration: none">&nbsp &nbsp<span class="glyphicon glyphicon-list" style="margin:0 0 0 0; padding:0"></span></a>
                 &nbsp
-    
+
                 <button type="button" class="btn btn-embossed btn-danger btn-xs" style="padding-right:-20"data-toggle="modal" data-target="#delModal'.$rowBsw['kd_bsw'].'"> &nbsp &nbsp <span class="	glyphicon glyphicon-trash" style="margin:0 0 0 0; padding:0"></span></button>
                 &nbsp
             </div>

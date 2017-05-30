@@ -14,14 +14,19 @@ $sql="UPDATE  beasiswa SET nama_bsw ='$nama_bsw', semt = '$semester' ,thn_ajar =
       WHERE kd_bsw = '$kd_bsw' ";
 $hasil = mysqli_query($koneksi,$sql);
 echo $sql;
-
-
-if($hasil){
-    $GLOBALS['mssg']='<div class="alert alert-succes">Berhasil diubah</div>';
-    header("location: index.php");
+if($hasil !=null){
+    header("location: index.php?statuss=s");
+    //$msg->setMsg($pesan);
 }else{
-
-    $GLOBALS['mssg']='<div class="alert alert-danger">Gagal diubah</div>';
-    header("location: index.php");
+    header("location: index.php?statuss=f");
 }
+
+//if($hasil){
+    //$GLOBALS['mssg']='<div class="alert alert-succes">Berhasil diubah</div>';
+    //header("location: index.php");
+//}else{
+
+    //$GLOBALS['mssg']='<div class="alert alert-danger">Gagal diubah</div>';
+    //header("location: index.php");
+//}
  ?>
