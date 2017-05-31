@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 30 Mei 2017 pada 13.49
+-- Generation Time: 31 Mei 2017 pada 02.55
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -45,14 +45,13 @@ CREATE TABLE `beasiswa` (
 
 INSERT INTO `beasiswa` (`kd_bsw`, `nama_bsw`, `semt`, `thn_ajar`, `tgl_buka`, `tgl_tutup`, `kuota`, `isTampil`, `Keterangan`, `isPublish`) VALUES
 ('A01', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-07', '2018-04-09', 129, 0, 'Beasiswa bagi anak karyawan', 1),
-('A03', 'Beasiswa Anak Karyawan', 'Genap', '2016/2017', '2017-04-12', '2017-05-06', 888, 1, 'qqq', 0),
+('A03', 'Beasiswa Anak Karyawan', 'Ganjil', '2016/2017', '2017-04-12', '2017-05-06', 100, 1, 'Beasiswa bagi anak karyawan', 0),
 ('B01', 'Beasiswa Prestasi', 'Genap', '2016/2017', '2017-04-07', '2017-04-10', 200, 1, 'Beasiswa bagi mahasiswa berprestasi, hanya dipilih 3 mahasiswa dengan IPK tertinggi', 0),
 ('B08', 'Beasiswa Prestasi', 'Ganjil', '2016/2017', '2017-04-06', '2017-04-08', 9, 1, 'nanana', 0),
 ('B10', 'Beasiswa Anak Karyawan', 'Genap', '2013/2012', '2017-04-12', '2017-04-27', 99, 1, 'ww', 0),
 ('K01', 'Beasiswa Kebutuhan', 'Genap', '2016/2017', '2016-11-15', '2016-11-22', 150, 1, 'Bagi mahasiswa yang membutuhkan', 0),
-('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-05-17', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 0),
-('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad', 1),
-('P10', 'Pinjaman Registrasi', 'Genap', '2017/2018', '2017-05-23', '2017-05-31', 120, 0, 'Beasiswa Regis', 0);
+('P01', 'Pinjaman Registrasi', 'Genap', '2016/2017', '2017-04-07', '2017-06-07', 125, 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ', 0),
+('P09', 'Pinjaman Registrasi', 'Genap', '2019/2020', '2017-04-13', '2017-04-16', 22, 1, 'sdaadsad', 1);
 
 -- --------------------------------------------------------
 
@@ -110,9 +109,10 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`kd_daftar`, `nim`, `kd_bsw`, `tgl_daftar`, `nominal_pengajuan`, `nominal_disetujui`, `sisa_pinjaman`) VALUES
-(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, 900000, 900000),
-(11111112, '01140001', 'P01', '2017-05-26 09:40:53', 1000000, 900000, 800000),
-(11111113, '71140011', 'A01', '2017-05-29 12:19:53', 1000000, 90000, NULL);
+(11111111, '72140033', 'P01', '2017-04-10 06:22:04', 10000000, 900000, 0),
+(11111112, '01140001', 'P01', '2017-05-26 09:40:53', 1000000, 900000, 700000),
+(11111113, '71140011', 'A01', '2017-05-29 12:19:53', 1000000, 90000, NULL),
+(11111115, '72140033', 'P01', '2017-05-30 12:16:36', 100000, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -133,7 +133,9 @@ CREATE TABLE `pengembalian` (
 
 INSERT INTO `pengembalian` (`kd_bayar`, `kd_daftar`, `tgl_bayar`, `nominal_bayar`) VALUES
 (1002, 11111111, '2017-05-18 08:53:29', 500),
-(1003, 11111112, '2017-05-30 11:44:43', 100000);
+(1003, 11111112, '2017-05-30 11:44:43', 100000),
+(1004, 11111111, '2017-05-30 11:56:46', 900000),
+(1005, 11111112, '2017-05-30 11:57:53', 100000);
 
 --
 -- Trigger `pengembalian`
@@ -276,8 +278,7 @@ INSERT INTO `syarat_bsw` (`kd_syarat_bsw`, `kd_syarat`, `kd_bsw`) VALUES
 (113, 'S10', 'P09'),
 (139, 'S05', 'B10'),
 (140, 'S06', 'B10'),
-(141, 'S07', 'B10'),
-(142, 'K01', 'P10');
+(141, 'S07', 'B10');
 
 -- --------------------------------------------------------
 
@@ -313,7 +314,12 @@ INSERT INTO `syarat_daftar` (`kd_syarat_dftr`, `kd_daftar`, `kd_syarat_bsw`, `is
 (15, 11111113, 85, 'Alwahis Bamesongka'),
 (16, 11111113, 86, '62120001'),
 (17, 11111113, 87, 'Fakultas Teknologi Informasi'),
-(19, 11111113, 89, '11111113_S09.pdf');
+(19, 11111113, 89, '11111113_S09.pdf'),
+(20, 11111113, 94, '100000'),
+(21, 11111113, 96, '11111113_S07.pdf'),
+(22, 11111113, 97, '11111113_S09.pdf'),
+(23, 11111113, 98, '085251266376'),
+(24, 11111113, 99, '11111113_S10.pdf');
 
 -- --------------------------------------------------------
 
@@ -332,7 +338,15 @@ CREATE TABLE `system_usr` (
 --
 
 INSERT INTO `system_usr` (`user_id`, `password`, `role`) VALUES
-('72140033', 'halohalo', 2),
+('01140001', 'halohalo', 0),
+('11140001', 'halohalo', 0),
+('12150001', 'halohalo', 0),
+('24120001', 'halohalo', 0),
+('31150001', 'halohalo', 0),
+('41140001', 'halohalo', 0),
+('61140001', 'halohalo', 0),
+('71140011', 'halohalo', 0),
+('72140033', 'halohalo', 0),
 ('72140034', 'halohalo', 0),
 ('admin', 'admin', 1),
 ('wr3', 'wr3', 9),
@@ -449,22 +463,22 @@ ALTER TABLE `user_ref`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111115;
+  MODIFY `kd_daftar` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111116;
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `kd_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
 --
 -- AUTO_INCREMENT for table `syarat_bsw`
 --
 ALTER TABLE `syarat_bsw`
-  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `kd_syarat_bsw` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT for table `syarat_daftar`
 --
 ALTER TABLE `syarat_daftar`
-  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `kd_syarat_dftr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --

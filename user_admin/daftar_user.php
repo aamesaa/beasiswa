@@ -169,10 +169,11 @@ $getDataUsr=mysqli_query($koneksi,"SELECT * FROM system_usr natural join user_re
                   <div class="container">
 
                     <form class="form-horizontal" action="edit_user.php" method="POST">
+                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'" >
                     <div class="form-group">
                     <label class="control-label col-sm-2" for="user_id">User Id :</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'">
+                      <input type="text" class="form-control" id="user_id" name="user_id" value="'.$row['user_id'].'"disabled>
                     </div>
                     </div>
                     <div class="form-group">

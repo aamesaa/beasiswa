@@ -220,13 +220,13 @@ $msg = new statusMessages();
                               <div style="margin-left:25px">';
                       if ($sisa<=0){
                           echo'
-                            
+
                                 <button type="button" class="btn btn-info btn-xs" style="margin-left:20px;"data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt " style="margin:0 0 0 0; padding:0"></span></button>
-                                
+
                               ';
                       }else{
                           echo'
-                              
+
                                 <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-list-alt " style="margin:0 0 0 0; padding:0"></span></button>
                                 <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addModal'.$rowPjm['kd_daftar'].'"><span class="glyphicon glyphicon-plus" style="margin:0 0 0 0; padding:0"></span></button>
                               ';
@@ -308,7 +308,7 @@ $msg = new statusMessages();
                                             <td>: </td>
                                             <td>'.$sisa.'</td>
                                           </tr>
-                                          
+
                                           <form method="POST" action="add_cicilan.php" class="form-horizontal">
 
                                             <div class="form-group">
@@ -317,10 +317,10 @@ $msg = new statusMessages();
                                               <label class="control-label " for="thn_ajar">Nominal</label></td>
                                               <td>: </td>
                                               <td>
-                                              
-                                                <input type="number" min="0 "class="form-control" id="nominal" name="nominal" placeholder="1.000.000" required > 
+
+                                                <input type="number" min="0 "class="form-control" id="nominal" name="nominal" placeholder="1.000.000" required >
                                                  <input type="hidden" min="0 "class="form-control" id="kd_daftar" name="kd_daftar" value="'.$rowPjm['kd_daftar'].'">
-                                             
+
                                               </td>
                                               </tr>
                                             </div>
@@ -342,7 +342,6 @@ $msg = new statusMessages();
 
 
                        ';
-
                       //$modalId= "MyModal".$rowPjm['kd_daftar'];
                       //echo createModal($modalId,"Detail Pinjaman",getDetailCicilan($rowPjm['kd_daftar']),"<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>");
 
