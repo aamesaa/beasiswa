@@ -6,6 +6,12 @@ Build: 1.0
 http://www.andreagalanti.it
 */
 
+$('select').change(function () {
+    var optionSelected = $(this).find("option:selected");
+    var valueSelected  = optionSelected.val();
+    var textSelected   = optionSelected.text();
+});
+
 $(window).load(function() { 
 	//Preloader 
 	$('#status').delay(300).fadeOut(); 
