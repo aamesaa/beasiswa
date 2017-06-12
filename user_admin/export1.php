@@ -14,7 +14,7 @@ if (isset($_GET['kd'])){
 
 
 // Tambahkan table
-
+pda
 echo'
 <table border="1">
 	<tr>
