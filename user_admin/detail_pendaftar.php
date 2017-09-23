@@ -179,7 +179,7 @@ $rowBsw = mysqli_fetch_array($bswExc);
                             if(!$hasil2[0]){
                                 echo '<td> kosong</td>';
                             }elseif($hasil2[1]=='9'){
-                                echo '<td><a href="../uploads/'.$hasil2[0].'" target="_blank">downlod</a></td>';
+                                echo '<td><a href="../uploads/'.$hasil2[0].'.pdf" target="_blank">downlod</a></td>';
                                 //echo '<a href="uploads/" target="_blank">downlod</a>';
                             }
                             else{
