@@ -1,5 +1,3 @@
-
-
 /*
 Theme: Flatfy Theme
 Author: Andrea Galanti
@@ -21,9 +19,9 @@ body, html {
 	overflow-x:hidden;
 }
 
-::-moz-selection{background:#3498db;color:white}
+::-moz-selection{background:#1abc9c;color:white}
 
-::selection{background:#3498db;color:white}
+::selection{background:#1abc9c;color:white}
 
 .abcen{position: absolute;bottom: 8%;}
 
@@ -229,14 +227,14 @@ color: #ffffff;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-color: #34495e;
+color: ##34495e;
 }
 
 .navbar-default .navbar-brand {
 color: #ffffff;
 }
 .navbar-default .navbar-brand:hover {
-color: #34495e;
+color: ##34495e;
 }
 
 .navbar-brand {
@@ -253,7 +251,7 @@ color: #34495e;
 .intro-header {
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: 0px;
+	padding-bottom: 50px;
 	color: #f8f8f8;
 	background: url(../img/intro/intro5_ss.jpg) no-repeat center center;
 
@@ -306,7 +304,7 @@ color: #34495e;
 	padding: 90px 0;
 }
 .content-section-ss {
-	background-color: #f8f8f8;
+	background-color: #f8f8f8; 
 }
 
 .content-section-b {
